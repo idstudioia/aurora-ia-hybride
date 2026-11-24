@@ -1,0 +1,56 @@
+{
+  "format": "aurora.projet/1",
+  "id": "exemple-robot-x",
+  "titre": "Exemple — Robot X",
+  "resume": "Projet d’exemple livré avec AURORA. Il montre ce que la page Projets fait d’un dossier : une fiche technique interactive, avec un modèle 3D. Le modèle est une illustration créée par ID Studio IA avec Meshy : ce n’est pas un robot à fabriquer, et aucun chiffre n’y est mesuré sur un objet réel.",
+  "stade": "exemple",
+  "maj": "24/11/2026",
+  "cahier": [
+    {
+      "texte": "Montrer une fiche technique interactive",
+      "etat": "tenue",
+      "note": "La page dessine les vues à partir du fichier 3D du projet, et un clic sur un cadre l’agrandit."
+    },
+    {
+      "texte": "Servir de modèle à un vrai projet",
+      "etat": "tenue",
+      "note": "Le bouton « Créer un projet » commence un projet vide dans vos données ; sa fiche technique reste vierge tant que vous n’y rangez rien."
+    },
+    {
+      "texte": "Être fabriqué",
+      "etat": "non_tenue",
+      "note": "Ce n’est qu’un exemple : ni plan, ni pièce, ni calcul."
+    }
+  ],
+  "rubriques": [
+    {
+      "id": "dossier",
+      "note": "Ce que la fiche technique affiche est décrit dans ce fichier : des cadres, leurs titres et leurs lignes.",
+      "fichiers": [
+        {
+          "nom": "Données de la fiche technique interactive",
+          "chemin": "fiche-technique.json",
+          "role": "Les cadres de la fiche : quatre vues du modèle, un tableau, une liste et l’état du projet."
+        }
+      ]
+    },
+    {
+      "id": "modeles",
+      "note": "Un seul modèle, montré tel qu’il est dans son fichier.",
+      "fichiers": [
+        {
+          "nom": "Modèle 3D « AI Robot X »",
+          "chemin": "modeles/ai-robot-x.glb",
+          "role": "Modèle 3D animé au format GLB, créé par ID Studio IA avec Meshy. Une illustration, pas un plan."
+        }
+      ]
+    }
+  ],
+  "verifications": [
+    {
+      "quoi": "Projet d’exemple : rien à fabriquer",
+      "etat": "a_faire",
+      "detail": "Cette ligne reste « à faire » exprès : un exemple n’est jamais « prêt à fabriquer »."
+    }
+  ]
+}

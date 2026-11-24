@@ -1,0 +1,293 @@
+<!doctype html>
+<!-- Intended use: structure and every template for the traffic replay. Status bar,
+     flow figure, control rail, transport and hourly ledger; all repeated or dynamic
+     markup is declared here and cloned by main.ts. -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Request Flow Replay</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="console" data-slot="console">
+    <!-- Status: where in the day you are, which day it is, and how healthy -->
+    <header class="status">
+      <div class="status__when">
+        <p class="status__env">prod · us-east-1 · Thu 22 Oct</p>
+        <h1 class="status__clock"><time data-slot="clock">00:00</time></h1>
+      </div>
+      <dl class="status__stats">
+        <div class="stat">
+          <dt>Throughput</dt>
+          <dd><span data-slot="rps">0</span><abbr title="requests per second">req/s</abbr></dd>
+        </div>
+        <div class="stat" data-stat="errors">
+          <dt>Errors</dt>
+          <dd><span data-slot="errors">0</span>%</dd>
+        </div>
+        <div class="stat" data-stat="burn">
+          <dt><abbr title="Error-budget burn rate against a 99.9% SLO">Burn</abbr></dt>
+          <dd><span data-slot="burn">0</span>×</dd>
+        </div>
+        <div class="stat stat--wide">
+          <dt>Slowest hop</dt>
+          <dd><span data-slot="slowest">–</span></dd>
+        </div>
+      </dl>
+      <!-- Mode chip: present only while the replay differs from the real day -->
+      <div class="mode-chip" data-slot="mode-chip" hidden>
+        <button class="mode-chip__open" type="button" data-slot="mode-open" aria-controls="rail-whatif">
+          <span class="mode-chip__kicker">What-if</span>
+          <span class="mode-chip__summary" data-slot="mode-summary"></span>
+        </button>
+        <button class="mode-chip__reset" type="button" data-slot="mode-reset">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
+          <span class="sr-only">Back to the actual day</span>
+        </button>
+      </div>
+      <div class="toolbar" role="toolbar" aria-label="Story and tools">
+        <button class="toolbar__button" type="button" data-slot="tour-start" aria-pressed="false">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M19 7a2 2 0 1 0 0 -4a2 2 0 0 0 0 4z" /><path d="M11 19h5.5a3.5 3.5 0 0 0 0 -7h-8a3.5 3.5 0 0 1 0 -7h4.5" /></svg>
+          <span>Walkthrough</span>
+        </button>
+        <button class="toolbar__button" type="button" data-slot="follow-start" aria-pressed="false">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12m-0.5 0a0.5 0.5 0 1 0 1 0a0.5 0.5 0 1 0 -1 0" /><path d="M12 12m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M12 3l0 2" /><path d="M3 12l2 0" /><path d="M12 19l0 2" /><path d="M19 12l2 0" /></svg>
+          <span>Follow a request</span>
+        </button>
+        <button class="toolbar__button" type="button" data-slot="open-ledger">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z" /><path d="M3 10h18" /><path d="M10 3v18" /></svg>
+          <span>Hourly ledger</span>
+        </button>
+      </div>
+    </header>
+
+    <aside class="callout" data-slot="callout" aria-label="Incident timeline">
+      <p class="callout__when"><time data-slot="callout-time"></time><span class="callout__note" data-slot="callout-note"> · on the actual day</span></p>
+      <h2 class="callout__title" data-slot="callout-title"></h2>
+      <p class="callout__body" data-slot="callout-body"></p>
+      <div class="callout__actions" data-slot="tour-actions">
+        <button class="callout__next" type="button" data-slot="tour-next">Continue</button>
+        <button class="callout__end" type="button" data-slot="tour-end">End walkthrough</button>
+      </div>
+      <button class="callout__tour" type="button" data-slot="tour-start-ticker">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M19 7a2 2 0 1 0 0 -4a2 2 0 0 0 0 4z" /><path d="M11 19h5.5a3.5 3.5 0 0 0 0 -7h-8a3.5 3.5 0 0 1 0 -7h4.5" /></svg>
+        Walk through the incident
+      </button>
+    </aside>
+
+    <div class="trace-dock" data-slot="trace-dock"></div>
+
+    <figure class="flow" data-slot="flow">
+      <svg class="flow__svg" data-slot="svg" aria-hidden="true">
+        <g class="flow__ribbons" data-slot="ribbons"></g>
+        <g class="flow__trace" data-slot="trace"></g>
+        <g class="flow__retries" data-slot="retries"></g>
+      </svg>
+      <canvas class="flow__dots" data-slot="canvas" aria-hidden="true"></canvas>
+      <svg class="flow__svg flow__svg--over" data-slot="overlay" role="group" aria-label="Platform stages. Focus one for its readings.">
+        <line class="flow__leader" data-slot="leader" />
+        <g class="flow__nodes" data-slot="nodes"></g>
+      </svg>
+      <div class="inspector" data-slot="inspector" hidden>
+        <p class="inspector__kicker" data-slot="inspector-kicker"></p>
+        <h2 class="inspector__title" data-slot="inspector-title"></h2>
+        <dl class="inspector__facts" data-slot="inspector-facts"></dl>
+        <ul class="inspector__mix" data-slot="inspector-mix" aria-label="Share by client"></ul>
+      </div>
+      <figcaption class="sr-only" data-slot="summary"></figcaption>
+    </figure>
+
+    <!-- Key: always visible, directly under the figure -->
+    <section class="legend" aria-label="Key">
+      <dl class="legend__list">
+        <div class="legend__item"><dt><svg class="legend__glyph" viewBox="0 0 28 12" aria-hidden="true"><rect class="legend__band" x="0" y="2" width="28" height="8" /></svg>Width</dt><dd>req/s, fixed scale</dd></div>
+        <div class="legend__item"><dt><svg class="legend__glyph" viewBox="0 0 28 12" aria-hidden="true"><circle class="legend__dot" cx="5" cy="6" r="2" /><circle class="legend__dot" cx="14" cy="6" r="2" /><circle class="legend__dot" cx="23" cy="6" r="2" /></svg>Dot pace</dt><dd>hop latency, log</dd></div>
+        <div class="legend__item"><dt><svg class="legend__glyph" viewBox="0 0 28 12" aria-hidden="true"><rect class="legend__pile" x="2" y="1" width="20" height="10" /><rect class="legend__node" x="23" y="0" width="3" height="12" /></svg>Pile</dt><dd>queued requests</dd></div>
+        <div class="legend__item"><dt><svg class="legend__glyph" viewBox="0 0 28 12" aria-hidden="true"><path class="legend__loop" d="M2 3h18a5 5 0 0 1 0 6h-18" /></svg>Loop</dt><dd>retried failures</dd></div>
+        <div class="legend__item legend__item--clients"><dt>Color</dt><dd class="legend__clients" data-slot="legend-clients" role="group" aria-label="Clients. Select one to highlight its path."></dd></div>
+      </dl>
+    </section>
+
+    <!-- Rail: everything that changes what the figure shows. A bottom sheet on narrow screens. -->
+    <div class="rail-scrim" data-slot="rail-scrim" hidden></div>
+    <aside class="rail" id="rail" data-slot="rail" aria-labelledby="rail-title">
+      <header class="rail__head">
+        <h2 class="rail__title" id="rail-title">Controls</h2>
+        <button class="rail__close" type="button" data-slot="rail-close">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
+          <span class="sr-only">Close controls</span>
+        </button>
+      </header>
+
+      <div class="rail__trace" data-slot="trace-home">
+        <section class="trace" data-slot="trace-panel" aria-labelledby="trace-title" hidden>
+          <header class="trace__head">
+            <div>
+              <p class="trace__kicker">Following one request</p>
+              <h2 class="trace__title" id="trace-title" data-slot="trace-title"></h2>
+            </div>
+            <button class="trace__close" type="button" data-slot="trace-close">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
+              <span class="sr-only">Stop following</span>
+            </button>
+          </header>
+          <ol class="trace__rows" data-slot="trace-rows"></ol>
+          <p class="trace__total" data-slot="trace-total"></p>
+        </section>
+      </div>
+
+      <section class="rail__section" id="rail-whatif" aria-labelledby="rail-whatif-title">
+        <h3 class="rail__heading" id="rail-whatif-title">What if</h3>
+        <p class="rail__hint">Replay the day with different decisions.</p>
+        <div class="levers" data-slot="levers"></div>
+        <p class="whatif__result" data-slot="whatif-result" aria-live="polite"></p>
+        <button class="rail__button rail__button--wide" type="button" data-slot="whatif-reset">Back to the actual day</button>
+      </section>
+
+      <section class="rail__section rail__section--narrow" aria-labelledby="rail-explore">
+        <h3 class="rail__heading" id="rail-explore">Explore</h3>
+        <p class="rail__hint">Follow one request hop by hop (or tap any dot), read the day as a table, or take the guided story.</p>
+        <div class="rail__stack">
+          <button class="rail__button rail__button--wide" type="button" data-slot="follow-start-rail" aria-pressed="false">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12m-0.5 0a0.5 0.5 0 1 0 1 0a0.5 0.5 0 1 0 -1 0" /><path d="M12 12m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M12 3l0 2" /><path d="M3 12l2 0" /><path d="M12 19l0 2" /><path d="M19 12l2 0" /></svg>
+            <span>Follow a request</span>
+          </button>
+          <button class="rail__button rail__button--wide" type="button" data-slot="open-ledger-rail">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14z" /><path d="M3 10h18" /><path d="M10 3v18" /></svg>
+            <span>Hourly ledger</span>
+          </button>
+          <button class="rail__button rail__button--wide" type="button" data-slot="tour-start-rail">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 19a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" /><path d="M19 7a2 2 0 1 0 0 -4a2 2 0 0 0 0 4z" /><path d="M11 19h5.5a3.5 3.5 0 0 0 0 -7h-8a3.5 3.5 0 0 1 0 -7h4.5" /></svg>
+            <span>Walk through the incident</span>
+          </button>
+        </div>
+      </section>
+    </aside>
+
+    <!-- Transport: time only -->
+    <footer class="transport">
+      <button class="transport__play" type="button" data-slot="play" aria-pressed="false">
+        <svg class="icon icon--play" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13 -8z" /></svg>
+        <svg class="icon icon--pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h4v14h-4z" /><path d="M14 5h4v14h-4z" /></svg>
+        <span class="sr-only" data-slot="play-label">Play replay</span>
+      </button>
+      <div class="timeline">
+        <svg class="timeline__annotations" data-slot="annotations" aria-hidden="true"></svg>
+        <div class="timeline__markers" data-slot="markers"></div>
+        <svg class="timeline__spark" data-slot="spark" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+          <path class="timeline__volume" data-slot="spark-volume" />
+          <path class="timeline__errors" data-slot="spark-errors" />
+          <path class="timeline__actual" data-slot="spark-actual" />
+        </svg>
+        <input class="timeline__range" data-slot="range" type="range" min="0" max="1440" step="1" value="0" aria-label="Replay time">
+        <ol class="timeline__hours" data-slot="axis" aria-hidden="true"></ol>
+        <span class="timeline__time timeline__time--now" data-slot="now" aria-hidden="true"></span>
+        <span class="timeline__time timeline__time--hover" data-slot="hover-time" aria-hidden="true" hidden></span>
+      </div>
+      <button class="transport__controls" type="button" data-slot="rail-open" aria-controls="rail" aria-expanded="false">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 6m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M4 6l8 0" /><path d="M16 6l4 0" /><path d="M8 12m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M4 12l2 0" /><path d="M10 12l10 0" /><path d="M17 18m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" /><path d="M4 18l11 0" /><path d="M19 18l1 0" /></svg>
+        <span class="transport__label" data-slot="controls-label">Controls</span>
+      </button>
+    </footer>
+
+    <p class="sr-only" aria-live="polite" data-slot="announcer"></p>
+  </main>
+
+  <dialog class="ledger" data-slot="ledger" aria-labelledby="ledger-title">
+    <header class="ledger__head">
+      <h2 id="ledger-title">Hourly ledger · Thu 22 Oct</h2>
+      <button class="ledger__close" type="button" data-slot="close-ledger">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>
+        <span class="sr-only">Close ledger</span>
+      </button>
+    </header>
+    <p class="ledger__summary" data-slot="ledger-summary"></p>
+    <div class="ledger__scroll">
+      <table class="ledger__table">
+        <thead>
+          <tr>
+            <th scope="col">Hour</th>
+            <th scope="col">req/s</th>
+            <th scope="col">Errors</th>
+            <th scope="col">Burn</th>
+            <th scope="col">Primary wait</th>
+            <th scope="col">Kafka lag</th>
+            <th scope="col">Retries</th>
+          </tr>
+        </thead>
+        <tbody data-slot="ledger-rows"></tbody>
+      </table>
+    </div>
+  </dialog>
+
+  <!-- ---------------------------------------- -->
+  <!-- Templates                                -->
+  <!-- ---------------------------------------- -->
+  <template id="tpl-ribbon">
+    <svg><path class="ribbon" /></svg>
+  </template>
+
+  <template id="tpl-retry">
+    <svg><path class="retry" /></svg>
+  </template>
+
+  <template id="tpl-node">
+    <svg>
+      <g class="node" tabindex="0" role="button">
+        <rect class="node__capacity" />
+        <rect class="node__pile" />
+        <rect class="node__bar" />
+        <text class="node__name"></text>
+        <text class="node__value"></text>
+      </g>
+    </svg>
+  </template>
+
+  <template id="tpl-marker">
+    <button class="marker" type="button"><span class="marker__label" aria-hidden="true"></span><span class="sr-only"></span></button>
+  </template>
+
+  <template id="tpl-axis">
+    <li class="timeline__hour"></li>
+  </template>
+
+  <template id="tpl-marker-tick">
+    <svg><g class="marker-tick"><path class="marker-tick__leader" /><rect class="marker-tick__diamond" /></g></svg>
+  </template>
+
+  <template id="tpl-fact">
+    <div class="fact"><dt></dt><dd></dd></div>
+  </template>
+
+  <template id="tpl-mix">
+    <li class="mix"><span class="mix__name"></span><span class="mix__bar"><span class="mix__fill"></span></span><span class="mix__share"></span></li>
+  </template>
+
+  <template id="tpl-lever">
+    <label class="switch switch--block">
+      <input type="checkbox" role="switch">
+      <span class="switch__track" aria-hidden="true"></span>
+      <span class="lever__text"><span class="lever__label"></span><span class="lever__detail"></span></span>
+    </label>
+  </template>
+
+  <template id="tpl-legend-client">
+    <button class="legend__client" type="button" aria-pressed="false"><span class="legend__swatch" aria-hidden="true"></span><span class="legend__name"></span></button>
+  </template>
+
+  <template id="tpl-span">
+    <li class="span"><span class="span__label"></span><span class="span__track"><span class="span__bar"></span></span><span class="span__ms"></span></li>
+  </template>
+
+  <template id="tpl-row">
+    <tr><th scope="row"></th><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+  </template>
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>

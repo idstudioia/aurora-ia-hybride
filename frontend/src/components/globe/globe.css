@@ -1,0 +1,12 @@
+/* <Globe> — canvas fills its container; the parent decides the size. */
+.globe { position: relative; width: 100%; height: 100%; min-width: 0; min-height: 0; border-radius: 50%; }
+.globe-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.globe-interactive { border-radius: 16px; outline: none; }
+.globe-interactive .globe-canvas { touch-action: none; cursor: grab; }
+.globe-interactive:focus-visible { box-shadow: 0 0 0 2px var(--cyan); }
+.globe-status {
+  position: absolute; left: 50%; bottom: 8%; transform: translateX(-50%);
+  padding: 4px 10px; border-radius: 999px; font-size: 11px; color: var(--muted);
+  background: rgba(4, 16, 38, .75); border: 1px solid var(--border-soft); pointer-events: none; white-space: nowrap;
+}
+.globe-status-error { color: #ffc9c0; border-color: rgba(255, 138, 122, .4); }

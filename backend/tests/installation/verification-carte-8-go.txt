@@ -1,0 +1,40 @@
+Installation d'AURORA
+  projet  : C:\AURORA
+  données : C:\Users\Camille\.aurora
+  mode vérification : rien ne sera changé
+
+== 1. Ce que ce PC a déjà
+  [ok]     Python 3.12.7
+  [ok]     Node.js 22.14.0
+  [ok]     Ollama 0.35.0
+  [ok]     Carte graphique : NVIDIA GeForce GTX 1080, 8 Go
+  Mémoire vive : 7.9 Go
+  [ok]     Place libre sur C: : 118.4 Go
+
+== 2. L'environnement Python (C:\Users\Camille\.aurora\venv)
+  [manque] à créer : py -m venv "C:\Users\Camille\.aurora\venv"
+
+== 3. Les bibliothèques Python (backend\requirements.txt)
+  9 bibliothèques : fastapi, uvicorn, psutil, httpx, anthropic, numpy, scipy, pypdf, sgp4
+  [manque] non installées
+
+== 4. L'interface (frontend)
+  [manque] non préparée
+
+== 5. Les modèles locaux (Ollama)
+  [manque] qwen3.5:4b non téléchargé (3.4 Go)
+  [manque] bge-m3 non téléchargé (1.2 Go)
+
+== 6. L'icône du Bureau
+  [manque] à poser : C:\Users\Camille\Desktop\AURORA.lnk
+
+== 7. Essai du service (port 8799, données temporaires)
+  passé (mode vérification)
+
+== Bilan
+  Il reste à faire :
+  - Bibliothèques Python : "C:\Users\Camille\.aurora\venv\Scripts\python.exe" -m pip install -r "C:\AURORA\backend\requirements.txt"
+  - Interface : dans "C:\AURORA\frontend", lancer « npm ci ».
+  - Modèle : ollama pull qwen3.5:4b
+  - Modèle : ollama pull bge-m3
+  Facultatif, dans AURORA : la clé Claude (Paramètres), et la voix française Piper (README, « Crédits »).

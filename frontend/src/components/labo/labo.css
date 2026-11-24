@@ -1,0 +1,146 @@
+/* Le noyau holographique au centre de l'accueil (Laboratoire.tsx, 08/11/2026). Sans cadre : il flotte sur le fond. */
+.labo { position: relative; width: 100%; height: 100%; min-height: 0; }
+.labo-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.labo-chargement {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12.5px;
+}
+.labo-bas {
+  position: absolute; left: 0; right: 0; bottom: 4px; display: flex; flex-direction: column; align-items: center; gap: 7px;
+  pointer-events: none;
+}
+.labo-bas-ligne, .labo-outils { display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
+/* 12/11/2026 (ID Studio IA : « j'arrive pas à sélectionner les animations ») : le lecteur d'animation en fait partie. Sa liste
+   déroulante n'est pas un bouton : sans cette ligne, le clic la traversait et tombait sur la scène. */
+.labo-bas button, .labo-bas .labo-etat, .labo-bas .labo-lecteur { pointer-events: auto; }
+.labo-etat {
+  display: inline-flex; align-items: center; gap: 7px; padding: 4px 11px; border-radius: 999px; font-size: 11.5px; letter-spacing: .04em;
+  color: var(--muted); border: 1px solid var(--border-soft); background: rgba(6, 20, 44, .55);
+}
+.labo-etat i { width: 7px; height: 7px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 8px var(--cyan); }
+.labo-etat-ecoute i, .labo-etat-parole i { background: var(--violet); box-shadow: 0 0 9px var(--violet); }
+.labo-etat-analyse i, .labo-etat-recherche i, .labo-etat-memoire i, .labo-etat-action i, .labo-etat-generation i { animation: labo-pouls 1s ease-in-out infinite; }
+.labo-etat-erreur { color: #ffd0d6; border-color: rgba(255, 107, 122, .45); }
+.labo-etat-erreur i { background: var(--red); box-shadow: 0 0 9px var(--red); }
+.labo-effets {
+  display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 999px; font-size: 11.5px;
+  color: var(--muted); border: 1px solid var(--border-soft); background: rgba(6, 20, 44, .55);
+}
+.labo-effets:hover { color: var(--text-strong); }
+.labo-effets-on svg { color: var(--cyan); }
+/* La légende des photos du sujet (noyau.ts) : le nom de chaque lieu (un clic le montre sur le globe) et le lien vers sa
+   photo sur Commons, où sont l'auteur et la licence. */
+.labo-bas a { pointer-events: auto; }
+.labo-photos {
+  display: inline-flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 4px 10px; max-width: min(94%, 640px);
+  padding: 4px 6px 4px 11px; border-radius: 16px; font-size: 11.5px; color: var(--muted);
+  border: 1px solid var(--border-soft); background: rgba(6, 20, 44, .55);
+}
+/* Écran étroit : le cerveau est posé en bas à gauche (.labo-cerveau-centre) ; la légende, centrée, reste à côté. */
+.labo-avec-cerveau .labo-photos { max-width: min(94%, 640px, calc(100% - 2 * clamp(96px, 17%, 154px))); }
+.labo-photos > svg { color: var(--cyan); flex: none; }
+.labo-photos-titre { color: var(--text-strong); font-weight: 600; letter-spacing: .02em; }
+/* « 3-4 / 6 » : les photos affichées parmi celles du sujet, quand elles tournent (Laboratoire, usePhotosDuSujet). */
+.labo-photos-rang { font-size: 10.5px; font-variant-numeric: tabular-nums; color: var(--cyan); opacity: .85; white-space: nowrap; }
+.labo-photo { display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: 0 5px; max-width: 100%; }
+.labo-photo button {
+  max-width: 100%; padding: 0; border: 0; background: none; color: var(--text); font: inherit; cursor: pointer;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.labo-photo button:hover, .labo-photo button:focus-visible { color: var(--cyan); text-decoration: underline; }
+.labo-photo a { font-size: 10.5px; color: var(--muted); }
+.labo-photo a:hover, .labo-photo a:focus-visible { color: var(--cyan); }
+.labo-photos-fermer {
+  display: inline-grid; place-items: center; width: 20px; height: 20px; padding: 0; border: 0; border-radius: 50%;
+  background: none; color: var(--muted); cursor: pointer;
+}
+.labo-photos-fermer:hover, .labo-photos-fermer:focus-visible { color: var(--text-strong); background: rgba(255, 255, 255, .08); }
+.labo-erreur {
+  position: absolute; left: 50%; bottom: 40px; transform: translateX(-50%); max-width: min(90%, 460px); margin: 0;
+  padding: 8px 14px; border-radius: 10px; font-size: 12.5px; line-height: 1.45; text-align: center;
+  color: #ffe1e5; border: 1px solid rgba(255, 107, 122, .5); background: rgba(40, 8, 20, .78);
+}
+/* Le cerveau mémoire (CerveauFlottant.tsx), placé à la demande d’ID Studio IA : dans la carte Mémoire sur grand écran,
+   en bas à gauche du centre, à côté de la barre d'outils, sur écran étroit. */
+.labo-cerveau { aspect-ratio: 1; border-radius: 50%; }
+.labo-cerveau-carte { position: relative; width: min(100%, 190px); margin: 0 auto 10px; }
+.labo-cerveau-centre { position: absolute; left: 0; bottom: 4px; width: clamp(92px, 17%, 150px); z-index: 1; }
+.brain-compact { position: absolute; inset: 0; overflow: hidden; border-radius: 50%; }
+.brain-compact .brain-canvas { display: block; width: 100%; height: 100%; cursor: pointer; outline: none; touch-action: auto; }
+.brain-compact .brain-canvas:focus-visible { box-shadow: 0 0 0 2px var(--cyan); border-radius: 50%; }
+.labo-cerveau-attente {
+  position: absolute; inset: 18%; display: flex; align-items: center; justify-content: center; text-align: center;
+  border-radius: 50%; border: 1px dashed var(--border-soft); background: transparent; color: var(--muted); font-size: 11px; line-height: 1.35; padding: 8px;
+}
+/* Phase 3 : une scène sur le socle (Laboratoire.tsx, OutilsScene.tsx). */
+.labo-en-scene .labo-canvas { cursor: grab; touch-action: none; }
+.labo-en-scene .labo-canvas:active { cursor: grabbing; }
+/* Pendant une scène, le cerveau posé dans le centre (écran étroit) passe au second plan, sous le modèle agrandi. */
+.labo-cerveau { transition: opacity .3s ease; }
+.labo-en-scene .labo-cerveau { opacity: .45; }
+.labo-en-scene .labo-cerveau:hover, .labo-en-scene .labo-cerveau:focus-within { opacity: 1; }
+.labo-entete { position: absolute; left: 0; top: 0; max-width: min(64%, 460px); z-index: 2; pointer-events: none; }
+.labo-entete button, .labo-entete input { pointer-events: auto; }
+/* Le nom d'un modèle gardé, ouvert en saisie par le crayon (« renommer », 10/11/2026). */
+.labo-titre form { display: inline-flex; }
+.labo-nom {
+  width: min(240px, 46vw); padding: 2px 8px; border-radius: 8px; font: inherit; font-size: 14px; font-weight: 600;
+  color: var(--text-strong); border: 1px solid rgba(56, 214, 255, .55); background: rgba(6, 20, 44, .86); outline: none;
+}
+.labo-titre { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.labo-titre strong { color: var(--text-strong); font-size: 14px; letter-spacing: .02em; }
+.labo-avertissement { margin: 4px 0 0; color: var(--muted); font-size: 11px; line-height: 1.4; }
+.labo-outils { gap: 6px; }
+.labo-outil {
+  display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 999px; font-size: 11.5px;
+  color: var(--muted); border: 1px solid var(--border-soft); background: rgba(6, 20, 44, .62);
+}
+.labo-outil:hover { color: var(--text-strong); }
+.labo-outil svg { color: var(--cyan); }
+.labo-outil-on { color: var(--text-strong); border-color: rgba(56, 214, 255, .55); box-shadow: 0 0 10px rgba(56, 214, 255, .18); }
+/* 12/11/2026 : l'animation du fichier, en vue d'origine (son nom ou la liste des noms, puis Lire ou Arrêter). */
+.labo-lecteur {
+  display: inline-flex; align-items: center; gap: 5px; padding: 2px 3px 2px 9px; border-radius: 999px; font-size: 11.5px;
+  color: var(--text-strong); border: 1px solid var(--border-soft); background: rgba(6, 20, 44, .62);
+}
+.labo-lecteur > svg { color: var(--cyan); flex: none; }
+.labo-lecteur > span, .labo-lecteur select { max-width: 170px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.labo-lecteur select { font: inherit; color: inherit; border: 0; border-radius: 6px; background: rgba(6, 20, 44, .86); padding: 1px 2px; cursor: pointer; }
+.labo-lecteur option { color: #f3f8ff; background: #06142c; }   /* la liste ouverte : clair sur sombre, quel que soit le système */
+.labo-panneau {
+  position: absolute; right: 0; top: 64px; width: min(270px, 46%); max-height: calc(100% - 150px); overflow: auto; z-index: 3;
+}
+.labo-panneau p { margin: 0 0 8px; font-size: 12.5px; line-height: 1.5; }
+.labo-panneau dl { margin: 0 0 8px; display: grid; gap: 4px; font-size: 12px; }
+.labo-panneau dl > div { display: flex; justify-content: space-between; gap: 10px; border-bottom: 1px solid var(--border-soft); padding-bottom: 3px; }
+.labo-panneau dt { color: var(--muted); }
+/* Une valeur longue et sans espace (le nom du fichier d'un modèle importé) passe à la ligne au lieu de déborder. */
+.labo-panneau dd { margin: 0; color: var(--text-strong); text-align: right; min-width: 0; overflow-wrap: anywhere; }
+.labo-panneau-actions { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 10px; }
+.labo-note { color: var(--muted); font-size: 11px !important; }
+/* 11/11/2026 : la liste « Modèles 3D » (ouvrir ou retirer une scène gardée), dans le panneau de droite. */
+/* Son titre reste en place : seule la liste défile (vu à l'essai, le titre partait avec elle). */
+.labo-panneau-liste { display: flex; flex-direction: column; overflow: hidden; }
+.labo-panneau-liste .panel-head { flex: none; }
+.labo-panneau-liste .panel-body { overflow-y: auto; min-height: 0; }
+.labo-liste { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 4px; }
+/* Trois colonnes depuis le 12/11/2026 : le nom, l'icône de la vue d'origine (modèle importé en GLB), la corbeille. */
+.labo-liste li { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 2px; border: 1px solid var(--border-soft); border-radius: 9px; padding: 2px 4px 2px 2px; }
+.labo-liste-origine-on { color: var(--cyan); }
+.labo-liste li.labo-liste-on { border-color: rgba(56, 214, 255, .55); box-shadow: 0 0 10px rgba(56, 214, 255, .14); }
+.labo-liste-nom { display: flex; flex-direction: column; gap: 1px; min-width: 0; padding: 5px 8px; border: 0; border-radius: 7px; background: transparent; color: var(--text-strong); text-align: left; font-size: 12.5px; cursor: pointer; }
+.labo-liste-nom:hover, .labo-liste-nom:focus-visible { background: rgba(34, 120, 255, .12); }
+.labo-liste-nom span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.labo-liste-nom small { color: var(--muted); font-size: 11px; }
+.labo-liste-confirme { grid-column: 1 / -1; padding: 4px 6px 2px; }
+.labo-liste-confirme .labo-panneau-actions { margin-bottom: 4px; }
+.labo-liste-erreur { color: #ffc2c9 !important; }
+.labo-panneau .labo-note { overflow-wrap: anywhere; }
+.labo-bulle {
+  position: absolute; transform: translate(14px, -30px); pointer-events: none; z-index: 4; white-space: nowrap;
+  padding: 3px 9px; border-radius: 7px; font-size: 11.5px; color: var(--text-strong);
+  border: 1px solid var(--border-soft); background: rgba(6, 20, 44, .86);
+}
+.labo-erreur-scene { bottom: auto; top: 70px; display: flex; align-items: center; gap: 8px; z-index: 3; }
+@keyframes labo-pouls { 50% { opacity: .35; } }
+@media (prefers-reduced-motion: reduce) { .labo-etat i { animation: none !important; } }

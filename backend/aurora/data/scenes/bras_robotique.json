@@ -1,0 +1,156 @@
+{
+  "format": "aurora.scene/1",
+  "id": "bras_robotique",
+  "titre": "Bras robotique à 4 axes",
+  "domaine": "robotique",
+  "nature": "illustration",
+  "avertissement": "Illustration pédagogique : formes simplifiées et valeurs typiques d'un petit bras de bureau, données à titre d'exemple. Ce n'est ni un modèle mesuré ni une simulation physique.",
+  "resume": "Un petit bras articulé de bureau : une tourelle qui pivote, trois servomoteurs (épaule, coude, poignet), une pince à deux doigts et la carte de commande qui pilote le tout.",
+  "fonctionnement": "Le bras a quatre axes. La tourelle tourne autour de la verticale ; l'épaule, le coude et le poignet basculent comme des charnières. Chaque articulation est un servomoteur : un moteur électrique, des engrenages qui démultiplient sa vitesse et un capteur de position qui lui permet de rejoindre l'angle demandé puis de le tenir. La carte de commande envoie à chaque servomoteur une impulsion toutes les 20 ms ; la durée de l'impulsion, entre 1 et 2 ms, fixe l'angle. Pour amener la pince à un point précis, le programme calcule les angles des articulations (c'est la cinématique inverse), puis la pince se ferme pour saisir l'objet.",
+  "mots": ["bras robotique", "bras robot", "robot bras", "bras articule", "bras manipulateur", "bras mecanique", "bras industriel", "bras robotise"],
+  "camera": { "position": [2.7, 2.0, 3.3], "cible": [0, 0.95, 0] },
+  "groupes": [
+    { "id": "structure", "nom": "Structure", "mots": ["structure", "chassis", "squelette", "ossature"] },
+    { "id": "servomoteurs", "nom": "Servomoteurs", "mots": ["servomoteurs", "servomoteur", "servos", "servo", "moteurs", "moteur", "articulations"] },
+    { "id": "pince", "nom": "Pince", "mots": ["pince", "doigts", "griffe", "prehenseur", "main"] },
+    { "id": "electronique", "nom": "Électronique", "mots": ["electronique", "circuit electronique", "circuit", "carte electronique", "electronique de commande"] }
+  ],
+  "pieces": [
+    {
+      "id": "socle", "nom": "Socle", "groupe": "structure", "parent": null,
+      "position": [0, 0, 0],
+      "forme": { "type": "cylindre", "rayon": 0.62, "rayon_haut": 0.56, "hauteur": 0.16, "decalage": [0, 0.08, 0] },
+      "couleur": "cyan",
+      "eclate": [0, -0.25, 0],
+      "fonction": "Fixe le bras sur la table et porte tout son poids. Il est lourd et large pour que le bras ne bascule pas quand il tend une charge.",
+      "proprietes": [ { "nom": "Diamètre", "valeur": "≈ 24 cm" }, { "nom": "Matière", "valeur": "aluminium ou plastique rigide" } ],
+      "mots": ["socle", "base fixe", "pied"]
+    },
+    {
+      "id": "plateau", "nom": "Tourelle (axe 1)", "groupe": "structure", "parent": "socle",
+      "position": [0, 0.16, 0],
+      "forme": { "type": "cylindre", "rayon": 0.42, "hauteur": 0.1, "decalage": [0, 0.05, 0] },
+      "couleur": "violet",
+      "articulation": { "axe": "y", "min": -150, "max": 150, "repos": -25, "animation": { "amplitude": 60, "periode": 9, "phase": 0 } },
+      "eclate": [0, 0.18, 0],
+      "fonction": "Pivote sur elle-même pour orienter tout le bras vers la gauche ou la droite : c'est le premier axe, la rotation autour de la verticale.",
+      "proprietes": [ { "nom": "Axe", "valeur": "rotation verticale" }, { "nom": "Débattement", "valeur": "−150° à +150°" } ],
+      "mots": ["tourelle", "plateau", "plateau tournant", "base tournante", "axe 1"]
+    },
+    {
+      "id": "support", "nom": "Support d'épaule", "groupe": "structure", "parent": "plateau",
+      "position": [0, 0.1, 0],
+      "forme": { "type": "boite", "l": 0.42, "h": 0.26, "p": 0.24, "decalage": [0, 0.13, 0] },
+      "couleur": "cyan",
+      "eclate": [0, 0.16, 0],
+      "fonction": "Relie la tourelle au servomoteur de l'épaule et encaisse les efforts du bras entier.",
+      "proprietes": [ { "nom": "Forme", "valeur": "fourche en U" } ],
+      "mots": ["support d epaule", "support", "fourche"]
+    },
+    {
+      "id": "servo_epaule", "nom": "Servomoteur de l'épaule (axe 2)", "groupe": "servomoteurs", "parent": "support",
+      "position": [0, 0.3, 0],
+      "forme": { "type": "cylindre", "rayon": 0.14, "hauteur": 0.5, "axe": "x" },
+      "couleur": "ambre",
+      "articulation": { "axe": "x", "min": -60, "max": 80, "repos": -12, "animation": { "amplitude": 28, "periode": 7, "phase": 0.2 } },
+      "eclate": [0.55, 0.12, 0],
+      "fonction": "Lève et abaisse tout le bras. C'est le servomoteur le plus sollicité : il porte le bras entier et la charge.",
+      "proprietes": [ { "nom": "Type", "valeur": "servomoteur à engrenages" }, { "nom": "Couple typique", "valeur": "≈ 20 kg·cm" }, { "nom": "Commande", "valeur": "impulsion de 1 à 2 ms toutes les 20 ms" }, { "nom": "Débattement", "valeur": "−60° à +80°" } ],
+      "mots": ["epaule", "servomoteur de l epaule", "servo de l epaule", "axe 2"]
+    },
+    {
+      "id": "segment_1", "nom": "Bras (segment 1)", "groupe": "structure", "parent": "servo_epaule",
+      "position": [0, 0, 0],
+      "forme": { "type": "boite", "l": 0.14, "h": 0.9, "p": 0.14, "decalage": [0, 0.45, 0] },
+      "couleur": "cyan",
+      "eclate": [-0.55, 0.12, 0],
+      "fonction": "Premier segment : il transmet le mouvement de l'épaule jusqu'au coude. Sa longueur fixe en grande partie la portée du bras.",
+      "proprietes": [ { "nom": "Longueur", "valeur": "≈ 18 cm" } ],
+      "mots": ["segment 1", "premier segment", "bras superieur", "haut du bras"]
+    },
+    {
+      "id": "servo_coude", "nom": "Servomoteur du coude (axe 3)", "groupe": "servomoteurs", "parent": "segment_1",
+      "position": [0, 0.9, 0],
+      "forme": { "type": "cylindre", "rayon": 0.11, "hauteur": 0.36, "axe": "x" },
+      "couleur": "ambre",
+      "articulation": { "axe": "x", "min": -120, "max": 120, "repos": 62, "animation": { "amplitude": 30, "periode": 6, "phase": 0.55 } },
+      "eclate": [0.45, 0.12, 0],
+      "fonction": "Plie et déplie l'avant-bras, comme un coude humain.",
+      "proprietes": [ { "nom": "Couple typique", "valeur": "≈ 10 kg·cm" }, { "nom": "Débattement", "valeur": "−120° à +120°" } ],
+      "mots": ["coude", "servomoteur du coude", "servo du coude", "axe 3"]
+    },
+    {
+      "id": "segment_2", "nom": "Avant-bras (segment 2)", "groupe": "structure", "parent": "servo_coude",
+      "position": [0, 0, 0],
+      "forme": { "type": "boite", "l": 0.12, "h": 0.72, "p": 0.12, "decalage": [0, 0.36, 0] },
+      "couleur": "cyan",
+      "eclate": [-0.45, 0.12, 0],
+      "fonction": "Second segment : il porte le poignet et la pince.",
+      "proprietes": [ { "nom": "Longueur", "valeur": "≈ 14 cm" } ],
+      "mots": ["avant bras", "segment 2", "deuxieme segment", "second segment"]
+    },
+    {
+      "id": "servo_poignet", "nom": "Servomoteur du poignet (axe 4)", "groupe": "servomoteurs", "parent": "segment_2",
+      "position": [0, 0.72, 0],
+      "forme": { "type": "cylindre", "rayon": 0.08, "hauteur": 0.26, "axe": "x" },
+      "couleur": "ambre",
+      "articulation": { "axe": "x", "min": -90, "max": 90, "repos": 35, "animation": { "amplitude": 25, "periode": 5, "phase": 0.8 } },
+      "eclate": [0.36, 0.1, 0],
+      "fonction": "Incline la pince pour l'orienter vers l'objet à saisir.",
+      "proprietes": [ { "nom": "Type", "valeur": "micro-servomoteur" }, { "nom": "Couple typique", "valeur": "≈ 3 kg·cm" }, { "nom": "Débattement", "valeur": "−90° à +90°" } ],
+      "mots": ["poignet", "servomoteur du poignet", "servo du poignet", "axe 4"]
+    },
+    {
+      "id": "support_pince", "nom": "Support de pince", "groupe": "pince", "parent": "servo_poignet",
+      "position": [0, 0, 0],
+      "forme": { "type": "boite", "l": 0.3, "h": 0.06, "p": 0.1, "decalage": [0, 0.11, 0] },
+      "couleur": "violet",
+      "eclate": [-0.36, 0.1, 0],
+      "fonction": "Porte les deux doigts et le petit mécanisme qui les rapproche ou les écarte.",
+      "proprietes": [ { "nom": "Mécanisme", "valeur": "engrenages ou biellettes" } ],
+      "mots": ["support de pince", "porte pince"]
+    },
+    {
+      "id": "doigt_gauche", "nom": "Doigt gauche", "groupe": "pince", "parent": "support_pince",
+      "position": [-0.1, 0.14, 0],
+      "forme": { "type": "boite", "l": 0.04, "h": 0.24, "p": 0.07, "decalage": [0, 0.12, 0] },
+      "couleur": "violet",
+      "articulation": { "axe": "z", "min": -5, "max": 25, "repos": 8, "animation": { "amplitude": 10, "periode": 3, "phase": 0 } },
+      "eclate": [-0.12, 0.08, 0],
+      "fonction": "Se rapproche de l'autre doigt pour serrer l'objet, puis s'en écarte pour le lâcher.",
+      "proprietes": [ { "nom": "Ouverture maximale", "valeur": "≈ 5 cm" } ],
+      "mots": ["doigt gauche"]
+    },
+    {
+      "id": "doigt_droit", "nom": "Doigt droit", "groupe": "pince", "parent": "support_pince",
+      "position": [0.1, 0.14, 0],
+      "forme": { "type": "boite", "l": 0.04, "h": 0.24, "p": 0.07, "decalage": [0, 0.12, 0] },
+      "couleur": "violet",
+      "articulation": { "axe": "z", "min": -25, "max": 5, "repos": -8, "animation": { "amplitude": 10, "periode": 3, "phase": 0.5 } },
+      "eclate": [0.12, 0.08, 0],
+      "fonction": "Se rapproche de l'autre doigt pour serrer l'objet, puis s'en écarte pour le lâcher.",
+      "proprietes": [ { "nom": "Ouverture maximale", "valeur": "≈ 5 cm" } ],
+      "mots": ["doigt droit"]
+    },
+    {
+      "id": "carte", "nom": "Carte de commande", "groupe": "electronique", "parent": "socle",
+      "position": [0, 0.16, 0.47],
+      "forme": { "type": "boite", "l": 0.32, "h": 0.03, "p": 0.16, "decalage": [0, 0.015, 0] },
+      "couleur": "vert",
+      "eclate": [0, 0.1, 0.4],
+      "fonction": "Reçoit les ordres (d'un ordinateur ou d'un programme enregistré) et produit le signal de chaque servomoteur. Elle distribue aussi l'alimentation.",
+      "proprietes": [ { "nom": "Alimentation des servos", "valeur": "5 à 6 V" }, { "nom": "Signaux", "valeur": "un signal PWM par servomoteur" } ],
+      "mots": ["carte de commande", "carte", "carte mere", "platine"]
+    },
+    {
+      "id": "microcontroleur", "nom": "Microcontrôleur", "groupe": "electronique", "parent": "carte",
+      "position": [0, 0.03, 0],
+      "forme": { "type": "boite", "l": 0.1, "h": 0.02, "p": 0.1, "decalage": [0, 0.01, 0] },
+      "couleur": "ambre",
+      "eclate": [0, 0.14, 0],
+      "fonction": "Exécute le programme : il calcule les angles à atteindre et génère les impulsions qui positionnent chaque servomoteur.",
+      "proprietes": [ { "nom": "Exemple", "valeur": "carte de type Arduino" }, { "nom": "Horloge typique", "valeur": "16 MHz" } ],
+      "mots": ["microcontroleur", "micro controleur", "processeur", "puce", "arduino", "cerveau du robot"]
+    }
+  ]
+}

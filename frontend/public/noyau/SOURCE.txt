@@ -1,0 +1,16 @@
+Formes du noyau (dossier formes/) — trois modèles 3D faits par ID Studio IA avec Meshy le 11/11/2026, d'après ses maquettes
+« Cosmique », « Organique » et « Énergie pure ». Série choisie par ID Studio IA le 11/11/2026 : la première (« rang A »),
+celle dont il préfère la texture ; le logo y est sculpté sur la face avant.
+
+  cosmique.glb   Meshy_AI_Astral_Nexus_1111044413_texture.glb         661 564 -> 80 000 triangles   28,6 -> 3,7 Mo
+  organique.glb  Meshy_AI_Luminous_Lotus_of_Asc_1111044257_texture.glb 394 108 -> 59 999 triangles   19,3 -> 3,0 Mo
+  energie.glb    Meshy_AI_Neon_Arcane_Nexus_1111043929_texture.glb   1 464 036 -> 150 000 triangles  51,8 -> 6,9 Mo
+
+Allégés en deux temps, sans toucher aux originaux (restés dans le dossier Téléchargements d'ID Studio IA) :
+  1. le maillage, avec Blender 5.0 et le script d'Athéna qui a déjà allégé les modèles du globe
+     (scripts/alleger-modele-globe.py, voir ../terre/SOURCE.txt) : réduction, recentrage, plus grande dimension = 1 ;
+  2. les textures, avec scripts/garder-texture-couleur.py de ce dépôt : seule la texture de couleur est gardée
+     (2048 x 2048, JPEG qualité 88), parce que le lecteur d'AURORA (src/components/hologram/glb.ts) ne lit qu'elle.
+
+Vérifié le 11/11/2026 dans la page d'essai (reviews/maquettes-accueil/formes-noyau-essai-4-allege.jpg) : avant et
+après allègement, les trois formes rendent pareil. Vérifier les conditions de Meshy pour une version vendue.

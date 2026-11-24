@@ -1,0 +1,19 @@
+/* TaskTimeline (ASTRA starter component) — imported by the component itself, so every page
+   that shows the event history gets the same look. Classes prefixed tasks-tl-. */
+.tasks-tl { display: flex; flex-direction: column; gap: 2px; max-height: 360px; overflow-y: auto; padding-right: 2px; }
+.tasks-tl-empty { margin: 8px 0; font-size: 13px; }
+.tasks-tl-row {
+  display: grid; grid-template-columns: 12px 1fr auto; align-items: center; gap: 10px; width: 100%;
+  padding: 7px 8px; border: 1px solid transparent; border-radius: 9px; background: transparent; text-align: left; color: var(--text);
+}
+.tasks-tl-row:hover { background: rgba(20, 60, 120, .28); }
+.tasks-tl-row.selected { border-color: var(--border-glow); background: rgba(18, 60, 120, .45); }
+.tasks-tl-bullet { width: 9px; height: 9px; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 8px currentColor; color: var(--cyan); justify-self: center; }
+.tasks-tl-bullet[data-tone="green"] { background: var(--green); color: var(--green); }
+.tasks-tl-bullet[data-tone="red"] { background: var(--red); color: var(--red); }
+.tasks-tl-bullet[data-tone="amber"] { background: var(--amber); color: var(--amber); }
+.tasks-tl-bullet[data-tone="violet"] { background: var(--violet); color: var(--violet); }
+.tasks-tl-copy { display: flex; flex-direction: column; min-width: 0; }
+.tasks-tl-copy strong { font-size: 13px; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-strong); }
+.tasks-tl-copy small { font-size: 11px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.tasks-tl-time { font-family: var(--font-mono); font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }

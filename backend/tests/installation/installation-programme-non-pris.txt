@@ -1,0 +1,18 @@
+Installation d'AURORA
+  projet  : C:\AURORA
+  données : C:\Users\Camille\.aurora
+
+== 1. Ce que ce PC a déjà
+  [à prendre] Python 3.11.7 (17 Mo, nuget.org) : aucun Python de 3.11 à 3.14 en 64 bits sur ce PC (trouvé : 3.15.2 en 64 bits)
+  [ok]     Node.js 22.23.3
+  [ok]     Ollama 0.35.0
+  [ok]     Carte graphique : NVIDIA GeForce GTX 1080, 8 Go
+  Mémoire vive : 7.9 Go
+  [ok]     Place libre sur C: : 142 Go
+  Python 3.11.7 : téléchargement (17 Mo, nuget.org)…
+curl: (6) Could not resolve host: api.nuget.org
+  Python 3.11.7 : le téléchargement a échoué (connexion Internet ?)
+  [manque] Python n'a pas été installé — https://www.python.org/downloads/windows/
+
+Installation impossible pour l'instant : il manque Python.
+Installez-le à la main depuis la page indiquée (Python : de 3.11 à 3.14, en 64 bits), puis relancez ce script.

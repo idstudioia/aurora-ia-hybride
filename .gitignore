@@ -1,0 +1,30 @@
+# Dépendances et sorties de build
+frontend/node_modules/
+frontend/dist/
+*.tsbuildinfo
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Données locales : jamais dans Git (bases, journaux, secrets)
+*.db
+*.db-wal
+*.db-shm
+*.db-journal
+*.sqlite
+*.sqlite3
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Éditeurs et système
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini

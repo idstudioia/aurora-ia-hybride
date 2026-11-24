@@ -1,0 +1,756 @@
+{
+  "format": "aurora.scene/1",
+  "id": "fusee",
+  "titre": "Fusée à deux étages",
+  "domaine": "astronomie",
+  "nature": "illustration",
+  "avertissement": "Objet généré automatiquement par Claude, dans Claude Code : formes simplifiées, proportions et mouvements approximatifs. Illustration pédagogique, ni plan ni simulation.",
+  "resume": "Maquette d’une fusée à deux étages, avec deux propulseurs d’appoint et un satellite sous la coiffe. Elle montre les grandes parties d’un lanceur spatial et l’ordre dans lequel elles se séparent.",
+  "fonctionnement": "Au décollage, le moteur principal et les deux propulseurs d’appoint poussent ensemble. Une fois vides, les propulseurs se détachent et retombent. La coiffe s’ouvre dès que l’air est assez rare pour ne plus abîmer le satellite. L’étage principal se sépare à son tour, et l’étage supérieur s’allume pour atteindre la vitesse de l’orbite. Enfin le satellite est libéré et déploie ses panneaux solaires.",
+  "mots": [
+    "fusee",
+    "fusee spatiale",
+    "lanceur spatial",
+    "fusee a deux etages"
+  ],
+  "camera": {
+    "position": [
+      2.7,
+      2.1,
+      3.3
+    ],
+    "cible": [
+      0.0,
+      1.0,
+      0.0
+    ]
+  },
+  "groupes": [
+    {
+      "id": "propulseurs",
+      "nom": "Propulseurs d’appoint",
+      "mots": [
+        "propulseurs d appoint",
+        "propulseurs",
+        "boosters"
+      ]
+    },
+    {
+      "id": "attaches",
+      "nom": "Attaches des propulseurs",
+      "mots": [
+        "attaches des propulseurs",
+        "attaches",
+        "fixations"
+      ]
+    },
+    {
+      "id": "moteurs",
+      "nom": "Moteurs",
+      "mots": [
+        "moteurs",
+        "tuyeres"
+      ]
+    },
+    {
+      "id": "coiffe",
+      "nom": "Coiffe",
+      "mots": [
+        "coiffe",
+        "carenage"
+      ]
+    },
+    {
+      "id": "charge_utile",
+      "nom": "Charge utile",
+      "mots": [
+        "charge utile",
+        "satellite complet"
+      ]
+    }
+  ],
+  "pieces": [
+    {
+      "id": "etage_principal",
+      "nom": "Étage principal",
+      "groupe": null,
+      "parent": null,
+      "position": [
+        0.0,
+        0.705,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.104,
+        "hauteur": 1.17,
+        "axe": "y"
+      },
+      "couleur": "cyan",
+      "fonction": "Le grand réservoir central. Il contient le carburant et l’oxygène liquides que le moteur principal brûle pendant presque toute la montée.",
+      "proprietes": [],
+      "mots": [
+        "etage principal",
+        "premier etage",
+        "reservoir",
+        "corps central"
+      ],
+      "eclate": [
+        0.0,
+        -0.3,
+        0.0
+      ]
+    },
+    {
+      "id": "tuyere_principale",
+      "nom": "Tuyère du moteur principal",
+      "groupe": "moteurs",
+      "parent": "etage_principal",
+      "position": [
+        0.0,
+        -0.585,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.0425,
+        "hauteur": 0.115,
+        "axe": "y",
+        "rayon_haut": 0.01,
+        "decalage": [
+          0.0,
+          -0.0575,
+          0.0
+        ]
+      },
+      "couleur": "ambre",
+      "fonction": "Les gaz brûlants sortent par cette tuyère et poussent la fusée vers le haut. Elle s’incline légèrement pour diriger la fusée. Elle bouge de quelques degrés en vrai, grossis ici pour se voir (valeur supposée).",
+      "proprietes": [],
+      "mots": [
+        "tuyere du moteur principal",
+        "moteur principal",
+        "tuyere principale"
+      ],
+      "eclate": [
+        0.0,
+        -0.2653,
+        -0.0
+      ],
+      "articulation": {
+        "axe": "z",
+        "min": -15.0,
+        "max": 15.0,
+        "repos": 0.0,
+        "animation": {
+          "amplitude": 12.0,
+          "periode": 5.0,
+          "phase": 0.0
+        }
+      }
+    },
+    {
+      "id": "corps_propulseur",
+      "nom": "Corps de propulseur 1",
+      "groupe": "propulseurs",
+      "parent": "etage_principal",
+      "position": [
+        0.178,
+        -0.125,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.0585,
+        "hauteur": 0.96,
+        "axe": "y"
+      },
+      "couleur": "violet",
+      "fonction": "Un long tube rempli de poudre. Les deux propulseurs fournissent l’essentiel de la poussée au décollage, puis se détachent une fois vides.",
+      "proprietes": [],
+      "mots": [
+        "corps de propulseur 1",
+        "corps de propulseur"
+      ],
+      "eclate": [
+        0.116,
+        0.0233,
+        -0.0
+      ]
+    },
+    {
+      "id": "corps_propulseur_2",
+      "nom": "Corps de propulseur 2",
+      "groupe": "propulseurs",
+      "parent": "etage_principal",
+      "position": [
+        -0.178,
+        -0.125,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.0585,
+        "hauteur": 0.96,
+        "axe": "y"
+      },
+      "couleur": "violet",
+      "fonction": "Un long tube rempli de poudre. Les deux propulseurs fournissent l’essentiel de la poussée au décollage, puis se détachent une fois vides.",
+      "proprietes": [],
+      "mots": [
+        "corps de propulseur 2"
+      ],
+      "eclate": [
+        -0.116,
+        0.0233,
+        -0.0
+      ]
+    },
+    {
+      "id": "pointe_propulseur",
+      "nom": "Pointe de propulseur 1",
+      "groupe": "propulseurs",
+      "parent": "etage_principal",
+      "position": [
+        0.178,
+        0.4225,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.0585,
+        "hauteur": 0.135,
+        "axe": "y",
+        "rayon_haut": 0.01
+      },
+      "couleur": "violet",
+      "fonction": "Le nez du propulseur, profilé pour fendre l’air.",
+      "proprietes": [],
+      "mots": [
+        "pointe de propulseur 1",
+        "pointe de propulseur",
+        "nez de propulseur"
+      ],
+      "eclate": [
+        0.2469,
+        0.4704,
+        0.0
+      ]
+    },
+    {
+      "id": "pointe_propulseur_2",
+      "nom": "Pointe de propulseur 2",
+      "groupe": "propulseurs",
+      "parent": "etage_principal",
+      "position": [
+        -0.178,
+        0.4225,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.0585,
+        "hauteur": 0.135,
+        "axe": "y",
+        "rayon_haut": 0.01
+      },
+      "couleur": "violet",
+      "fonction": "Le nez du propulseur, profilé pour fendre l’air.",
+      "proprietes": [],
+      "mots": [
+        "pointe de propulseur 2"
+      ],
+      "eclate": [
+        -0.2469,
+        0.4704,
+        -0.0
+      ]
+    },
+    {
+      "id": "tuyere_propulseur",
+      "nom": "Tuyère de propulseur 1",
+      "groupe": "propulseurs",
+      "parent": "etage_principal",
+      "position": [
+        0.178,
+        -0.605,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.05,
+        "hauteur": 0.1,
+        "axe": "y",
+        "rayon_haut": 0.01,
+        "decalage": [
+          0.0,
+          -0.05,
+          0.0
+        ]
+      },
+      "couleur": "ambre",
+      "fonction": "Les gaz de la poudre qui brûle sortent par ici. Elle s’oriente pour piloter la fusée : quelques degrés en vrai, grossis ici pour se voir (valeur supposée).",
+      "proprietes": [],
+      "mots": [
+        "tuyere de propulseur 1",
+        "tuyere de propulseur"
+      ],
+      "eclate": [
+        0.1068,
+        -0.2728,
+        -0.0
+      ],
+      "articulation": {
+        "axe": "z",
+        "min": -15.0,
+        "max": 15.0,
+        "repos": 0.0,
+        "animation": {
+          "amplitude": 12.0,
+          "periode": 5.0,
+          "phase": 0.0
+        }
+      }
+    },
+    {
+      "id": "tuyere_propulseur_2",
+      "nom": "Tuyère de propulseur 2",
+      "groupe": "propulseurs",
+      "parent": "etage_principal",
+      "position": [
+        -0.178,
+        -0.605,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.05,
+        "hauteur": 0.1,
+        "axe": "y",
+        "rayon_haut": 0.01,
+        "decalage": [
+          0.0,
+          -0.05,
+          0.0
+        ]
+      },
+      "couleur": "ambre",
+      "fonction": "Les gaz de la poudre qui brûle sortent par ici. Elle s’oriente pour piloter la fusée : quelques degrés en vrai, grossis ici pour se voir (valeur supposée).",
+      "proprietes": [],
+      "mots": [
+        "tuyere de propulseur 2"
+      ],
+      "eclate": [
+        -0.1068,
+        -0.2728,
+        -0.0
+      ],
+      "articulation": {
+        "axe": "z",
+        "min": -15.0,
+        "max": 15.0,
+        "repos": 0.0,
+        "animation": {
+          "amplitude": 12.0,
+          "periode": 5.0,
+          "phase": 0.0
+        }
+      }
+    },
+    {
+      "id": "attache_avant",
+      "nom": "Attache avant 1",
+      "groupe": "attaches",
+      "parent": "etage_principal",
+      "position": [
+        0.112,
+        0.265,
+        0.0
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.016,
+        "h": 0.03,
+        "p": 0.05
+      },
+      "couleur": "vert",
+      "fonction": "Elle relie le haut du propulseur à l’étage principal et lui transmet sa poussée.",
+      "proprietes": [],
+      "mots": [
+        "attache avant 1",
+        "attache avant",
+        "attache haute"
+      ],
+      "eclate": [
+        0.0,
+        0.3,
+        -0.0
+      ]
+    },
+    {
+      "id": "attache_avant_2",
+      "nom": "Attache avant 2",
+      "groupe": "attaches",
+      "parent": "etage_principal",
+      "position": [
+        -0.112,
+        0.265,
+        0.0
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.016,
+        "h": 0.03,
+        "p": 0.05
+      },
+      "couleur": "vert",
+      "fonction": "Elle relie le haut du propulseur à l’étage principal et lui transmet sa poussée.",
+      "proprietes": [],
+      "mots": [
+        "attache avant 2"
+      ],
+      "rotation": [
+        0.0,
+        -180.0,
+        0.0
+      ],
+      "eclate": [
+        0.0,
+        0.65,
+        -0.0
+      ]
+    },
+    {
+      "id": "attache_arriere",
+      "nom": "Attache arrière 1",
+      "groupe": "attaches",
+      "parent": "etage_principal",
+      "position": [
+        0.112,
+        -0.505,
+        0.0
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.016,
+        "h": 0.03,
+        "p": 0.05
+      },
+      "couleur": "vert",
+      "fonction": "Elle tient le bas du propulseur contre l’étage principal. Les attaches sont coupées quand le propulseur se sépare.",
+      "proprietes": [],
+      "mots": [
+        "attache arriere 1",
+        "attache arriere",
+        "attache basse"
+      ],
+      "eclate": [
+        0.0672,
+        -0.1828,
+        -0.0
+      ]
+    },
+    {
+      "id": "attache_arriere_2",
+      "nom": "Attache arrière 2",
+      "groupe": "attaches",
+      "parent": "etage_principal",
+      "position": [
+        -0.112,
+        -0.505,
+        0.0
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.016,
+        "h": 0.03,
+        "p": 0.05
+      },
+      "couleur": "vert",
+      "fonction": "Elle tient le bas du propulseur contre l’étage principal. Les attaches sont coupées quand le propulseur se sépare.",
+      "proprietes": [],
+      "mots": [
+        "attache arriere 2"
+      ],
+      "rotation": [
+        0.0,
+        -180.0,
+        0.0
+      ],
+      "eclate": [
+        -0.0672,
+        -0.1828,
+        -0.0
+      ]
+    },
+    {
+      "id": "case_equipements",
+      "nom": "Case à équipements",
+      "groupe": null,
+      "parent": "etage_principal",
+      "position": [
+        0.0,
+        0.635,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.104,
+        "hauteur": 0.1,
+        "axe": "y"
+      },
+      "couleur": "vert",
+      "fonction": "Le cerveau de la fusée : les ordinateurs de bord, le guidage et la radio.",
+      "proprietes": [],
+      "mots": [
+        "case a equipements",
+        "ordinateur de bord",
+        "guidage"
+      ],
+      "eclate": [
+        0.0,
+        0.6,
+        -0.0
+      ]
+    },
+    {
+      "id": "etage_superieur",
+      "nom": "Étage supérieur",
+      "groupe": null,
+      "parent": "case_equipements",
+      "position": [
+        0.0,
+        0.14,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.104,
+        "hauteur": 0.18,
+        "axe": "y"
+      },
+      "couleur": "cyan",
+      "fonction": "Il s’allume dans l’espace, après la séparation de l’étage principal, et donne au satellite sa vitesse finale.",
+      "proprietes": [],
+      "mots": [
+        "etage superieur",
+        "second etage",
+        "deuxieme etage"
+      ]
+    },
+    {
+      "id": "moteur_superieur",
+      "nom": "Moteur de l’étage supérieur",
+      "groupe": "moteurs",
+      "parent": "etage_superieur",
+      "position": [
+        0.0,
+        -0.09,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.035,
+        "hauteur": 0.09,
+        "axe": "y",
+        "rayon_haut": 0.01,
+        "decalage": [
+          0.0,
+          -0.045,
+          0.0
+        ]
+      },
+      "couleur": "ambre",
+      "fonction": "Le moteur de l’étage supérieur. Il reste à l’abri dans la case à équipements pendant la montée. Une fois allumé, sa tuyère s’oriente pour diriger l’étage : quelques degrés en vrai, grossis ici pour se voir (valeur supposée).",
+      "proprietes": [],
+      "mots": [
+        "moteur de l etage superieur",
+        "moteur superieur",
+        "moteur du second etage"
+      ],
+      "articulation": {
+        "axe": "z",
+        "min": -15.0,
+        "max": 15.0,
+        "repos": 0.0,
+        "animation": {
+          "amplitude": 10.0,
+          "periode": 4.0,
+          "phase": 0.0
+        }
+      }
+    },
+    {
+      "id": "coiffe_basse",
+      "nom": "Coiffe",
+      "groupe": "coiffe",
+      "parent": "etage_superieur",
+      "position": [
+        0.0,
+        0.19,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.104,
+        "hauteur": 0.2,
+        "axe": "y"
+      },
+      "couleur": "cyan",
+      "fonction": "Elle protège le satellite de l’air pendant la traversée de l’atmosphère, puis s’ouvre en deux et retombe.",
+      "proprietes": [],
+      "mots": [
+        "bas de la coiffe",
+        "protection du satellite"
+      ],
+      "eclate": [
+        0.0,
+        0.0992,
+        -0.0
+      ]
+    },
+    {
+      "id": "pointe_coiffe",
+      "nom": "Pointe de la coiffe",
+      "groupe": "coiffe",
+      "parent": "coiffe_basse",
+      "position": [
+        0.0,
+        0.215,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.104,
+        "hauteur": 0.23,
+        "axe": "y",
+        "rayon_haut": 0.01
+      },
+      "couleur": "cyan",
+      "fonction": "Le sommet de la coiffe, en ogive pour fendre l’air.",
+      "proprietes": [],
+      "mots": [
+        "pointe de la coiffe",
+        "ogive",
+        "nez de la fusee"
+      ],
+      "eclate": [
+        0.0,
+        0.129,
+        -0.0
+      ]
+    },
+    {
+      "id": "satellite",
+      "nom": "Satellite",
+      "groupe": "charge_utile",
+      "parent": "coiffe_basse",
+      "position": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.08,
+        "h": 0.12,
+        "p": 0.08
+      },
+      "couleur": "vert",
+      "fonction": "La charge utile : c’est pour lui que la fusée décolle. Il est libéré une fois en orbite.",
+      "proprietes": [],
+      "mots": [
+        "satellite"
+      ]
+    },
+    {
+      "id": "panneau_solaire",
+      "nom": "Panneau solaire 1",
+      "groupe": "charge_utile",
+      "parent": "satellite",
+      "position": [
+        0.046,
+        0.0,
+        0.0
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.012,
+        "h": 0.11,
+        "p": 0.07
+      },
+      "couleur": "violet",
+      "fonction": "Replié contre le satellite pendant le lancement, il se déploie en orbite pour fournir l’électricité.",
+      "proprietes": [],
+      "mots": [
+        "panneau solaire 1",
+        "panneau solaire",
+        "panneau"
+      ],
+      "eclate": [
+        0.0276,
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "id": "panneau_solaire_2",
+      "nom": "Panneau solaire 2",
+      "groupe": "charge_utile",
+      "parent": "satellite",
+      "position": [
+        -0.046,
+        0.0,
+        0.0
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.012,
+        "h": 0.11,
+        "p": 0.07
+      },
+      "couleur": "violet",
+      "fonction": "Replié contre le satellite pendant le lancement, il se déploie en orbite pour fournir l’électricité.",
+      "proprietes": [],
+      "mots": [
+        "panneau solaire 2"
+      ],
+      "rotation": [
+        0.0,
+        -180.0,
+        0.0
+      ],
+      "eclate": [
+        -0.0276,
+        0.0,
+        -0.0
+      ]
+    },
+    {
+      "id": "antenne",
+      "nom": "Antenne du satellite",
+      "groupe": "charge_utile",
+      "parent": "satellite",
+      "position": [
+        0.0,
+        0.075,
+        0.0
+      ],
+      "forme": {
+        "type": "sphere",
+        "rayon": 0.015
+      },
+      "couleur": "ambre",
+      "fonction": "Elle relie le satellite à la Terre par radio.",
+      "proprietes": [],
+      "mots": [
+        "antenne du satellite",
+        "antenne"
+      ],
+      "eclate": [
+        0.0,
+        0.045,
+        -0.0
+      ]
+    }
+  ]
+}

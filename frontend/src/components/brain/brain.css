@@ -1,0 +1,14 @@
+/* BrainGraph (canvas, bulle de survol, boutons de zoom). Chargé par le composant lui-même (11/11/2026), comme
+   TaskTimeline : toute page qui le montre a ces règles, sans passer d'abord par la page Mémoire. Règles sorties
+   telles quelles de pages/memory.css ; la vignette de l'accueil garde les siennes (labo/labo.css, .brain-compact). */
+.brain-wrap { position: absolute; inset: 0; overflow: hidden; }
+.brain-canvas { display: block; width: 100%; height: 100%; cursor: grab; touch-action: none; outline: none; }
+.brain-canvas:focus-visible { box-shadow: inset 0 0 0 2px var(--cyan); }
+.brain-tooltip { position: absolute; top: 0; left: 0; z-index: 4; width: max-content; max-width: 260px; display: flex; flex-direction: column; gap: 4px; padding: 9px 11px; border-radius: 10px; pointer-events: none;
+  background: rgba(6, 18, 40, .94); border: 1px solid var(--border-glow); box-shadow: 0 8px 30px rgba(0, 10, 30, .6), 0 0 14px rgba(34, 200, 255, .18); font-size: 12px; line-height: 1.4; }
+.brain-tooltip[hidden] { display: none; }
+.brain-tooltip strong { color: var(--text-strong); font-weight: 600; overflow-wrap: anywhere; }
+.brain-tooltip span { color: var(--muted); }
+.brain-tip-detail { color: var(--text) !important; overflow-wrap: anywhere; }
+.brain-tip-date { font-size: 11px; color: var(--muted-2) !important; }
+.brain-zoom { position: absolute; top: 12px; right: 12px; z-index: 3; display: flex; flex-direction: column; gap: 4px; padding: 4px; border-radius: 10px; background: rgba(4, 14, 32, .7); border: 1px solid var(--border-soft); }

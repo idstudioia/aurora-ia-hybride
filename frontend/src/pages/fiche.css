@@ -1,0 +1,85 @@
+/* La fiche technique interactive d'un projet (15/11/2026), au style d'un plan : un quadrillage, des cadres aux coins
+   marqués, une étiquette par cadre, un cartouche. Les cadres viennent des données du projet (FicheInteractive.tsx). */
+.fiche { position: relative; padding: 30px 30px; border: 2px solid rgba(96, 210, 245, .85); border-radius: 4px; overflow-x: auto; color: #eaf2fc;
+  background-color: #07162e;
+  background-image: linear-gradient(rgba(64, 128, 200, .17) 1px, transparent 1px), linear-gradient(90deg, rgba(64, 128, 200, .17) 1px, transparent 1px),
+    linear-gradient(rgba(64, 128, 200, .07) 1px, transparent 1px), linear-gradient(90deg, rgba(64, 128, 200, .07) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 25px 25px, 25px 25px; }
+.fiche-bord { position: absolute; display: flex; justify-content: space-around; color: #96b2d2; font-size: .72rem; pointer-events: none; }
+.fiche-bord.haut, .fiche-bord.bas { left: 30px; right: 30px; }
+.fiche-bord.haut { top: 6px; } .fiche-bord.bas { bottom: 6px; }
+.fiche-bord.gauche, .fiche-bord.droite { top: 30px; bottom: 30px; flex-direction: column; }
+.fiche-bord.gauche { left: 10px; } .fiche-bord.droite { right: 10px; }
+.fiche-grille { display: grid; grid-template-columns: repeat(24, minmax(0, 1fr)); grid-auto-rows: 36px; grid-auto-flow: dense; gap: 8px; min-width: 1180px; }
+.fiche-cadre { --a: #60d2f5; position: relative; display: flex; flex-direction: column; min-width: 0; min-height: 0; padding: 46px 12px 10px;
+  grid-column: span 8; grid-row: span 9; background: rgba(5, 16, 36, .93); border: 2px solid rgba(38, 104, 146, .95); }
+.fiche-cadre.orange { --a: #ffa328; }
+.fiche-cadre::before { content: ''; position: absolute; inset: -2px; pointer-events: none;
+  background: linear-gradient(var(--a), var(--a)) left top / 26px 3px no-repeat, linear-gradient(var(--a), var(--a)) left top / 3px 26px no-repeat,
+    linear-gradient(var(--a), var(--a)) right top / 26px 3px no-repeat, linear-gradient(var(--a), var(--a)) right top / 3px 26px no-repeat,
+    linear-gradient(var(--a), var(--a)) left bottom / 26px 3px no-repeat, linear-gradient(var(--a), var(--a)) left bottom / 3px 26px no-repeat,
+    linear-gradient(var(--a), var(--a)) right bottom / 26px 3px no-repeat, linear-gradient(var(--a), var(--a)) right bottom / 3px 26px no-repeat; }
+.fiche-titre { position: absolute; top: 9px; left: 11px; max-width: calc(100% - 22px); margin: 0; padding: 4px 24px 4px 12px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+  font-size: .84rem; font-weight: 700; letter-spacing: .04em; color: var(--a); background: #07162e; border: 1px solid var(--a);
+  clip-path: polygon(0 0, 100% 0, calc(100% - 11px) 100%, 0 100%); }
+.fiche-corps { flex: 1; min-height: 0; overflow: auto; }
+.fiche-note { margin: 7px 0 0; font-size: .74rem; line-height: 1.38; color: #96b2d2; }
+
+/* Un cadre de vue : son image fixe, ses cotes, ses numéros ; ou sa vue vivante, avec ses boutons. */
+.fiche-zone { position: relative; flex: 1; min-height: 0; overflow: hidden; }
+.fiche-zone.cliquable { cursor: zoom-in; }
+.fiche-zone > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.fiche-toile { position: absolute; inset: 0; }
+.fiche-attente { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 8px; align-items: center; justify-content: center; padding: 12px;
+  text-align: center; font-size: .82rem; color: #96b2d2; }
+.fiche-invite { position: absolute; right: 8px; bottom: 6px; padding: 2px 8px; font-size: .7rem; color: #96b2d2; background: rgba(5, 16, 36, .8); border: 1px solid rgba(38, 104, 146, .9); border-radius: 10px; opacity: 0; transition: opacity .15s; }
+.fiche-zone.cliquable:hover .fiche-invite, .fiche-zone.cliquable:focus-visible .fiche-invite { opacity: 1; }
+.fiche-cote { position: absolute; font-size: .8rem; font-weight: 700; color: #eaf2fc; pointer-events: none; }
+.fiche-cote.large { border-top: 2px solid #eaf2fc; text-align: center; padding-top: 2px; }
+.fiche-cote.large::before, .fiche-cote.large::after { content: ''; position: absolute; top: -9px; width: 2px; height: 16px; background: #eaf2fc; }
+.fiche-cote.large::before { left: 0; } .fiche-cote.large::after { right: 0; }
+.fiche-cote.haute { border-left: 2px solid #eaf2fc; display: flex; align-items: center; }
+.fiche-cote.haute::before, .fiche-cote.haute::after { content: ''; position: absolute; left: -9px; width: 16px; height: 2px; background: #eaf2fc; }
+.fiche-cote.haute::before { top: 0; } .fiche-cote.haute::after { bottom: 0; }
+.fiche-cote.haute > span { writing-mode: vertical-rl; transform: rotate(180deg) translateX(100%); padding-right: 3px; white-space: nowrap; }
+.fiche-repere, .fiche-num { display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: 800; color: #0c121e; background: #ffa328; border: 2px solid #0c121e; }
+.fiche-repere { position: absolute; width: 26px; height: 26px; margin: -13px 0 0 -13px; font-size: .78rem; pointer-events: none; }
+.fiche-outils { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 8px; }
+.fiche-outils .btn { font-size: .76rem; }
+.fiche-piece { position: absolute; left: 8px; top: 8px; max-width: min(320px, 70%); padding: 9px 11px; font-size: .78rem; line-height: 1.38; background: rgba(5, 16, 36, .94); border: 1px solid var(--a); border-radius: 8px; }
+.fiche-piece strong { display: block; font-size: .86rem; }
+.fiche-piece em { display: block; font-style: normal; color: #96b2d2; margin-bottom: 4px; }
+.fiche-piece dl { margin: 6px 0 0; display: grid; grid-template-columns: auto 1fr; gap: 2px 10px; }
+.fiche-piece dt { color: #96b2d2; } .fiche-piece dd { margin: 0; }
+.fiche-piece button { position: absolute; top: 4px; right: 6px; border: 0; background: none; color: #96b2d2; cursor: pointer; font-size: 1rem; }
+
+/* Un tableau, une liste, l'état du projet. */
+.fiche-table { width: 100%; border-collapse: collapse; font-size: .84rem; }
+.fiche-table td { padding: 5px 9px; border: 1px solid rgba(38, 104, 146, .95); vertical-align: top; }
+.fiche-table td:first-child { width: 36%; color: #96b2d2; }
+.fiche-liste { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 5px; font-size: .86rem; }
+.fiche-liste li { display: grid; grid-template-columns: 24px 1fr; gap: 8px; align-items: start; }
+.fiche-num { width: 22px; height: 22px; font-size: .72rem; }
+.fiche-puce { width: 8px; height: 8px; margin: 7px 0 0 7px; background: var(--a); }
+.fiche-comptes { display: flex; flex-wrap: wrap; gap: 4px 18px; margin: 0 0 8px; font-size: .88rem; font-weight: 700; }
+.fiche-comptes .faites { color: #70e4a0; } .fiche-comptes .a-faire { color: #ffc65c; } .fiche-comptes .bloquantes { color: #ff7869; }
+.fiche-etat h4 { margin: 6px 0 3px; font-size: .78rem; font-weight: 600; }
+.fiche-etat ul { margin: 0; padding: 0; list-style: none; font-size: .78rem; line-height: 1.4; }
+.fiche-etat li { position: relative; padding-left: 16px; }
+.fiche-etat li::before { content: ''; position: absolute; left: 2px; top: 6px; width: 7px; height: 7px; background: currentColor; }
+.fiche-etat .bloquant { color: #ff7869; } .fiche-etat .a-faire { color: #ffc65c; }
+.fiche-etat li > span { color: #eaf2fc; }
+
+/* Le cartouche. */
+.fiche-cartouche { grid-column: span 9; grid-row: span 8; display: grid; grid-template-columns: 170px 1fr; grid-template-rows: 1fr auto; background: rgba(5, 16, 36, .93); border: 2px solid #60d2f5; }
+.fiche-logo { grid-row: 1 / span 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; border-right: 2px solid #60d2f5; }
+.fiche-logo svg { width: 104px; height: 114px; }
+.fiche-logo span { font-size: 1.1rem; font-weight: 800; letter-spacing: .34em; padding-left: .34em; }
+.fiche-logo i { display: flex; gap: 6px; } .fiche-logo i b { width: 12px; height: 12px; background: #ffa328; transform: skewX(-28deg); }
+.fiche-nom { padding: 14px 18px; min-width: 0; }
+.fiche-nom h2 { margin: 0; font-size: 1.7rem; line-height: 1.15; }
+.fiche-nom p { margin: 4px 0 0; font-size: 1.05rem; color: #60d2f5; }
+.fiche-nom small { display: block; margin-top: 10px; font-size: .74rem; line-height: 1.4; color: #96b2d2; }
+.fiche-cases { display: flex; border-top: 2px solid #60d2f5; font-size: .76rem; }
+.fiche-cases span { flex: 1; padding: 9px 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fiche-cases span + span { border-left: 2px solid #60d2f5; }

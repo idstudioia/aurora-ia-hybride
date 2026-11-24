@@ -1,0 +1,75 @@
+/* Page « Projets » (13/11/2026) : la liste des projets, puis le dossier de celui qu'on ouvre. */
+.prj-page { display: flex; flex-direction: column; gap: 16px; }
+/* 23/11/2026 : « Créer un projet » à côté de « Relire », et son petit formulaire. */
+.prj-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.prj-creer { display: flex; flex-direction: column; gap: 12px; max-width: 720px; }
+.prj-creer .prj-controles { margin-bottom: 0; }
+.prj-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+.prj-carte { text-align: left; padding: 14px 16px; border-radius: 14px; border: 1px solid rgba(90, 170, 255, .22);
+  background: rgba(10, 22, 48, .72); color: inherit; cursor: pointer; display: flex; flex-direction: column; gap: 8px; }
+.prj-carte:hover, .prj-carte.active { border-color: rgba(34, 200, 255, .7); box-shadow: 0 0 14px rgba(34, 200, 255, .18); }
+.prj-carte h3 { margin: 0; font-size: 1.02rem; }
+.prj-carte p { margin: 0; opacity: .82; font-size: .86rem; line-height: 1.4; }
+.prj-ligne { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.prj-compte { font-size: .8rem; opacity: .75; }
+.prj-verdict { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 12px;
+  border: 1px solid rgba(255, 190, 80, .45); background: rgba(70, 48, 8, .35); }
+.prj-verdict.ok { border-color: rgba(90, 230, 150, .5); background: rgba(10, 60, 36, .35); }
+.prj-verdict strong { display: block; margin-bottom: 2px; }
+.prj-verdict ul { margin: 4px 0 0; padding-left: 18px; }
+.prj-table { width: 100%; border-collapse: collapse; font-size: .88rem; }
+.prj-table td { padding: 7px 8px; border-top: 1px solid rgba(90, 170, 255, .14); vertical-align: top; }
+.prj-table td:first-child { width: 112px; white-space: nowrap; }
+.prj-table small { display: block; opacity: .72; margin-top: 2px; line-height: 1.35; }
+.prj-rubriques { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 12px; }
+.prj-rubrique h4 { margin: 0 0 6px; font-size: .95rem; }
+.prj-rubrique > p { margin: 0 0 6px; font-size: .84rem; opacity: .8; }
+.prj-fichiers { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 5px; font-size: .86rem; }
+.prj-fichiers li { display: grid; grid-template-columns: 92px 1fr; gap: 8px; align-items: start; }
+.prj-fichiers code { font-size: .78rem; opacity: .7; word-break: break-all; }
+.prj-note { font-size: .82rem; opacity: .75; line-height: 1.45; margin: 0; }
+/* La fiche technique du projet (15/11/2026) : son image, tout en haut du dossier. Un clic l'agrandit à sa taille réelle. */
+.prj-fiche { margin: 0; border-radius: 12px; overflow: auto; border: 1px solid rgba(86, 204, 242, .35); background: #06172e; max-height: 82vh; }
+.prj-fiche img { display: block; width: 100%; height: auto; cursor: zoom-in; }
+.prj-fiche.grande img { width: auto; max-width: none; cursor: zoom-out; }
+/* FreeCAD et KiCad : l'état de chacun, puis le bouton « Ouvrir dans … » d'un fichier. */
+.prj-outils { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 8px; font-size: .88rem; }
+.prj-outils li { display: grid; grid-template-columns: 112px 1fr auto; gap: 8px; align-items: center; }
+.prj-outils small { display: block; opacity: .72; margin-top: 2px; line-height: 1.35; }
+.prj-ouvrir { margin-left: 8px; padding: 2px 8px; font-size: .76rem; vertical-align: baseline; }
+/* 15/11/2026 : ce que le moteur de FreeCAD ou de KiCad a dit d'un fichier, sous sa ligne. */
+.prj-verif { display: block; margin: 6px 0 4px; padding: 7px 10px; border-left: 2px solid rgba(120, 200, 255, .35); background: rgba(120, 200, 255, .05); border-radius: 0 6px 6px 0; line-height: 1.45; }
+.prj-verif strong { margin-left: 8px; font-weight: 600; }
+.prj-verif small { display: block; opacity: .72; margin-top: 3px; }
+/* 15/11/2026 : une vérification calculée par un moteur, et le bouton qui les fait toutes contrôler. */
+.prj-calcule { display: block; margin-top: 4px; }
+.prj-controles { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin-bottom: 10px; }
+.prj-controles .prj-note { flex: 1 1 320px; }
+.prj-verif-ligne { display: block; margin-top: 4px; font-size: .8rem; }
+.prj-verif-ligne em { font-style: normal; opacity: .65; }
+/* L'atelier (15/11/2026) : la ligne de progression de la construction, puis ses étapes une à une. */
+.prj-fab { display: flex; flex-direction: column; gap: 12px; }
+.prj-fab-tete { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.prj-fab-tete strong { font-size: .95rem; }
+.prj-barre { height: 14px; border-radius: 8px; background: rgba(90, 170, 255, .14); overflow: hidden; }
+.prj-barre > span { display: block; position: relative; height: 100%; border-radius: 8px; overflow: hidden;
+  background: linear-gradient(90deg, #2f7bff, #22c8ff); transition: width .35s ease; }
+.prj-barre.active > span::after { content: ''; position: absolute; inset: 0; background-size: 40px 100%;
+  background-image: repeating-linear-gradient(115deg, rgba(255, 255, 255, .24) 0 10px, transparent 10px 20px);
+  animation: prj-avance .8s linear infinite; }
+@keyframes prj-avance { to { background-position: 40px 0; } }
+@media (prefers-reduced-motion: reduce) { .prj-barre.active > span::after { animation: none; } .prj-barre > span { transition: none; } }
+.prj-etapes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 4px 12px; font-size: .84rem; }
+.prj-etapes li { display: flex; gap: 6px; align-items: center; opacity: .95; }
+.prj-etapes li.encours { font-weight: 600; color: #7fe8ff; }
+/* « Les calculs en premier » : la demande (masse, autonomie, articulations), puis ce que le programme répond. */
+.prj-calcul { display: flex; flex-direction: column; gap: 12px; }
+.prj-demande { display: flex; flex-wrap: wrap; gap: 10px; align-items: flex-end; }
+.prj-demande label { display: flex; flex-direction: column; gap: 4px; font-size: .8rem; opacity: .9; }
+.prj-demande input { width: 110px; padding: 6px 8px; border-radius: 8px; border: 1px solid rgba(90, 170, 255, .3);
+  background: rgba(6, 14, 32, .8); color: inherit; font: inherit; }
+.prj-calcul .prj-table th { text-align: left; font-weight: 600; font-size: .78rem; opacity: .7; padding: 4px 8px; }
+.prj-calcul .prj-table.chiffres td:first-child { width: auto; white-space: normal; }
+.prj-calcul details > summary { cursor: pointer; font-size: .86rem; opacity: .85; }
+.prj-calcul details ul { margin: 6px 0 0; padding-left: 18px; font-size: .84rem; line-height: 1.45; opacity: .85; }

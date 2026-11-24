@@ -1,0 +1,21 @@
+Installation d'AURORA
+  projet  : C:\AURORA
+  données : C:\Users\Camille\.aurora
+
+== 1. Ce que ce PC a déjà
+  [ok]     Python 3.12.7
+  [ok]     Node.js 22.14.0
+  [ok]     Ollama 0.35.0
+  [ok]     Carte graphique : NVIDIA GeForce GTX 1080, 8 Go
+  Mémoire vive : 7.9 Go
+  [ok]     Place libre sur C: : 118.4 Go
+
+== 2. L'environnement Python (C:\Users\Camille\.aurora\venv)
+  [ok]     créé
+
+== 3. Les bibliothèques Python (backend\requirements.txt)
+  9 bibliothèques : fastapi, uvicorn, psutil, httpx, anthropic, numpy, scipy, pypdf, sgp4
+Collecting fastapi<1,>=0.115
+ERROR: Could not find a version that satisfies the requirement fastapi<1,>=0.115 (from versions: none)
+ERROR: No matching distribution found for fastapi<1,>=0.115
+pip a échoué : voir les lignes au-dessus.

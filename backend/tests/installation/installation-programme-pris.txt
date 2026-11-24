@@ -1,0 +1,58 @@
+Installation d'AURORA
+  projet  : C:\AURORA
+  données : C:\Users\Camille\.aurora
+
+== 1. Ce que ce PC a déjà
+  [à prendre] Python 3.11.7 (17 Mo, nuget.org) : aucun Python de 3.11 à 3.14 en 64 bits sur ce PC (trouvé : 3.15.2 en 64 bits)
+  [ok]     Node.js 22.23.3
+  [ok]     Ollama 0.35.0
+  [ok]     Carte graphique : NVIDIA GeForce GTX 1080, 8 Go
+  Mémoire vive : 7.9 Go
+  [ok]     Place libre sur C: : 142 Go
+  Python 3.11.7 : téléchargement (17 Mo, nuget.org)…
+##                                                                         3.4%
+####################################                                      51.0%
+######################################################################## 100.0%
+  Python 3.11.7 : empreinte officielle vérifiée
+  Python 3.11.7 : installation…
+  [ok]     Python 3.11.7 (64 bits) installé
+
+== 2. L'environnement Python (C:\Users\Camille\.aurora\venv)
+  l'ancien environnement, inutilisable, est mis de côté : C:\Users\Camille\.aurora\venv-ecarte-20261123-171502
+  [ok]     créé avec Python 3.11.7
+
+== 3. Les bibliothèques Python (backend\requirements.txt)
+  9 bibliothèques : fastapi, uvicorn, psutil, httpx, anthropic, numpy, scipy, pypdf, sgp4
+Collecting fastapi<1,>=0.115
+  Downloading fastapi-0.165.0-py3-none-any.whl (112 kB)
+Installing collected packages: numpy, scipy, fastapi
+Successfully installed fastapi-0.165.0 numpy-2.4.6 scipy-1.17.1
+  [ok]     installées
+Collecting piper-tts<2,>=1.8
+  Downloading piper_tts-1.8.0-cp39-abi3-win_amd64.whl (13.8 MB)
+Collecting onnxruntime<2,>=1
+  Downloading onnxruntime-1.32.0-cp311-cp311-win_amd64.whl (12.9 MB)
+Installing collected packages: flatbuffers, onnxruntime, piper-tts
+Successfully installed flatbuffers-25.9.23 onnxruntime-1.32.0 piper-tts-1.8.0
+  [ok]     voix neuronale (Piper) installée
+
+== 4. L'interface (frontend)
+
+added 312 packages, and audited 313 packages in 58s
+  [ok]     prête
+
+== 5. Les modèles locaux (Ollama)
+  [ok]     qwen3.5:4b déjà là
+  [ok]     bge-m3 déjà là
+  carte de moins de 10 Go : AURORA répondra avec qwen3.5:4b, sans réglage à faire
+
+== 6. L'icône du Bureau
+  [ok]     posée : C:\Users\Camille\Desktop\AURORA.lnk
+
+== 7. Essai du service (port 8799, données temporaires)
+  [ok]     le service démarre et exige bien son jeton (réponse 401 sans jeton)
+
+== Bilan
+  Il reste à faire :
+  - Un ancien environnement Python, inutilisable, a été mis de côté : C:\Users\Camille\.aurora\venv-ecarte-20261123-171502 (vous pouvez le supprimer).
+  Facultatif, dans AURORA : la clé Claude (Paramètres), et la voix française Piper (README, « Crédits »).

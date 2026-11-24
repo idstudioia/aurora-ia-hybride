@@ -1,0 +1,46 @@
+{
+  "format": "aurora.fiche/1",
+  "titre": "AURORA – Robot X",
+  "sous_titre": "Projet d’exemple · fiche technique",
+  "modele": "modeles/ai-robot-x.glb",
+  "note": "Projet d’exemple. Les vues montrent le modèle 3D tel qu’il est dans son fichier ; les chiffres du tableau sont lus dans ce fichier. Rien n’est mesuré sur un objet réel.",
+  "cartouche": [
+    ["Projet", "Exemple"],
+    ["Modèle", "AI Robot X"],
+    ["Auteur", "ID Studio IA"],
+    ["Date", "24/11/2026"]
+  ],
+  "cadres": [
+    {"type": "vue", "titre": "VUE DE FACE", "place": [1, 1, 5, 9], "azimut": 0},
+    {"type": "vue", "titre": "VUE LATÉRALE", "place": [6, 1, 5, 9], "azimut": 90},
+    {"type": "vue", "titre": "VUE ARRIÈRE", "place": [11, 1, 5, 9], "azimut": 180},
+    {"type": "vue", "titre": "VUE PERSPECTIVE (3/4 AVANT)", "accent": "orange", "place": [16, 1, 9, 19], "azimut": 35, "hauteur": 20},
+    {
+      "type": "tableau",
+      "titre": "LE FICHIER DU MODÈLE",
+      "place": [1, 10, 8, 9],
+      "lignes": [
+        ["Format", "GLB (glTF 2.0)"],
+        ["Taille du fichier", "20,9 Mo"],
+        ["Triangles", "98 886"],
+        ["Matières", "1"],
+        ["Textures", "2"],
+        ["Animations", "4"]
+      ],
+      "note": "Relevé dans le fichier le 24/11/2026."
+    },
+    {
+      "type": "liste",
+      "titre": "CE QUE MONTRE CET EXEMPLE",
+      "place": [9, 10, 7, 9],
+      "numerotee": true,
+      "lignes": [
+        ["Une fiche technique se décrit dans un fichier « fiche-technique.json » du projet."],
+        ["Chaque cadre est une vue du modèle 3D, un tableau, une liste ou l’état du projet."],
+        ["Le modèle 3D est un fichier GLB rangé dans le dossier du projet."],
+        ["Pour le vôtre : « Créer un projet », puis rangez vos fichiers dans son dossier."]
+      ]
+    },
+    {"type": "etat", "titre": "ÉTAT DU PROJET", "accent": "orange", "place": [1, 19, 15, 8]}
+  ]
+}

@@ -1,0 +1,1 @@
+En mode agent : retrouve dans ta mémoire les décisions du projet Orion et donne-en la liste complète, puis donne les différences entre les deux versions de la note de conception jointes, puis écris un résumé en cinq points. Enregistre ensuite ce résumé dans ta mémoire.

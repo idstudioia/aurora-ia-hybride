@@ -1,0 +1,95 @@
+/* Ordinateur page (F5) — every class prefixed cmp- */
+.cmp-page { display: flex; flex-direction: column; min-height: 0; }
+.cmp-title-actions { display: flex; gap: 8px; }
+.cmp-grid { display: grid; gap: 14px; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); grid-template-areas:
+  "gauges info" "curves curves" "procs diag"; }
+.cmp-gauges { grid-area: gauges; }
+.cmp-info { grid-area: info; }
+.cmp-curves { grid-area: curves; }
+.cmp-procs { grid-area: procs; }
+.cmp-diag { grid-area: diag; }
+
+.cmp-rings { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 14px; padding: 6px 0 4px; }
+.cmp-rings .ring-label { text-align: center; max-width: 120px; }
+
+.cmp-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 0; }
+.cmp-facts > div { padding: 9px 11px; border-radius: var(--radius-sm); border: 1px solid var(--border-soft); background: rgba(4, 16, 36, .55); min-width: 0; }
+.cmp-facts dt { display: flex; align-items: center; gap: 6px; font-size: 11px; color: var(--muted); letter-spacing: .02em; }
+.cmp-facts dt svg { color: var(--cyan); }
+.cmp-facts dd { margin: 4px 0 0; font-size: 14px; color: var(--text-strong); font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.cmp-facts .cmp-wide { grid-column: 1 / -1; }
+.cmp-temp { display: inline-block; margin: 0 10px 2px 0; font-size: 13px; }
+
+.cmp-curve-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px 18px; }
+.cmp-curve-grid .cmp-wide { grid-column: 1 / -1; }
+.cmp-curve-grid h3 { display: flex; justify-content: space-between; align-items: baseline; margin: 0 0 6px; font-size: 12.5px; font-weight: 600; color: var(--muted); letter-spacing: .03em; }
+.cmp-curve-grid h3 b { color: var(--text-strong); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+.cmp-chart { position: relative; width: 100%; min-width: 0; }
+.cmp-chart svg { display: block; touch-action: none; }
+.cmp-gridline { stroke: rgba(120, 170, 255, .12); stroke-width: 1; }
+.cmp-axis { fill: var(--muted-2); font-size: 10px; font-variant-numeric: tabular-nums; }
+.cmp-crosshair { stroke: rgba(220, 235, 255, .45); stroke-width: 1; }
+.cmp-chart-empty { display: grid; place-items: center; color: var(--muted); font-size: 12px; border: 1px dashed var(--border-soft); border-radius: var(--radius-sm); }
+.cmp-legend { display: flex; gap: 14px; font-size: 11.5px; color: var(--muted); margin-bottom: 4px; }
+.cmp-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.cmp-legend i, .cmp-tooltip i { display: inline-block; width: 14px; height: 2px; border-radius: 2px; }
+.cmp-tooltip { position: absolute; top: 18px; transform: translateX(-50%); pointer-events: none; display: flex; flex-direction: column; gap: 3px; padding: 7px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel-strong); font-size: 11.5px; color: var(--text); white-space: nowrap; box-shadow: 0 6px 24px rgba(0, 10, 30, .6); z-index: 2; }
+.cmp-tooltip strong { font-size: 11px; color: var(--muted); font-weight: 500; }
+.cmp-tooltip span { display: flex; align-items: center; gap: 6px; font-variant-numeric: tabular-nums; }
+
+.cmp-seg { display: inline-flex; align-items: center; gap: 2px; padding: 2px; border-radius: 9px; border: 1px solid var(--border-soft); background: rgba(4, 16, 36, .6); }
+.cmp-seg > button:not(.icon-btn) { border: 0; background: transparent; color: var(--muted); font-size: 12px; padding: 5px 10px; border-radius: 7px; }
+.cmp-seg > button.active { color: var(--text-strong); background: rgba(34, 120, 255, .35); box-shadow: inset 0 0 0 1px rgba(70, 160, 255, .5); }
+.cmp-seg .icon-btn { width: 28px; height: 28px; }
+
+.cmp-table-wrap { overflow-x: auto; }
+.cmp-table { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.cmp-table th { text-align: left; font-weight: 500; font-size: 11px; color: var(--muted); padding: 6px 8px; border-bottom: 1px solid var(--border-soft); letter-spacing: .03em; }
+.cmp-table td { padding: 6px 8px; border-bottom: 1px solid rgba(60, 130, 220, .1); font-variant-numeric: tabular-nums; }
+.cmp-table tr:hover td { background: rgba(30, 80, 160, .14); }
+.cmp-table .num { text-align: right; white-space: nowrap; }
+.cmp-pname { max-width: 180px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--text-strong); }
+.cmp-user { max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--muted); }
+.cmp-act { text-align: right; }
+.cmp-act .btn { white-space: nowrap; }
+.cmp-footnote, .cmp-small { font-size: 11.5px; color: var(--muted); line-height: 1.5; margin: 10px 2px 0; }
+
+.cmp-diag-wait { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 13px; padding: 10px 0; }
+.cmp-diag-result { display: flex; flex-direction: column; gap: 10px; }
+.cmp-diag-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 12px; }
+.cmp-diag-meta .btn { margin-left: auto; }
+.cmp-findings { margin: 0; padding: 0; list-style: none; counter-reset: f; display: flex; flex-direction: column; gap: 8px; }
+.cmp-findings li { counter-increment: f; position: relative; padding: 9px 11px 9px 36px; border-radius: var(--radius-sm); border: 1px solid var(--border-soft); background: rgba(4, 16, 36, .55); }
+.cmp-findings li::before { content: counter(f); position: absolute; left: 10px; top: 9px; width: 18px; height: 18px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 700; color: #04121f; background: var(--cyan); }
+.cmp-findings strong { font-size: 13px; color: var(--text-strong); margin-right: 8px; }
+.cmp-findings p { margin: 4px 0 0; font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+.cmp-diag-status { display: flex; align-items: center; gap: 8px; font-size: 12.5px; color: var(--muted); }
+.cmp-h4 { margin: 4px 0 0; font-size: 11.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.cmp-causes { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.cmp-causes li { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; font-size: 12.5px; line-height: 1.5; padding: 7px 10px; border-left: 2px solid var(--amber); background: rgba(60, 40, 8, .22); border-radius: 0 8px 8px 0; }
+.cmp-suggestions { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.cmp-suggestions li { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 10px; border-radius: var(--radius-sm); border: 1px solid var(--border-soft); background: rgba(4, 16, 36, .5); }
+.cmp-suggestions strong { font-size: 12.5px; color: var(--text-strong); }
+.cmp-suggestions p { margin: 2px 0 0; font-size: 11.5px; color: var(--muted); }
+.cmp-suggestions .btn { flex-shrink: 0; }
+.cmp-answer { margin: 0; white-space: pre-wrap; font-size: 12.5px; line-height: 1.6; color: var(--text); overflow-wrap: anywhere; }
+.cmp-sub { margin: 16px 0 8px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.cmp-past { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.cmp-past details { border: 1px solid var(--border-soft); border-radius: var(--radius-sm); background: rgba(4, 16, 36, .45); }
+.cmp-past summary { display: flex; align-items: center; gap: 10px; padding: 8px 10px; cursor: pointer; font-size: 12.5px; list-style: none; flex-wrap: wrap; }
+.cmp-past summary::-webkit-details-marker { display: none; }
+.cmp-past summary .muted { margin-left: auto; font-size: 11.5px; }
+.cmp-past details .cmp-answer { padding: 0 12px 10px; }
+.cmp-st { width: 8px; height: 8px; border-radius: 50%; background: var(--muted-2); flex-shrink: 0; }
+.cmp-st-done { background: var(--green); box-shadow: 0 0 6px var(--green); }
+.cmp-st-error { background: var(--red); box-shadow: 0 0 6px var(--red); }
+.cmp-st-running, .cmp-st-waiting_permission { background: var(--amber); box-shadow: 0 0 6px var(--amber); }
+
+@media (max-width: 1100px) {
+  .cmp-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "gauges" "info" "curves" "procs" "diag"; }
+}
+@media (max-width: 640px) {
+  .cmp-facts, .cmp-curve-grid { grid-template-columns: minmax(0, 1fr); }
+  .cmp-user { display: none; }
+}

@@ -1,0 +1,13 @@
+fastapi>=0.115,<1
+uvicorn[standard]>=0.34,<1
+psutil>=6,<9
+httpx>=0.27,<1
+anthropic>=0.70
+numpy>=1.26
+scipy>=1.11
+# Pièces jointes PDF (E4, 29/10/2026) : texte des PDF, pur Python, licence BSD-3, aucun accès réseau.
+pypdf>=6,<7
+# La voix neuronale locale (piper-tts) est à part, dans requirements-voix.txt : elle est facultative, et son échec
+# ne doit pas arrêter l'installation du reste (23/11/2026).
+# Globe Monde 3D (8/11/2026) : position des satellites calculée sur le PC depuis leur orbite publiée, licence MIT.
+sgp4>=2.23,<3

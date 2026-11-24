@@ -1,0 +1,42 @@
+/* AURORA design tokens — shared by every page. Add tokens, don't rename them. */
+:root {
+  color-scheme: dark;
+  --bg: #030914;
+  --bg-2: #061227;
+  --bg-deep: #02060e;
+  --panel: rgba(8, 24, 48, 0.72);
+  --panel-strong: rgba(10, 30, 60, 0.88);
+  --panel-hover: rgba(14, 40, 78, 0.85);
+  --border: #1b4677;
+  --border-soft: rgba(60, 130, 220, 0.22);
+  --border-glow: rgba(34, 200, 255, 0.45);
+  --text: #dcebff;
+  --text-strong: #f3f8ff;
+  --muted: #7f9cc0;
+  --muted-2: #56769c;
+  --cyan: #22c8ff;
+  --blue: #2f7bff;
+  --violet: #8a5cff;
+  --green: #2ee6a8;
+  --amber: #ffb547;
+  --red: #ff6b7a;
+  --pink: #ff5ec8;
+  /* stage colours (flow replay, brain, badges) */
+  --st-input: #8fb8ff;
+  --st-decision: #22c8ff;
+  --st-tool: #2ee6a8;
+  --st-local: #ffb547;
+  --st-cloud: #b98bff;
+  --st-permission: #ff9f5a;
+  --st-verify: #ff6b7a;
+  --st-response: #6fe3ff;
+  --st-memory: #f5d06f;
+  --radius: 14px;
+  --radius-sm: 9px;
+  --shadow-glow: 0 0 0 1px rgba(34, 200, 255, 0.08), 0 10px 40px rgba(0, 20, 60, 0.55), inset 0 1px 0 rgba(140, 200, 255, 0.06);
+  --font: "Inter", "Segoe UI Variable", "Segoe UI", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Segoe UI Variable Display", "Segoe UI", "Inter", sans-serif;
+  --font-mono: "Cascadia Code", "JetBrains Mono", ui-monospace, Consolas, monospace;
+  --sidebar-w: 104px;
+  --topbar-h: 76px;
+}

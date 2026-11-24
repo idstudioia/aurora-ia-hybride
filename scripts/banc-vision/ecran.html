@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><title>Faux écran d'essai</title>
+<style>
+  html, body { margin: 0; width: 3840px; height: 2160px; background: #1b1f2a; color: #e8ecf4; font-family: "Segoe UI", Arial, sans-serif; overflow: hidden; }
+  .barre { height: 96px; background: #10131b; display: flex; align-items: center; padding: 0 48px; font-size: 40px; gap: 60px; }
+  .barre small { font-size: 26px; color: #9aa6bd; }
+  .corps { display: flex; height: 1968px; }
+  .menu { width: 620px; background: #151924; padding: 40px; font-size: 30px; line-height: 2.1; }
+  .menu b { color: #6fd3ff; }
+  .zone { flex: 1; padding: 48px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; align-content: start; }
+  .carte { background: #232938; border: 2px solid #323a4f; border-radius: 18px; padding: 36px; }
+  .carte h2 { margin: 0 0 18px; font-size: 40px; color: #ffd27a; }
+  .carte p { margin: 10px 0; font-size: 28px; }
+  .carte .petit { font-size: 22px; color: #b7c1d6; }
+  .carte .mini { font-size: 18px; color: #93a0b8; }
+  .pied { height: 96px; background: #10131b; display: flex; align-items: center; padding: 0 48px; font-size: 24px; gap: 80px; color: #9aa6bd; }
+  button { font: inherit; font-size: 26px; padding: 12px 30px; border-radius: 12px; border: 0; background: #3b82f6; color: white; margin-right: 18px; }
+</style></head><body>
+<div class="barre"><span>Atelier Orion — tableau de bord</span><small>Fichier · Édition · Affichage · Outils · Aide</small><small>Version 4.12.7</small></div>
+<div class="corps">
+  <div class="menu"><b>Projets</b><br>Serre connectée<br>Station météo<br>Robot de jardin<br><b>Documents</b><br>rapport-orion-v2.pdf<br>plan-du-boitier.dxf<br>liste-des-achats.csv<br><b>Contacts</b><br>Lina Morel<br>Atelier du Rhône</div>
+  <div class="zone">
+    <div class="carte"><h2>Serre</h2><p>Température : 23,5 °C</p><p class="petit">Humidité : 61 % · relevé à 10 h 42</p><p class="mini">Capteur DS18B20, câble de 3 m, à 1,5 m du sol</p></div>
+    <div class="carte"><h2>Budget</h2><p>Budget : 450 €</p><p class="petit">Dépensé : 312,40 € · reste 137,60 €</p><p class="mini">Total de la dernière facture : 1 298,00 €</p></div>
+    <div class="carte"><h2>Commandes</h2><p>Commande n° 78412</p><p class="petit">Expédiée le 19 novembre, 3 colis</p><p class="mini">Suivi : colis déposé au point relais</p></div>
+    <div class="carte"><h2>Agenda</h2><p>Réunion : jeudi 14 h 30</p><p class="petit">Échéance : 28 novembre</p><p class="mini">Salle B, premier étage</p></div>
+    <div class="carte"><h2>Alimentation</h2><p>Batterie : 3000 mAh</p><p class="petit">Panneau solaire de 5 W · fusible de 2 A</p><p class="mini">Autonomie visée : 5 jours sans soleil</p></div>
+    <div class="carte"><h2>Réseau</h2><p>Port : 8812</p><p class="petit">Adresse locale 127.0.0.1 · connexion active</p><p class="mini">Dernier essai réussi il y a 4 minutes</p></div>
+    <div class="carte" style="grid-column: span 3"><h2>Actions</h2><p><button>Enregistrer</button><button>Exporter en PDF</button><button>Annuler</button></p><p class="petit">Astuce : appuyez sur Ctrl + S pour enregistrer le projet en cours.</p></div>
+  </div>
+</div>
+<div class="pied"><span>Prêt</span><span>3 projets ouverts</span><span>Samedi 21 novembre 2026</span></div>
+</body></html>

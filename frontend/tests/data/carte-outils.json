@@ -1,0 +1,1099 @@
+{
+ "checked_at": "2026-11-11T10:00:00.000Z",
+ "mode": "equilibre",
+ "internet": true,
+ "groups": [
+  {
+   "id": "pc",
+   "title": "Votre PC",
+   "description": "ce qu’AURORA mesure et range sur cet ordinateur",
+   "families": [
+    "system",
+    "files"
+   ],
+   "tools": 8
+  },
+  {
+   "id": "monde",
+   "title": "Web et monde",
+   "description": "ce qu’elle va chercher sur Internet et ce qui se passe dans le monde",
+   "families": [
+    "weather",
+    "web",
+    "news",
+    "quakes",
+    "sky"
+   ],
+   "tools": 14
+  },
+  {
+   "id": "calcul",
+   "title": "Calculs et données",
+   "description": "des résultats calculés par des outils, pas devinés",
+   "families": [
+    "calc",
+    "time",
+    "data"
+   ],
+   "tools": 8
+  },
+  {
+   "id": "3d",
+   "title": "3D",
+   "description": "les maquettes du laboratoire et les simulations",
+   "families": [
+    "sim",
+    "lab"
+   ],
+   "tools": 4
+  },
+  {
+   "id": "studio",
+   "title": "Studio",
+   "description": "votre activité de créateur",
+   "families": [
+    "studio",
+    "youtube"
+   ],
+   "tools": 7
+  },
+  {
+   "id": "agir",
+   "title": "Agir",
+   "description": "ce qu’elle fait sur le PC ou enchaîne pour vous ; les gestes sensibles demandent votre accord",
+   "families": [
+    "pc",
+    "app",
+    "routines",
+    "agent",
+    "shell"
+   ],
+   "tools": 4
+  },
+  {
+   "id": "memoire",
+   "title": "Mémoire et écriture",
+   "description": "ce qu’elle retient, relit et rédige",
+   "families": [
+    "redaction",
+    "memoire",
+    "conversations-passees",
+    "documents-joints",
+    "pages"
+   ],
+   "tools": 0
+  }
+ ],
+ "families": [
+  {
+   "id": "system",
+   "title": "Ordinateur",
+   "group": "pc",
+   "description": "l’état du PC mesuré (processeur, mémoire, disques, réseau, carte graphique), son historique, les programmes gourmands, un diagnostic, et l’arrêt d’un programme avec votre accord",
+   "builtin": false,
+   "tools": 5
+  },
+  {
+   "id": "files",
+   "title": "Fichiers",
+   "group": "pc",
+   "description": "les gros ou vieux fichiers d’un dossier autorisé, leur mise en quarantaine réversible avec votre accord, et leur remise en place",
+   "builtin": false,
+   "tools": 3
+  },
+  {
+   "id": "calc",
+   "title": "Calculs",
+   "group": "calcul",
+   "description": "calculs exacts et conversions d’unités",
+   "builtin": false,
+   "tools": 2
+  },
+  {
+   "id": "time",
+   "title": "Heure et date",
+   "group": "calcul",
+   "description": "la date et l’heure du PC ou d’une grande ville",
+   "builtin": false,
+   "tools": 1
+  },
+  {
+   "id": "weather",
+   "title": "Météo",
+   "group": "monde",
+   "description": "la météo actuelle et la prévision sur 7 jours (Open-Meteo) ; sur le globe de Monde 3D, le vent, la pluie, la chaleur et la qualité de l’air du monde entier",
+   "builtin": false,
+   "tools": 5
+  },
+  {
+   "id": "web",
+   "title": "Recherche web",
+   "group": "monde",
+   "description": "chercher sur Internet (SearXNG, Wikipédia, DuckDuckGo) et lire les premières pages publiques",
+   "builtin": false,
+   "tools": 2
+  },
+  {
+   "id": "news",
+   "title": "Actualités",
+   "group": "monde",
+   "description": "les actualités du monde ou d’un pays (27 flux : France 24, RFI, Euronews, BBC Afrique…), placées par pays sur le globe, et les actualités scientifiques (5 flux RSS)",
+   "builtin": false,
+   "tools": 2
+  },
+  {
+   "id": "quakes",
+   "title": "Séismes et catastrophes",
+   "group": "monde",
+   "description": "les séismes des dernières 24 heures (USGS) et, sur le globe, les catastrophes en cours : séismes, tsunamis, volcans, cyclones, tornades",
+   "builtin": false,
+   "tools": 2
+  },
+  {
+   "id": "sky",
+   "title": "Ciel",
+   "group": "monde",
+   "description": "les avions en vol autour d’un lieu (adsb.lol, OpenSky), le trafic aérien mondial et la position des satellites (ISS, Tiangong, Hubble…), montrés sur le globe de Monde 3D",
+   "builtin": false,
+   "tools": 3
+  },
+  {
+   "id": "sim",
+   "title": "Simulations",
+   "group": "3d",
+   "description": "des orbites autour de la Terre, de Mars, de la Lune… et la position des planètes",
+   "builtin": false,
+   "tools": 2
+  },
+  {
+   "id": "lab",
+   "title": "Laboratoire 3D",
+   "group": "3d",
+   "description": "sur l’accueil, une scène prédéfinie, le bras robotique à 4 axes, et sur demande (« montre-moi un moteur électrique en 3D ») une maquette construite automatiquement par l’IA avec des formes simples, vérifiée par le code : des illustrations pédagogiques (jamais des simulations) que l’on démonte, anime et explique pièce par pièce ; s’y ouvrent aussi, en un seul bloc, un modèle 3D que vous avez déjà (fichier STL, GLB ou OBJ, bouton « Joindre un fichier ») et la forme d’un objet reconstruite sur ce PC par une IA locale à partir d’une photo (bouton « Photo vers 3D », avec un choix à côté : « Détaillé », 3 minutes environ avec Pixal3D, ou « Rapide », 35 secondes environ avec TripoSR ; l’autre moteur sert de secours ; les côtés que la photo ne montre pas sont inventés) ; le bouton « Modèles 3D » de l’accueil liste les scènes gardées, pour en rouvrir une ou en retirer une (vous seul le faites, après confirmation : elle est mise de côté, jamais effacée)",
+   "builtin": false,
+   "tools": 2
+  },
+  {
+   "id": "data",
+   "title": "Analyse de données",
+   "group": "calcul",
+   "description": "un tableau CSV joint ou dans un dossier : totaux, évolution, valeurs anormales, comparaison de périodes",
+   "builtin": false,
+   "tools": 5
+  },
+  {
+   "id": "studio",
+   "title": "Studio",
+   "group": "studio",
+   "description": "votre activité de créateur : GitHub, téléchargements, Discord, YouTube (vidéos, abonnés, commentaires) et site",
+   "builtin": false,
+   "tools": 6
+  },
+  {
+   "id": "redaction",
+   "title": "Rédaction",
+   "group": "memoire",
+   "description": "écrire des textes, des explications et du code, par exemple un petit jeu complet en HTML et JavaScript à copier dans un fichier .html puis à ouvrir dans le navigateur ; ce code n’est ni lancé ni enregistré sur le PC par AURORA",
+   "builtin": true,
+   "tools": 0
+  },
+  {
+   "id": "pc",
+   "title": "Souris et clavier",
+   "group": "agir",
+   "description": "un geste à la fois sur le PC (cliquer à une position, taper un texte ou une touche dans une fenêtre nommée, faire défiler), montré puis fait seulement après votre accord ; désactivé par défaut (Paramètres), jamais dans un terminal, une fenêtre de sécurité ni AURORA",
+   "builtin": false,
+   "tools": 2
+  },
+  {
+   "id": "app",
+   "title": "Applications",
+   "group": "agir",
+   "description": "ouvrir par son nom une application de la liste que vous tenez dans Paramètres › Applications autorisées (« ouvre YouTube Manager ») ; rien d’autre ne peut être lancé",
+   "builtin": false,
+   "tools": 1
+  },
+  {
+   "id": "youtube",
+   "title": "YouTube",
+   "group": "studio",
+   "description": "publier un commentaire sous la dernière vidéo de votre chaîne reliée (« mets un commentaire sous ma dernière vidéo »), votre texte ou rédigé par l’IA locale, montré avant d’être publié sauf si « Publier sans redemander » est activé ; le retirer n’est pas encore fait",
+   "builtin": false,
+   "tools": 1
+  },
+  {
+   "id": "memoire",
+   "title": "Mémoire",
+   "group": "memoire",
+   "description": "retenir ce que vous m’apprenez, le retrouver, et l’oublier sur demande",
+   "builtin": true,
+   "tools": 0
+  },
+  {
+   "id": "conversations-passees",
+   "title": "Conversations passées",
+   "group": "memoire",
+   "description": "retrouver ce dont nous avons parlé",
+   "builtin": true,
+   "tools": 0
+  },
+  {
+   "id": "documents-joints",
+   "title": "Documents joints",
+   "group": "memoire",
+   "description": "lire et résumer un texte joint (pas encore les PDF ni les fichiers Word)",
+   "builtin": true,
+   "tools": 0
+  },
+  {
+   "id": "pages",
+   "title": "Pages",
+   "group": "memoire",
+   "description": "faire une page lisible d’une réponse, d’un diagnostic ou d’une analyse",
+   "builtin": true,
+   "tools": 0
+  },
+  {
+   "id": "routines",
+   "title": "Routines",
+   "group": "agir",
+   "description": "lancer par son nom une suite de demandes enregistrée",
+   "builtin": true,
+   "tools": 0
+  },
+  {
+   "id": "agent",
+   "title": "Agent",
+   "group": "agir",
+   "description": "enchaîner plusieurs outils, tour après tour, pour une tâche en plusieurs étapes",
+   "builtin": true,
+   "tools": 0
+  },
+  {
+   "id": "shell",
+   "title": "Terminal",
+   "group": "agir",
+   "description": "une commande Windows à la fois, que vous donnez mot pour mot (« exécute : git status »), montrée avec ce qu’elle fait puis lancée seulement après votre accord ; désactivé par défaut (Paramètres), et certaines commandes restent interdites même avec accord",
+   "builtin": false,
+   "tools": 1
+  }
+ ],
+ "tools": [
+  {
+   "name": "app.launch",
+   "title": "Ouverture d’une application autorisée",
+   "family": "app",
+   "group": "agir",
+   "description": "Ouvrir une application de la liste autorisée par la personne (Paramètres › Applications autorisées), par son nom exact ; rien d’autre ne peut être lancé.",
+   "state": "absent",
+   "reason": "Votre liste d’applications autorisées est vide : ajoutez-y une application dans Paramètres › Applications autorisées (son nom et le chemin de son programme).",
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Application de votre liste autorisée (Paramètres) : votre liste vaut accord.",
+    "risk": "medium"
+   },
+   "example": "Ouvre l’application Spotify",
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "calc.convert",
+   "title": "Conversion d’unités",
+   "family": "calc",
+   "group": "calcul",
+   "description": "Conversion d'unités (longueur, masse, température, volume, vitesse, données, durée, énergie).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": "Convertis 10 kilomètres en miles",
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "calc.evaluate",
+   "title": "Calcul",
+   "family": "calc",
+   "group": "calcul",
+   "description": "Calcul arithmétique exact (opérateurs, parenthèses, fonctions mathématiques).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": "Calcule 345 + 789",
+   "uses": 17,
+   "last_used_at": "2026-11-08T10:05:00.000Z"
+  },
+  {
+   "name": "data.compare",
+   "title": "Comparaison de deux périodes",
+   "family": "data",
+   "group": "calcul",
+   "description": "Compare deux périodes (period : mois par défaut) : les deux dernières complètes, ou first et second (ex. 2026-09 et 2026-10) ; avec by, l’écart de chaque groupe. Filtres possibles (liste) : [{\"column\": \"Catégorie\", \"op\": \"=\", \"value\": \"Restaurant\"}] ; op : = != > >= < <= contient entre (entre : value = [a, b]) ; dates : 2026-09, 14/09/2026 ou 2026.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "data.describe",
+   "title": "Lecture du tableau",
+   "family": "data",
+   "group": "calcul",
+   "description": "Décrit le tableau : colonnes, types, valeurs manquantes, minimum, maximum, moyenne, valeurs les plus fréquentes, cinq lignes d’exemple.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "data.group",
+   "title": "Regroupement",
+   "family": "data",
+   "group": "calcul",
+   "description": "Regroupe les lignes par une colonne (by) et calcule pour chaque groupe la somme, la moyenne, le nombre, le minimum, le maximum ou la médiane (agg) d’une colonne de nombres (value). Filtres possibles (liste) : [{\"column\": \"Catégorie\", \"op\": \"=\", \"value\": \"Restaurant\"}] ; op : = != > >= < <= contient entre (entre : value = [a, b]) ; dates : 2026-09, 14/09/2026 ou 2026.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "data.outliers",
+   "title": "Valeurs anormales",
+   "family": "data",
+   "group": "calcul",
+   "description": "Repère les valeurs anormales d’une colonne de nombres (column) par la règle de Tukey (en dehors de Q1 − 1,5 × IQR et Q3 + 1,5 × IQR), avec leur ligne dans le fichier. Filtres possibles (liste) : [{\"column\": \"Catégorie\", \"op\": \"=\", \"value\": \"Restaurant\"}] ; op : = != > >= < <= contient entre (entre : value = [a, b]) ; dates : 2026-09, 14/09/2026 ou 2026.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "data.trend",
+   "title": "Évolution dans le temps",
+   "family": "data",
+   "group": "calcul",
+   "description": "Évolution dans le temps : agrège une colonne de nombres (value, agg) par jour, semaine, mois, trimestre ou année (period, auto par défaut) selon une colonne de dates (date), et calcule la pente. Filtres possibles (liste) : [{\"column\": \"Catégorie\", \"op\": \"=\", \"value\": \"Restaurant\"}] ; op : = != > >= < <= contient entre (entre : value = [a, b]) ; dates : 2026-09, 14/09/2026 ou 2026.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "events.active",
+   "title": "events.active",
+   "family": "quakes",
+   "group": "monde",
+   "description": "Événements naturels en cours pour le globe : séismes M4,5+ (USGS), tsunamis (NOAA), volcans et cyclones (GDACS), tornades aux États-Unis (NWS).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "files.quarantine",
+   "title": "Mise en quarantaine réversible",
+   "family": "files",
+   "group": "pc",
+   "description": "Déplace des fichiers vers la quarantaine AURORA (réversible, permission obligatoire, dossiers autorisés uniquement).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": true,
+    "permission_reason": "Action modifiant votre système : confirmation requise à chaque fois.",
+    "risk": "medium"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "files.restore",
+   "title": "files.restore",
+   "family": "files",
+   "group": "pc",
+   "description": "Remet à leur place les fichiers mis en quarantaine par un run.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": true,
+    "permission_reason": "Action modifiant votre système : confirmation requise à chaque fois.",
+    "risk": "medium"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "files.scan",
+   "title": "Analyse des fichiers (lecture seule)",
+   "family": "files",
+   "group": "pc",
+   "description": "Liste en lecture seule les vieux / gros fichiers d'un dossier autorisé (Documents, Téléchargements, Bureau, dossiers ajoutés).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": "Liste les gros fichiers de mon bureau",
+   "uses": 3,
+   "last_used_at": "2026-11-02T16:00:00.000Z"
+  },
+  {
+   "name": "lab.catalogue",
+   "title": "Catalogue des scènes 3D",
+   "family": "lab",
+   "group": "3d",
+   "description": "Catalogue des scènes 3D du laboratoire de l’accueil (descriptions validées, sans réseau) : identifiant, titre, domaine, nature, résumé, mots.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "lab.scene",
+   "title": "Description de la scène 3D",
+   "family": "lab",
+   "group": "3d",
+   "description": "Description validée d’une scène 3D du laboratoire (format aurora.scene/1) : pièces, groupes, formes, articulations, textes. Sans réseau.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 1,
+   "last_used_at": "2026-11-10T20:00:00.000Z"
+  },
+  {
+   "name": "news.latest",
+   "title": "Actualités (RSS)",
+   "family": "news",
+   "group": "monde",
+   "description": "Dernières actualités scientifiques (flux RSS publics), filtrables par sujet.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": "Donne-moi les dernières nouvelles scientifiques",
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "news.world",
+   "title": "Actualités du monde (27 flux RSS)",
+   "family": "news",
+   "group": "monde",
+   "description": "Actualités du monde (27 flux RSS : France 24, RFI, Euronews, Africanews, BBC Afrique, Le Monde, Jeune Afrique…), placées par pays pour le globe ; filtrables par pays et thème.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 9,
+   "last_used_at": "2026-11-07T07:15:00.000Z"
+  },
+  {
+   "name": "pc.gesture",
+   "title": "Geste de la souris ou du clavier",
+   "family": "pc",
+   "group": "agir",
+   "description": "Un geste de la souris ou du clavier sur le PC (cliquer, double-cliquer, clic droit, déplacer, faire défiler, taper un texte, une touche de la liste fermée), après autorisation ; désactivé par défaut ; terminaux, fenêtres de sécurité et AURORA refusés même avec accord.",
+   "state": "disabled",
+   "reason": "La souris et le clavier sont désactivés : je ne peux pas agir sur l’écran. Ils s’activent dans Paramètres › Souris et clavier ; chaque geste est alors montré et attend l’accord.",
+   "needs": {
+    "internet": false,
+    "permission": true,
+    "permission_reason": "Action modifiant votre système : confirmation requise à chaque fois.",
+    "risk": "high"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "pc.pointer",
+   "title": "Position de la souris",
+   "family": "pc",
+   "group": "agir",
+   "description": "Position de la souris et fenêtre sous elle (lecture seule, mesurée par Windows).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "process.terminate",
+   "title": "Arrêt du processus",
+   "family": "system",
+   "group": "pc",
+   "description": "Arrête un programme de l'utilisateur (permission obligatoire, processus système/AURORA/autres utilisateurs refusés).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": true,
+    "permission_reason": "Action modifiant votre système : confirmation requise à chaque fois.",
+    "risk": "high"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "quakes.recent",
+   "title": "Séismes récents (USGS)",
+   "family": "quakes",
+   "group": "monde",
+   "description": "Séismes de magnitude ≥ 2,5 des dernières 24 h (USGS).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": "Y a-t-il eu un tremblement de terre récemment ?",
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "shell.run",
+   "title": "Commande de terminal",
+   "family": "shell",
+   "group": "agir",
+   "description": "Exécute une commande dans un terminal, après autorisation (désactivé par défaut ; liste noire refusée même avec accord ; la sortie est une donnée).",
+   "state": "disabled",
+   "reason": "Le terminal avec autorisation est désactivé : aucune commande ne peut être lancée. Il s’active dans Paramètres › Terminal ; chaque commande est alors montrée et attend l’accord avant de partir.",
+   "needs": {
+    "internet": false,
+    "permission": true,
+    "permission_reason": "Action modifiant votre système : confirmation requise à chaque fois.",
+    "risk": "high"
+   },
+   "example": "Exécute la commande git add .",
+   "uses": 2,
+   "last_used_at": "2026-11-05T12:00:00.000Z"
+  },
+  {
+   "name": "sim.orbit",
+   "title": "Simulation orbitale",
+   "family": "sim",
+   "group": "3d",
+   "description": "Simulation d'orbite (SciPy DOP853, J2 optionnel) autour de la Terre, Mars, la Lune, Vénus ou Jupiter, avec vérification numérique.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": "Simule l'orbite d'un satellite à 500 km",
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "sim.solar_system",
+   "title": "Positions des planètes",
+   "family": "sim",
+   "group": "3d",
+   "description": "Positions héliocentriques des 8 planètes à une date (éléments képlériens approchés du JPL) et éléments pour tracer les orbites.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": "Où se trouve Jupiter en ce moment ?",
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "sky.planes",
+   "title": "sky.planes",
+   "family": "sky",
+   "group": "monde",
+   "description": "Avions en vol autour d'un point ou d'une ville (adsb.lol, OpenSky Network en secours) : les 40 plus proches et le total mesuré.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "sky.satellites",
+   "title": "sky.satellites",
+   "family": "sky",
+   "group": "monde",
+   "description": "Position calculée (SGP4) de 8 satellites — ISS, Tiangong, Hubble, Suomi NPP, NOAA-20, Terra, Aqua, Landsat 9 — et leur trace des 45 prochaines minutes (orbites CelesTrak).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "sky.traffic",
+   "title": "sky.traffic",
+   "family": "sky",
+   "group": "monde",
+   "description": "Échantillon du trafic aérien mondial mesuré (OpenSky Network) : 1 500 avions au plus, pris à pas régulier.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "studio.comments",
+   "title": "studio.comments",
+   "family": "studio",
+   "group": "studio",
+   "description": "Studio : derniers commentaires de la chaîne YouTube et ceux sans réponse (API YouTube).",
+   "state": "absent",
+   "reason": "Clé API YouTube absente : créez-en une dans Google Cloud Console (API et services › Identifiants › Clé API, limitée à « YouTube Data API v3 »), puis collez-la dans Paramètres › Studio.",
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "studio.discord",
+   "title": "studio.discord",
+   "family": "studio",
+   "group": "studio",
+   "description": "Studio : membres et membres en ligne du serveur Discord (invitation publique).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "studio.downloads",
+   "title": "studio.downloads",
+   "family": "studio",
+   "group": "studio",
+   "description": "Studio : téléchargements des fichiers publiés dans les versions GitHub.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "studio.github",
+   "title": "studio.github",
+   "family": "studio",
+   "group": "studio",
+   "description": "Studio : comptes, dépôts et activité publique GitHub (API publique).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "studio.site",
+   "title": "studio.site",
+   "family": "studio",
+   "group": "studio",
+   "description": "Studio : visiteurs et pages vues du site sur 30 jours (Netlify Analytics).",
+   "state": "absent",
+   "reason": "Netlify n’est pas connecté : ajoutez votre jeton personnel Netlify dans Paramètres › Studio (app.netlify.com › User settings › Applications), puis activez Netlify Analytics sur le site.",
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "studio.youtube",
+   "title": "studio.youtube",
+   "family": "studio",
+   "group": "studio",
+   "description": "Studio : dernières vidéos de la chaîne YouTube et leurs vues (flux public).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "system.diagnose",
+   "title": "Diagnostic par règles",
+   "family": "system",
+   "group": "pc",
+   "description": "Diagnostic du PC par règles (CPU soutenu, RAM, disque, processus, temps de fonctionnement) avec causes probables et suggestions. Lecture seule.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": "Mon ordinateur rame depuis ce matin",
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "system.history",
+   "title": "Historique système",
+   "family": "system",
+   "group": "pc",
+   "description": "Historique récent CPU / RAM / réseau (tampon de 300 points).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "system.processes",
+   "title": "Liste des processus",
+   "family": "system",
+   "group": "pc",
+   "description": "Processus les plus gourmands (CPU ou mémoire).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": "Quelles applications utilisent le plus de mémoire ?",
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "system.snapshot",
+   "title": "Mesure système",
+   "family": "system",
+   "group": "pc",
+   "description": "Instantané de la machine : CPU, RAM, disques, réseau, GPU, batterie.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": "Combien de mémoire vive me reste-t-il ?",
+   "uses": 58,
+   "last_used_at": "2026-11-09T21:30:00.000Z"
+  },
+  {
+   "name": "time.now",
+   "title": "Date et heure",
+   "family": "time",
+   "group": "calcul",
+   "description": "Date et heure locales du PC (ou d'une grande ville connue).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": false,
+    "permission": false,
+    "permission_reason": "Action locale en lecture ou sans risque.",
+    "risk": "low"
+   },
+   "example": "Il est quelle heure ?",
+   "uses": 212,
+   "last_used_at": "2026-11-11T08:41:07.000Z"
+  },
+  {
+   "name": "weather.air",
+   "title": "weather.air",
+   "family": "weather",
+   "group": "monde",
+   "description": "Qualité de l'air (indice européen, PM2,5) sur 612 points du globe (Copernicus CAMS par Open-Meteo).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "weather.cities",
+   "title": "Météo des villes",
+   "family": "weather",
+   "group": "monde",
+   "description": "Météo actuelle de 14 grandes villes du monde (une seule requête Open-Meteo).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "weather.current",
+   "title": "Météo (Open-Meteo)",
+   "family": "weather",
+   "group": "monde",
+   "description": "Météo actuelle d'une ville et prévision des 7 prochains jours (Open-Meteo).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": "Quelle est la météo à Bordeaux ?",
+   "uses": 96,
+   "last_used_at": "2026-11-10T18:02:11.000Z"
+  },
+  {
+   "name": "weather.grid",
+   "title": "weather.grid",
+   "family": "weather",
+   "group": "monde",
+   "description": "Vent, pluie, température et humidité sur 612 points du globe (grille de 10°, une requête Open-Meteo).",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "weather.point",
+   "title": "weather.point",
+   "family": "weather",
+   "group": "monde",
+   "description": "Météo actuelle d'un point du globe (Open-Meteo) : température, ciel, vent.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "web.search",
+   "title": "Recherche web (SearXNG, Wikipedia)",
+   "family": "web",
+   "group": "monde",
+   "description": "Recherche web : SearXNG local (avec lecture des premières pages publiques), puis Wikipedia (FR puis EN), puis DuckDuckGo.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": "Cherche sur internet le prix moyen d'une voiture électrique",
+   "uses": 1340,
+   "last_used_at": "2026-11-11T09:12:44.000Z"
+  },
+  {
+   "name": "web.wiki_summary",
+   "title": "web.wiki_summary",
+   "family": "web",
+   "group": "monde",
+   "description": "Résumé d'un lieu (Wikipédia) ou d'un pays (Wikivoyage) en français, par son titre exact, pour le guide du globe.",
+   "state": "available",
+   "reason": null,
+   "needs": {
+    "internet": true,
+    "permission": false,
+    "permission_reason": "Accès en lecture à une source publique.",
+    "risk": "low"
+   },
+   "example": null,
+   "uses": 0,
+   "last_used_at": null
+  },
+  {
+   "name": "youtube.comment",
+   "title": "Publication du commentaire YouTube",
+   "family": "youtube",
+   "group": "studio",
+   "description": "Publier un commentaire public sous la dernière vidéo de la chaîne YouTube reliée (Paramètres › Studio), en votre nom : aperçu (votre texte, ou rédigé par l’IA locale), puis publication relue sur YouTube, après votre accord ou avec « Publier sans redemander ».",
+   "state": "absent",
+   "reason": "Aucune chaîne YouTube n’est reliée à AURORA : reliez-la dans Paramètres › Studio › Connexion Google (« Se connecter à Google »).",
+   "needs": {
+    "internet": true,
+    "permission": true,
+    "permission_reason": "Publication publique en votre nom : le commentaire vous est montré et attend votre accord, sauf si « Publier sans redemander » est activé (Paramètres › Studio).",
+    "risk": "medium"
+   },
+   "example": "Mets un commentaire sous ma dernière vidéo",
+   "uses": 0,
+   "last_used_at": null
+  }
+ ],
+ "absent_modules": [],
+ "usage": {
+  "source": "journal",
+  "since": "2026-10-28T07:00:00.000Z",
+  "note": "Nombre de fois où une demande a exécuté l’outil, compté dans le journal (aperçus et échecs compris). Les lectures faites par les pages (Ordinateur, Monde 3D, Studio…) ne sont pas comptées, et vider le journal remet les compteurs à zéro."
+ }
+}

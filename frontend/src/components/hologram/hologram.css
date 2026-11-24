@@ -1,0 +1,161 @@
+/* Globe hologramme (page Monde 3D). Classes préfixées « holo- », adaptées des classes globe-* d'Athéna
+   (client/src/index.css, 04/10 et 12/10/2026) avec les couleurs de tokens.css. */
+.holo {
+  display: grid; gap: 14px; align-items: start; min-width: 0;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 360px);
+}
+
+/* ---------- la scène : grande d'emblée, elle remplit la zone ---------- */
+.holo-scene {
+  position: relative; min-width: 0; height: calc(100vh - 262px); min-height: 460px;
+  border-radius: 16px; border: 1px solid var(--border-soft); overflow: hidden;
+  background: radial-gradient(circle at 50% 48%, rgba(20, 70, 150, .3), rgba(3, 9, 20, 0) 62%), rgba(2, 8, 20, .45);
+}
+.holo-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
+.holo-canvas:active { cursor: grabbing; }
+.holo-etiquettes { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+
+.holo-icones { position: absolute; left: 10px; top: 10px; z-index: 2; display: flex; flex-wrap: wrap; gap: 6px; max-width: calc(100% - 20px); }
+.holo-icones button {
+  width: 36px; height: 36px; display: grid; place-items: center; border-radius: 12px;
+  border: 1px solid var(--border-soft); background: rgba(5, 18, 40, .78); color: var(--text); opacity: .75;
+  backdrop-filter: blur(8px);
+}
+.holo-icones button:hover { opacity: 1; border-color: var(--border-glow); }
+.holo-icones button.actif { opacity: 1; border-color: var(--cyan); color: var(--cyan); box-shadow: 0 0 12px rgba(34, 200, 255, .4); }
+.holo-icones button.bloque { opacity: .45; }
+.holo-icones button:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+.holo-annonce { position: absolute; right: 12px; top: 12px; z-index: 2; pointer-events: none; }
+.holo-recherche {
+  display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; border-radius: 999px; font-size: 12px;
+  color: #dff8ff; border: 1px solid rgba(127, 232, 255, .55); background: rgba(5, 30, 60, .8);
+}
+.holo-recherche::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #7fe8ff; box-shadow: 0 0 8px #7fe8ff; }
+@media (prefers-reduced-motion: no-preference) {
+  .holo-recherche::before { animation: holo-pouls 1.2s ease-in-out infinite; }
+}
+@keyframes holo-pouls { 50% { opacity: .35; transform: scale(.75); } }
+
+.holo-sonde {
+  position: absolute; z-index: 3; pointer-events: none; padding: 2px 8px; border-radius: 8px; font-size: 12px; font-weight: 600;
+  color: #fff; background: rgba(5, 10, 30, .85); border: 1px solid rgba(255, 255, 255, .25); white-space: nowrap;
+}
+.holo-erreur {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 3; width: min(420px, calc(100% - 32px));
+  padding: 14px 16px; border-radius: 12px; font-size: 13px; line-height: 1.5; color: #ffd6da;
+  border: 1px solid rgba(255, 107, 122, .5); background: rgba(40, 10, 22, .88);
+}
+
+/* Étiquettes posées par la scène (scene.ts) : satellites, capitales, villes, photos du guide. */
+.holo-etiquette { position: absolute; left: 0; top: 0; font-size: 11px; line-height: 1; color: #bffcff; text-shadow: 0 0 4px #000, 0 0 8px #000; white-space: nowrap; will-change: transform; }
+.holo-capitale { font-size: 10px; color: #fff; opacity: .85; text-shadow: 0 0 3px #000, 0 0 6px #000; }
+.holo-ville { font-size: 9.5px; color: #e9eef7; opacity: .8; text-shadow: 0 0 3px #000, 0 0 5px #000; }
+.holo-guide-carte {
+  position: absolute; left: 0; top: 0; width: 92px; padding: 3px; border-radius: 10px; border: 1px solid rgba(255, 195, 90, .65);
+  background: rgba(8, 14, 34, .86); color: #ffe9c2; font-size: 10px; line-height: 1.15; text-align: left;
+  pointer-events: auto; box-shadow: 0 4px 14px rgba(0, 0, 0, .55); will-change: transform;
+}
+.holo-guide-carte:hover, .holo-guide-carte:focus-visible { border-color: #ffc35a; z-index: 1; outline: none; box-shadow: 0 0 0 2px rgba(255, 195, 90, .45), 0 4px 14px rgba(0, 0, 0, .55); }
+.holo-guide-carte img { display: block; width: 100%; height: 52px; object-fit: cover; border-radius: 7px; background: #1a2440; }
+.holo-guide-carte span { display: block; margin-top: 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.holo-guide-carte.holo-sans-photo img { display: none; }
+.holo-guide-carte.holo-sans-photo span { margin-top: 0; padding: 2px 3px; }
+
+/* ---------- le panneau ---------- */
+.holo-panneau {
+  min-width: 0; max-height: calc(100vh - 262px); overflow-y: auto; padding: 14px 16px; border-radius: 16px;
+  border: 1px solid var(--border-soft); background: var(--panel); backdrop-filter: blur(10px);
+  font-size: 13px; line-height: 1.45; color: var(--text); overflow-wrap: anywhere;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.holo-panneau p { margin: 0; }
+.holo-panneau a { color: var(--cyan); }
+.holo-panneau-titre { margin: 0; font-size: 15px; font-weight: 600; color: var(--text-strong); }
+.holo-section { display: flex; flex-direction: column; gap: 5px; padding-top: 8px; border-top: 1px solid var(--border-soft); }
+.holo-bloc { display: flex; flex-direction: column; gap: 4px; }
+.holo-titre-section { font-weight: 500; color: var(--text-strong); }
+.holo-fort { font-weight: 600; color: var(--text-strong); display: inline-flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.holo-moyen { font-weight: 500; }
+.holo-attenue { color: var(--muted); }
+.holo-source { font-size: 11px; color: var(--muted); }
+.holo-focus { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; color: #bff6ff; }
+.holo-focus svg { color: var(--cyan); flex-shrink: 0; }
+.holo-message { padding: 6px 10px; border-radius: 10px; border: 1px solid rgba(255, 181, 71, .45); background: rgba(60, 40, 8, .45); color: #ffe2b0; }
+
+.holo-choix { display: flex; flex-direction: column; gap: 4px; padding: 8px 10px; border-radius: 12px; border: 1px solid var(--border-soft); background: rgba(0, 0, 0, .22); }
+.holo-choix-tete { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.holo-fermer { display: grid; place-items: center; width: 24px; height: 24px; flex-shrink: 0; border-radius: 8px; border: 1px solid transparent; background: transparent; color: var(--muted); }
+.holo-fermer:hover { color: var(--text-strong); border-color: var(--border-soft); }
+
+.holo-pastille { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 6px; vertical-align: middle; flex-shrink: 0; }
+.holo-pastille-avion { background: #ffb347; box-shadow: 0 0 6px #ffb347; }
+.holo-pastille-sat { background: #7ff7ff; box-shadow: 0 0 6px #7ff7ff; }
+.holo-pastille-meteo { background: #6fb4ff; box-shadow: 0 0 6px #6fb4ff; }
+.holo-pastille-evenement { background: #ff2a2a; box-shadow: 0 0 6px #ff2a2a; }
+.holo-pastille-actu { background: #b36bff; box-shadow: 0 0 6px #b36bff; }
+.holo-pastille-guide { background: #ffc35a; box-shadow: 0 0 6px #ffc35a; }
+
+.holo-infos { display: grid; gap: 2px; margin: 0; }
+.holo-infos div { display: flex; justify-content: space-between; gap: 10px; }
+.holo-infos dt { color: var(--muted); }
+.holo-infos dd { margin: 0; text-align: right; font-weight: 500; }
+
+.holo-bouton { align-self: flex-start; display: inline-block; padding: 4px 12px; border-radius: 12px; border: 1px solid var(--cyan); background: transparent; color: var(--cyan); font-size: 12px; text-decoration: none; }
+.holo-bouton:hover { background: rgba(34, 200, 255, .15); }
+.holo-bouton-discret { border-color: var(--border-soft); }
+/* « Lis-le-moi », « Explique-le », « Arrêter » sous un article (11/11/2026) : des boutons, sur une ligne qui se replie. */
+button.holo-bouton { cursor: pointer; font-family: inherit; }
+button.holo-bouton:disabled { opacity: .5; cursor: progress; }
+.holo-article-voix { display: flex; flex-direction: column; gap: 4px; margin-top: 2px; }
+.holo-article-boutons { display: flex; flex-wrap: wrap; gap: 6px; }
+.holo-lien-bouton { padding: 0; border: 0; background: transparent; color: var(--text); text-align: left; font-size: 13px; }
+.holo-lien-bouton:hover { text-decoration: underline; }
+
+.holo-puces { display: flex; flex-wrap: wrap; gap: 4px; }
+.holo-puces button { padding: 2px 9px; border-radius: 10px; border: 1px solid var(--border-soft); background: transparent; color: inherit; font-size: 12px; opacity: .8; }
+.holo-puces button.actif { opacity: 1; border-color: var(--cyan); color: var(--cyan); }
+.holo-legende { height: 8px; border-radius: 4px; }
+.holo-legende-bornes { display: flex; justify-content: space-between; }
+.holo-liste { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.holo-legende-routes { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 2px 10px; }
+.holo-trait { display: inline-block; width: 16px; height: 3px; border-radius: 2px; margin-right: 6px; vertical-align: middle; }
+.holo-trait-autoroute { background: #ff4033; }
+.holo-trait-nationale { background: #ffd133; }
+.holo-trait-route { background: #f2f2f2; }
+.holo-trait-ferry { background: #59a6ff; }
+
+/* Actualité et guide. */
+.holo-articles { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.holo-article { display: flex; flex-direction: column; gap: 3px; }
+.holo-article img { display: block; width: 100%; max-height: 150px; object-fit: cover; border-radius: 10px; }
+.holo-actu-pays { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.holo-actu-pays button { padding: 3px 9px; border-radius: 999px; border: 1px solid rgba(179, 107, 255, .55); background: rgba(179, 107, 255, .12); color: var(--text); font-size: 12px; }
+.holo-actu-pays button:hover { background: rgba(179, 107, 255, .28); }
+.holo-actu-ligne { display: flex; gap: 8px; align-items: flex-start; }
+.holo-actu-ligne img { width: 64px; height: 42px; object-fit: cover; border-radius: 6px; flex-shrink: 0; }
+.holo-actu-ligne > div { min-width: 0; }
+.holo-guide-photo { display: block; width: 100%; max-height: 200px; object-fit: cover; border-radius: 10px; margin: 4px 0; }
+
+/* Sources consultées et attributions. */
+.holo-details { border-top: 1px solid var(--border-soft); padding-top: 8px; }
+.holo-details summary { cursor: pointer; font-weight: 500; color: var(--text-strong); }
+.holo-details > ul, .holo-details > dl { margin-top: 6px; }
+.holo-attributions { display: flex; flex-direction: column; gap: 5px; margin: 0; font-size: 11.5px; }
+.holo-attributions dt { color: var(--text); font-weight: 600; }
+.holo-attributions dd { margin: 0; color: var(--muted); }
+
+/* ---------- écrans plus étroits : le panneau passe sous le globe ---------- */
+@media (max-width: 1099px) {
+  .holo { grid-template-columns: minmax(0, 1fr); }
+  .holo-scene { height: min(70vh, 640px); min-height: 360px; }
+  .holo-panneau { max-height: none; overflow: visible; }
+}
+@media (max-width: 560px) {
+  /* Téléphone : la page doit pouvoir défiler, le globe ne prend pas tout l'écran. */
+  .holo-scene { height: 62vh; min-height: 300px; border-radius: 12px; }
+  .holo-icones { gap: 4px; left: 8px; top: 8px; max-width: calc(100% - 16px); }
+  .holo-icones button { width: 34px; height: 34px; border-radius: 10px; }
+  .holo-annonce { top: auto; bottom: 10px; right: 10px; }
+  .holo-panneau { padding: 12px; }
+}

@@ -1,0 +1,64 @@
+KIT D'INSTALLATION D'AURORA — pour un autre PC (Windows 10 ou 11)
+==================================================================
+
+Ce que contient ce dossier
+- aurora\            le projet AURORA (code, installateur, documentation). Sa version est dans VERSION.txt.
+                     Licence : GNU AGPL version 3 (aurora\LICENSE) ; bibliothèques et services utilisés :
+                     aurora\LICENCES-TIERCES.md.
+- Installer AURORA.bat   copie AURORA dans C:\AURORA, puis ouvre sa fenêtre d'installation.
+- resultats\         ce qui s'est affiché pendant l'installation y est gardé, un dossier par PC et par essai.
+
+Ce que ce kit ne contient pas
+- aucune conversation, aucun souvenir, aucune clé, aucun compte : l'AURORA installée démarre vide ;
+- aucun projet personnel : la page Projets montre un seul projet, d'exemple, et son bouton « Créer un projet »
+  en commence un vide ;
+- aucun modèle d'IA : l'installateur propose de les télécharger avec Ollama ;
+- ni Python, ni Node.js, ni Ollama : s'ils manquent, l'installateur va les chercher lui-même (voir ci-dessous).
+
+Avant de commencer
+Le PC doit avoir Internet et 12 Go libres sur le disque C:. Rien d'autre à installer avant.
+AURORA a besoin de trois programmes. Depuis le 23/11/2026, l'installateur prend lui-même ceux qui manquent, chez
+leurs éditeurs officiels, après le clic sur « INSTALLER », et vérifie l'empreinte de chaque fichier :
+  1. Python, de 3.11 à 3.14, en 64 bits. Un Python plus récent (3.15) ne convient pas : la bibliothèque de la voix
+     n'existe pas encore pour lui. S'il n'y en a pas qui convienne, Python 3.11.7 (17 Mo) est déplié dans le dossier
+     d'AURORA, sans rien changer aux autres Python du PC.
+  2. Node.js 20 ou plus récent. Sinon Node.js 22.23.3 (30 Mo) est installé : Windows demande une autorisation.
+  3. Ollama. Sinon Ollama 0.35.0 (1,5 Go) est installé, avec les modèles.
+
+Installer
+  1. Double-clic sur « Installer AURORA.bat ». Une fenêtre noire s'ouvre quelques secondes pendant la copie, puis se
+     ferme toute seule ; elle ne reste ouverte que s'il y a un message à lire.
+  2. La copie dans C:\AURORA est comptée et vérifiée.
+  3. La fenêtre d'installation d'AURORA s'ouvre. Elle vérifie le PC sans rien changer, puis montre ce qui sera
+     téléchargé :
+       - Python, Node.js ou Ollama, s'ils manquent ;
+       - les bibliothèques Python (environ 350 Mo, voix comprise) ;
+       - les bibliothèques de l'interface (environ 140 Mo) ;
+       - les modèles d'IA, choisis d'après la carte graphique (4,6 Go en tout sous 10 Go de carte, 11 Go au-dessus).
+     Rien n'est téléchargé avant le clic sur « INSTALLER ». Une case permet de ne pas prendre Ollama ni les modèles.
+  4. Si un programme n'a pas pu être pris (pas d'Internet, autorisation refusée), la fenêtre le dit et ouvre sa
+     page : installez-le à la main, puis « RÉESSAYER ».
+  5. À la fin : une icône « AURORA » sur le Bureau, et le bouton « LANCER AURORA ».
+
+Si C:\AURORA existe déjà, rien n'est écrasé : le script s'arrête et dit quoi faire.
+Pour reprendre une installation arrêtée en route : double-clic sur C:\AURORA\INSTALLER.bat.
+Sans la fenêtre, dans une console qui pose ses questions (o/n) : C:\AURORA\INSTALLER.bat console
+
+Après l'installation
+- Le compte rendu est dans resultats\<nom du PC>_<date>\installation.txt, sur ce disque.
+- Carte graphique de moins de 10 Go : rien à régler. Depuis le 23/11/2026, AURORA prend d'elle-même le modèle
+  installé (« qwen3.5:4b »).
+- La voix neuronale (Piper) est facultative : si elle n'a pas pu s'installer, la fenêtre le dit à la fin, et
+  AURORA parle avec les voix du navigateur.
+- Premières phrases à essayer : « Quelle heure est-il ? », « Mon PC est-il lent ? », « Que sais-tu faire ? »,
+  puis une question ordinaire, écrite par le modèle local.
+
+Tout enlever
+  0. Si « Démarrer avec Windows » a été activé dans AURORA (Paramètres), le désactiver d'abord.
+  1. Double-clic sur C:\AURORA\AURORA-arreter.bat.
+  2. Supprimer le dossier C:\AURORA, le dossier .aurora de votre dossier personnel, et l'icône du Bureau.
+     Le Python que l'installateur a pu déplier est dans ce dossier .aurora : il part avec lui. Node.js et Ollama,
+     s'il les a installés, se retirent comme tout programme (Paramètres de Windows, Applications).
+  3. Les modèles : « ollama list », puis « ollama rm <nom> » pour chacun.
+
+Avec Claude Code sur ce PC : lui donner le fichier REPRISE de ce dossier.

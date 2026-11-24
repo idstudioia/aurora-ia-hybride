@@ -1,0 +1,33 @@
+/* P2 « Pages »: the viewer (modal over the whole app) and the « Faire une page » button — every class prefixed art- */
+.art-backdrop { position: fixed; inset: 0; z-index: 60; display: flex; padding: 24px; background: rgba(2, 6, 14, .74); backdrop-filter: blur(4px); }
+.art-guard { position: absolute; width: 1px; height: 1px; overflow: hidden; opacity: 0; }
+.art-dialog { flex: 1; min-width: 0; min-height: 0; display: flex; flex-direction: column; border-radius: var(--radius); border: 1px solid var(--border); background: var(--panel-strong); box-shadow: var(--shadow-glow), 0 20px 60px rgba(0, 0, 0, .55); overflow: hidden; outline: none; }
+.art-head { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 10px 16px; padding: 14px 16px 10px; border-bottom: 1px solid var(--border-soft); }
+.art-titles { flex: 1 1 280px; min-width: 0; }
+.art-kicker { margin: 0; display: flex; align-items: center; gap: 6px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--cyan); font-weight: 600; }
+.art-titles h2 { margin: 4px 0 0; font-family: var(--font-display); font-size: 18px; font-weight: 600; color: var(--text-strong); overflow-wrap: anywhere; }
+.art-subtitle { margin: 2px 0 0; font-size: 12.5px; color: var(--muted); overflow-wrap: anywhere; }
+.art-tools { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.art-version { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); white-space: nowrap; }
+.art-version .select { width: auto; max-width: 260px; padding: 6px 8px; font-size: 12px; }
+.art-note { margin: 0; padding: 6px 16px; font-size: 11.5px; color: var(--muted); border-bottom: 1px solid var(--border-soft); }
+.art-confirm { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 10px 16px 0; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255, 107, 122, .5); background: rgba(80, 18, 32, .5); font-size: 12.5px; }
+.art-error { margin: 8px 16px 0; font-size: 12px; color: #ffc9c0; }
+.art-dialog > .unavailable { margin: 10px 16px 0; }
+.art-body { position: relative; flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.art-body > .unavailable { margin: 12px 16px 16px; }
+.art-confirm ~ .art-body, .art-error ~ .art-body, .art-dialog > .unavailable ~ .art-body { margin-top: 10px; }
+.art-loading { flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--muted); font-size: 13px; }
+/* The page brings its own colours; a page without colour-scheme gets the browser's opaque light backdrop. */
+.art-frame { flex: 1; width: 100%; min-height: 0; border: 0; display: block; }
+
+/* « Faire une page »: the error stays next to its button */
+.art-make { display: inline-flex; flex-wrap: wrap; align-items: center; justify-content: flex-end; gap: 6px; max-width: 100%; }
+.art-make-err { color: #ffd0d6; font-size: 11.5px; overflow-wrap: anywhere; }
+
+@media (max-width: 760px) {
+  .art-backdrop { padding: 8px; }
+  .art-head { padding: 12px 12px 8px; }
+  .art-note { padding: 6px 12px; }
+  .art-version .select { max-width: 190px; }
+}

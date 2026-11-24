@@ -1,0 +1,107 @@
+/* Monde 3D — globe interactif + panneaux latéraux. Classes préfixées « world- ». */
+.world {
+  display: grid; gap: 14px; align-items: start;
+  grid-template-columns: minmax(250px, 290px) minmax(0, 1fr) minmax(280px, 340px);
+  grid-template-areas: "title title title" "left stage right";
+}
+.world-title { grid-area: title; margin-bottom: 0; flex-wrap: wrap; }
+.world-left { grid-area: left; }
+.world-right { grid-area: right; }
+.world-left, .world-right { display: flex; flex-direction: column; gap: 12px; min-width: 0; max-height: calc(100vh - 262px); min-height: 0; overflow-y: auto; padding-right: 2px; }
+
+.world-tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+.world-tab { display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border-radius: 999px; border: 1px solid var(--border-soft); background: rgba(8, 26, 54, .7); color: var(--muted); font-size: 13px; }
+.world-tab:hover { color: var(--text); border-color: var(--border-glow); }
+.world-tab-on { color: var(--text-strong); border-color: rgba(34, 200, 255, .65); background: linear-gradient(110deg, rgba(20, 90, 170, .6), rgba(30, 60, 160, .55)); box-shadow: 0 0 14px rgba(34, 150, 255, .3); }
+.world-tab-on svg { color: var(--cyan); }
+
+/* ---------- stage ---------- */
+.world-stage {
+  grid-area: stage; position: relative; min-width: 0; height: calc(100vh - 262px); min-height: 460px;
+  border-radius: 16px; border: 1px solid var(--border-soft); overflow: hidden;
+  background: radial-gradient(circle at 50% 48%, rgba(20, 70, 150, .28), rgba(3, 9, 20, 0) 62%), rgba(2, 8, 20, .35);
+}
+.world-toolbar { position: absolute; top: 12px; right: 12px; display: flex; flex-direction: column; gap: 4px; padding: 5px; border-radius: 12px; border: 1px solid var(--border-soft); background: rgba(5, 18, 40, .78); backdrop-filter: blur(8px); }
+.world-toolbar .icon-btn { color: var(--text); }
+.world-banner { position: absolute; top: 12px; left: 12px; display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; font-size: 12px; color: #ffd6da; border: 1px solid rgba(255, 107, 122, .5); background: rgba(70, 14, 28, .78); }
+.world-legend { position: absolute; left: 12px; bottom: 12px; display: flex; flex-wrap: wrap; gap: 10px; padding: 6px 12px; border-radius: 10px; font-size: 11px; color: var(--muted); border: 1px solid var(--border-soft); background: rgba(5, 18, 40, .72); pointer-events: none; }
+.world-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.world-legend i { display: inline-block; width: 9px; height: 9px; border-radius: 50%; }
+
+/* ---------- panels ---------- */
+.world-panel .panel-body { padding-top: 2px; }
+.world-layers { display: flex; flex-direction: column; gap: 6px; }
+.world-layer { display: flex; align-items: center; gap: 10px; width: 100%; padding: 8px 10px; border-radius: 10px; border: 1px solid var(--border-soft); background: rgba(6, 20, 44, .55); color: var(--muted); text-align: left; font-size: 13px; }
+.world-layer:hover { border-color: var(--border-glow); color: var(--text); }
+.world-layer-on { color: var(--text-strong); background: rgba(10, 44, 90, .6); border-color: rgba(34, 200, 255, .4); }
+.world-layer-icon { display: grid; place-items: center; color: var(--muted); }
+.world-layer-on .world-layer-icon { color: var(--cyan); filter: drop-shadow(0 0 5px rgba(34, 200, 255, .6)); }
+.world-layer-label { flex: 1; min-width: 0; }
+.world-layer-status { font-size: 11px; display: inline-flex; align-items: center; }
+.world-err { color: #ffb3bb; }
+.world-switch { position: relative; width: 30px; height: 16px; border-radius: 999px; background: rgba(60, 90, 140, .5); flex-shrink: 0; transition: background .15s; }
+.world-switch span { position: absolute; top: 2px; left: 2px; width: 12px; height: 12px; border-radius: 50%; background: #9db4d6; transition: transform .15s, background .15s; }
+.world-layer-on .world-switch { background: rgba(34, 200, 255, .45); }
+.world-layer-on .world-switch span { transform: translateX(14px); background: #e9fbff; box-shadow: 0 0 6px var(--cyan); }
+
+.world-facts { display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; margin: 0; font-size: 12.5px; }
+.world-facts dt { color: var(--muted); display: inline-flex; align-items: center; gap: 5px; }
+.world-facts dd { margin: 0; color: var(--text); text-align: right; font-variant-numeric: tabular-nums; min-width: 0; overflow-wrap: anywhere; }
+.world-hint { margin: 2px 0; font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+.world-loading { display: flex; align-items: center; gap: 8px; padding: 10px 2px; color: var(--muted); font-size: 12.5px; }
+
+.world-detail { display: flex; flex-direction: column; gap: 12px; }
+.world-detail-head { display: flex; align-items: center; gap: 12px; }
+.world-detail-head > div { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.world-detail-head strong { font-size: 14px; color: var(--text-strong); line-height: 1.3; }
+.world-detail-head small { font-size: 11.5px; color: var(--muted); }
+.world-temp { font-size: 24px; font-weight: 600; font-variant-numeric: tabular-nums; }
+.world-mag { display: inline-grid; place-items: center; min-width: 58px; padding: 6px 8px; border-radius: 10px; border: 1px solid; font-weight: 700; font-size: 15px; background: rgba(4, 16, 36, .7); font-variant-numeric: tabular-nums; }
+.world-mag-sm { min-width: 40px; padding: 3px 6px; font-size: 12.5px; border-radius: 8px; }
+.world-link { display: inline-flex; align-items: center; gap: 5px; font-size: 12.5px; }
+
+.world-list-panel .panel-body { display: flex; flex-direction: column; gap: 10px; }
+.world-list-tabs { display: flex; align-items: center; gap: 6px; }
+.world-chip { padding: 5px 11px; border-radius: 999px; border: 1px solid var(--border-soft); background: transparent; color: var(--muted); font-size: 12px; }
+.world-chip-on { color: var(--text-strong); border-color: rgba(34, 200, 255, .55); background: rgba(10, 60, 110, .5); }
+.world-sort { margin-left: auto; }
+.world-select { width: auto; padding: 4px 8px; font-size: 12px; }
+.world-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; max-height: 46vh; overflow-y: auto; }
+.world-row { width: 100%; display: flex; align-items: center; gap: 10px; padding: 7px 6px; border: 1px solid transparent; border-radius: 9px; background: transparent; text-align: left; color: var(--text); }
+.world-row:hover { background: rgba(30, 80, 160, .25); }
+.world-row-on { border-color: rgba(34, 200, 255, .5); background: rgba(14, 60, 120, .45); }
+.world-row-copy { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.world-row-copy strong { font-size: 12.5px; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.world-row-copy small { font-size: 11px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.world-row-temp { font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+.world-sources { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; font-size: 11.5px; color: var(--muted); line-height: 1.45; }
+.world-sources strong { color: var(--text); font-weight: 600; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1279px) {
+  .world { grid-template-columns: minmax(0, 1fr) minmax(280px, 330px); grid-template-areas: "title title" "stage right" "left left"; }
+  .world-left { flex-direction: row; flex-wrap: wrap; max-height: none; overflow: visible; }
+  .world-left > * { flex: 1 1 260px; }
+}
+@media (max-width: 1099px) {
+  .world { grid-template-columns: minmax(0, 1fr); grid-template-areas: "title" "stage" "right" "left"; }
+  .world-stage { height: min(72vh, 620px); min-height: 360px; }
+  .world-right { max-height: none; overflow: visible; }
+}
+
+/* ---------- choix de la vue : Hologramme | Classique (8/11/2026) ---------- */
+/* 24/11/2026 : l'interrupteur du direct, sous la phrase de l'en-tête qui en parle (même forme que les onglets de vue). */
+.world-direct { margin-top: 10px; cursor: pointer; }
+.world-direct:disabled { opacity: .45; cursor: not-allowed; }
+.world-vue-bloc { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; min-width: 0; }
+.world-vue { display: flex; gap: 6px; flex-wrap: wrap; }
+.world-vue .world-tab:disabled { opacity: .45; cursor: not-allowed; }
+.world-vue-note { margin: 0; max-width: 420px; font-size: 12px; color: #ffd6a0; text-align: right; }
+/* La vue hologramme : l'en-tête puis le globe, qui remplit la zone (components/hologram/hologram.css). */
+.world-holo { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.world-holo .world-title { margin-bottom: 0; flex-wrap: wrap; }
+@media (max-width: 700px) {
+  .world-vue-bloc { align-items: flex-start; }
+  .world-vue-note { text-align: left; }
+}

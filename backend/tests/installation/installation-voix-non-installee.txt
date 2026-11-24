@@ -1,0 +1,48 @@
+Installation d'AURORA
+  projet  : C:\AURORA
+  données : C:\Users\Camille\.aurora
+
+== 1. Ce que ce PC a déjà
+  [ok]     Python 3.12.7
+  [ok]     Node.js 22.14.0
+  [ok]     Ollama 0.35.0
+  [ok]     Carte graphique : NVIDIA GeForce GTX 1080, 8 Go
+  Mémoire vive : 7.9 Go
+  [ok]     Place libre sur C: : 118.4 Go
+
+== 2. L'environnement Python (C:\Users\Camille\.aurora\venv)
+  [ok]     créé
+
+== 3. Les bibliothèques Python (backend\requirements.txt)
+  9 bibliothèques : fastapi, uvicorn, psutil, httpx, anthropic, numpy, scipy, pypdf, sgp4
+Collecting fastapi<1,>=0.115
+  Downloading fastapi-0.165.0-py3-none-any.whl (112 kB)
+Installing collected packages: numpy, scipy, fastapi, anthropic
+Successfully installed anthropic-2.12.0 fastapi-0.165.0 numpy-2.4.6 scipy-1.17.1
+  [ok]     installées
+Collecting piper-tts<2,>=1.8
+  Downloading piper_tts-1.8.0-cp39-abi3-win_amd64.whl (13.8 MB)
+ERROR: Could not find a version that satisfies the requirement onnxruntime<2,>=1 (from piper-tts) (from versions: none)
+ERROR: No matching distribution found for onnxruntime<2,>=1
+  voix neuronale (Piper) non installée, sans gravité : AURORA parlera avec les voix du navigateur
+
+== 4. L'interface (frontend)
+
+added 312 packages, and audited 313 packages in 41s
+  [ok]     prête
+
+== 5. Les modèles locaux (Ollama)
+  [ok]     qwen3.5:4b déjà là
+  [ok]     bge-m3 déjà là
+  carte de moins de 10 Go : AURORA répondra avec qwen3.5:4b, sans réglage à faire
+
+== 6. L'icône du Bureau
+  [ok]     posée : C:\Users\Camille\Desktop\AURORA.lnk
+
+== 7. Essai du service (port 8799, données temporaires)
+  [ok]     le service démarre et exige bien son jeton (réponse 401 sans jeton)
+
+== Bilan
+  Il reste à faire :
+  - Voix neuronale, facultative : non installée. Pour réessayer : "C:\Users\Camille\.aurora\venv\Scripts\python.exe" -m pip install -r "C:\AURORA\backend\requirements-voix.txt"
+  Facultatif, dans AURORA : la clé Claude (Paramètres), et la voix française Piper (README, « Crédits »).

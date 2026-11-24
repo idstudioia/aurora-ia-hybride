@@ -1,0 +1,1462 @@
+{
+  "format": "aurora.scene/1",
+  "id": "x_swing",
+  "titre": "X-SWING",
+  "domaine": "astronomie",
+  "nature": "illustration",
+  "avertissement": "Objet généré automatiquement par Claude, dans Claude Code, d’après une image d’ID Studio IA : formes simplifiées, proportions et mouvements approximatifs. Illustration pédagogique, ni plan ni simulation.",
+  "resume": "Maquette du X-SWING, d’après une image d’ID Studio IA : un avion spatial d’un seul tenant, avec un moteur principal à l’arrière, deux réacteurs sur les côtés et deux grandes ailes en flèche.",
+  "fonctionnement": "L’image porte les mots « SSTO SYSTEM » : un SSTO rejoint l’orbite d’un seul tenant, sans larguer d’étage en route. Sur cette maquette, le moteur principal pousse par sa tuyère en cloche, et les deux réacteurs latéraux sont tenus par un pylône et un hauban. Les ailes pivotent à leur emplanture, comme le nom X-SWING le suggère. Le rôle prêté à chaque pièce est lu sur l’image ou supposé : ce n’est pas une donnée du projet.",
+  "mots": [
+    "x swing",
+    "vaisseau x swing",
+    "navette x swing",
+    "avion spatial x swing"
+  ],
+  "camera": {
+    "position": [
+      2.7,
+      2.15,
+      3.3
+    ],
+    "cible": [
+      0.0,
+      1.05,
+      0.0
+    ]
+  },
+  "groupes": [
+    {
+      "id": "fuselage",
+      "nom": "Fuselage",
+      "mots": [
+        "fuselage",
+        "coque",
+        "corps"
+      ]
+    },
+    {
+      "id": "verriere",
+      "nom": "Verrière",
+      "mots": [
+        "verriere",
+        "cockpit",
+        "vitres"
+      ]
+    },
+    {
+      "id": "reacteur_droit",
+      "nom": "Réacteur droit",
+      "mots": [
+        "reacteur droit",
+        "reacteur de droite"
+      ]
+    },
+    {
+      "id": "reacteur_gauche",
+      "nom": "Réacteur gauche",
+      "mots": [
+        "reacteur gauche",
+        "reacteur de gauche"
+      ]
+    },
+    {
+      "id": "ailes",
+      "nom": "Ailes",
+      "mots": [
+        "ailes",
+        "voilure"
+      ]
+    },
+    {
+      "id": "moteur_principal",
+      "nom": "Moteur principal",
+      "mots": [
+        "propulsion principale",
+        "moteur arriere"
+      ]
+    }
+  ],
+  "pieces": [
+    {
+      "id": "cone_queue",
+      "nom": "Cône de queue",
+      "groupe": "fuselage",
+      "parent": null,
+      "position": [
+        0.0,
+        0.545,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.04,
+        "rayon_haut": 0.113,
+        "hauteur": 0.17,
+        "axe": "y"
+      },
+      "couleur": "ambre",
+      "fonction": "Le bout arrière du fuselage, effilé, juste devant la tuyère principale.",
+      "proprietes": [],
+      "mots": [
+        "cone de queue",
+        "queue"
+      ],
+      "eclate": [
+        0.0,
+        -0.3885,
+        0.0
+      ]
+    },
+    {
+      "id": "fuseau_queue",
+      "nom": "Fuseau de queue",
+      "groupe": "fuselage",
+      "parent": null,
+      "position": [
+        0.0,
+        0.725,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.113,
+        "rayon_haut": 0.205,
+        "hauteur": 0.19,
+        "axe": "y"
+      },
+      "couleur": "ambre",
+      "fonction": "Le fuselage se resserre vers l’arrière. Les dérives s’y attachent.",
+      "proprietes": [],
+      "mots": [
+        "fuseau de queue",
+        "arriere du fuselage"
+      ],
+      "eclate": [
+        0.0,
+        -0.2625,
+        0.0
+      ]
+    },
+    {
+      "id": "troncon_arriere",
+      "nom": "Tronçon arrière",
+      "groupe": "fuselage",
+      "parent": null,
+      "position": [
+        0.0,
+        0.91,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.205,
+        "rayon_haut": 0.25,
+        "hauteur": 0.18,
+        "axe": "y"
+      },
+      "couleur": "ambre",
+      "fonction": "Il porte les pivots des deux ailes.",
+      "proprietes": [],
+      "mots": [
+        "troncon arriere"
+      ],
+      "eclate": [
+        0.0,
+        -0.133,
+        0.0
+      ]
+    },
+    {
+      "id": "troncon_central",
+      "nom": "Tronçon central",
+      "groupe": "fuselage",
+      "parent": null,
+      "position": [
+        0.0,
+        1.21,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.25,
+        "rayon_haut": 0.25,
+        "hauteur": 0.42,
+        "axe": "y"
+      },
+      "couleur": "ambre",
+      "fonction": "La partie la plus large du fuselage. Sur l’image, elle porte le nom X-SWING ; les pylônes des réacteurs s’y fixent.",
+      "proprietes": [],
+      "mots": [
+        "troncon central",
+        "milieu du fuselage"
+      ],
+      "eclate": [
+        0.0,
+        0.077,
+        0.0
+      ]
+    },
+    {
+      "id": "troncon_avant",
+      "nom": "Tronçon avant",
+      "groupe": "fuselage",
+      "parent": null,
+      "position": [
+        0.0,
+        1.515,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.25,
+        "rayon_haut": 0.198,
+        "hauteur": 0.19,
+        "axe": "y"
+      },
+      "couleur": "ambre",
+      "fonction": "Le fuselage commence à s’affiner vers le nez. Les haubans des réacteurs s’y appuient.",
+      "proprietes": [],
+      "mots": [
+        "troncon avant"
+      ],
+      "eclate": [
+        0.0,
+        0.2905,
+        0.0
+      ]
+    },
+    {
+      "id": "poste_pilotage",
+      "nom": "Tronçon du poste de pilotage",
+      "groupe": "fuselage",
+      "parent": null,
+      "position": [
+        0.0,
+        1.7325,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.198,
+        "rayon_haut": 0.104,
+        "hauteur": 0.245,
+        "axe": "y"
+      },
+      "couleur": "ambre",
+      "fonction": "La place de l’équipage, derrière la verrière.",
+      "proprietes": [],
+      "mots": [
+        "poste de pilotage",
+        "cabine"
+      ],
+      "eclate": [
+        0.0,
+        0.4427,
+        0.0
+      ]
+    },
+    {
+      "id": "nez",
+      "nom": "Nez",
+      "groupe": "fuselage",
+      "parent": null,
+      "position": [
+        0.0,
+        1.9305,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.104,
+        "rayon_haut": 0.035,
+        "hauteur": 0.151,
+        "axe": "y"
+      },
+      "couleur": "ambre",
+      "fonction": "L’avant effilé du fuselage.",
+      "proprietes": [],
+      "mots": [
+        "nez",
+        "avant du fuselage"
+      ],
+      "eclate": [
+        0.0,
+        0.5813,
+        0.0
+      ]
+    },
+    {
+      "id": "pointe_nez",
+      "nom": "Pointe du nez",
+      "groupe": "fuselage",
+      "parent": null,
+      "position": [
+        0.0,
+        2.053,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.035,
+        "rayon_haut": 0.008,
+        "hauteur": 0.094,
+        "axe": "y"
+      },
+      "couleur": "ambre",
+      "fonction": "La pointe, plus sombre sur l’image : elle fend l’air la première.",
+      "proprietes": [],
+      "mots": [
+        "pointe du nez",
+        "pointe"
+      ],
+      "eclate": [
+        0.0,
+        0.6671,
+        0.0
+      ]
+    },
+    {
+      "id": "vitre_haute_gauche",
+      "nom": "Vitre haute gauche",
+      "groupe": "verriere",
+      "parent": null,
+      "position": [
+        -0.036,
+        1.8,
+        0.121
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.055,
+        "h": 0.09,
+        "p": 0.012
+      },
+      "couleur": "cyan",
+      "fonction": "Une des quatre vitres de la verrière, par où l’équipage voit devant lui.",
+      "proprietes": [],
+      "mots": [
+        "vitre haute gauche"
+      ],
+      "rotation": [
+        -21.0,
+        0.0,
+        0.0
+      ],
+      "eclate": [
+        -0.0792,
+        0.44,
+        0.32
+      ]
+    },
+    {
+      "id": "vitre_haute_droite",
+      "nom": "Vitre haute droite",
+      "groupe": "verriere",
+      "parent": null,
+      "position": [
+        0.036,
+        1.8,
+        0.121
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.055,
+        "h": 0.09,
+        "p": 0.012
+      },
+      "couleur": "cyan",
+      "fonction": "Une des quatre vitres de la verrière, par où l’équipage voit devant lui.",
+      "proprietes": [],
+      "mots": [
+        "vitre haute droite"
+      ],
+      "rotation": [
+        -21.0,
+        0.0,
+        0.0
+      ],
+      "eclate": [
+        0.0792,
+        0.44,
+        0.32
+      ]
+    },
+    {
+      "id": "vitre_basse_gauche",
+      "nom": "Vitre basse gauche",
+      "groupe": "verriere",
+      "parent": null,
+      "position": [
+        -0.047,
+        1.685,
+        0.166
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.075,
+        "h": 0.1,
+        "p": 0.012
+      },
+      "couleur": "cyan",
+      "fonction": "Une des quatre vitres de la verrière, par où l’équipage voit devant lui.",
+      "proprietes": [],
+      "mots": [
+        "vitre basse gauche"
+      ],
+      "rotation": [
+        -21.0,
+        0.0,
+        0.0
+      ],
+      "eclate": [
+        -0.1034,
+        0.44,
+        0.32
+      ]
+    },
+    {
+      "id": "vitre_basse_droite",
+      "nom": "Vitre basse droite",
+      "groupe": "verriere",
+      "parent": null,
+      "position": [
+        0.047,
+        1.685,
+        0.166
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.075,
+        "h": 0.1,
+        "p": 0.012
+      },
+      "couleur": "cyan",
+      "fonction": "Une des quatre vitres de la verrière, par où l’équipage voit devant lui.",
+      "proprietes": [],
+      "mots": [
+        "vitre basse droite"
+      ],
+      "rotation": [
+        -21.0,
+        0.0,
+        0.0
+      ],
+      "eclate": [
+        0.1034,
+        0.44,
+        0.32
+      ]
+    },
+    {
+      "id": "hublot_gauche",
+      "nom": "Hublot gauche",
+      "groupe": "verriere",
+      "parent": null,
+      "position": [
+        -0.105,
+        1.79,
+        0.078
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.03,
+        "h": 0.045,
+        "p": 0.012
+      },
+      "couleur": "cyan",
+      "fonction": "Un petit hublot de côté.",
+      "proprietes": [],
+      "mots": [
+        "hublot gauche"
+      ],
+      "rotation": [
+        -21.0,
+        -52.0,
+        0.0
+      ],
+      "eclate": [
+        -0.3,
+        0.44,
+        0.22
+      ]
+    },
+    {
+      "id": "hublot_droit",
+      "nom": "Hublot droit",
+      "groupe": "verriere",
+      "parent": null,
+      "position": [
+        0.105,
+        1.79,
+        0.078
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.03,
+        "h": 0.045,
+        "p": 0.012
+      },
+      "couleur": "cyan",
+      "fonction": "Un petit hublot de côté.",
+      "proprietes": [],
+      "mots": [
+        "hublot droit"
+      ],
+      "rotation": [
+        -21.0,
+        52.0,
+        0.0
+      ],
+      "eclate": [
+        0.3,
+        0.44,
+        0.22
+      ]
+    },
+    {
+      "id": "trappe",
+      "nom": "Trappe d’accès",
+      "groupe": "fuselage",
+      "parent": null,
+      "position": [
+        0.0,
+        1.03,
+        0.252
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.05,
+        "h": 0.085,
+        "p": 0.012
+      },
+      "couleur": "vert",
+      "fonction": "La petite trappe visible au milieu du fuselage, sur l’image.",
+      "proprietes": [],
+      "mots": [
+        "trappe",
+        "trappe d acces",
+        "porte"
+      ],
+      "eclate": [
+        0.0,
+        0.0,
+        0.4
+      ]
+    },
+    {
+      "id": "nacelle_droit",
+      "nom": "Nacelle du réacteur droit",
+      "groupe": "reacteur_droit",
+      "parent": null,
+      "position": [
+        0.513,
+        1.097,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.135,
+        "rayon_haut": 0.135,
+        "hauteur": 0.26,
+        "axe": "z"
+      },
+      "couleur": "violet",
+      "fonction": "Le carénage rond du réacteur latéral. Sur l’image, son entrée d’air fait face à l’œil.",
+      "proprietes": [],
+      "mots": [
+        "nacelle droite",
+        "nacelle du reacteur droit"
+      ],
+      "eclate": [
+        0.55,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "tuyere_droit",
+      "nom": "Tuyère du réacteur droit",
+      "groupe": "reacteur_droit",
+      "parent": null,
+      "position": [
+        0.513,
+        1.097,
+        -0.2
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.07,
+        "rayon_haut": 0.135,
+        "hauteur": 0.14,
+        "axe": "z"
+      },
+      "couleur": "violet",
+      "fonction": "L’arrière du réacteur, par où sortent ses gaz. Il n’est pas visible sur l’image : il est supposé.",
+      "proprietes": [],
+      "mots": [
+        "tuyere droite",
+        "tuyere du reacteur droit"
+      ],
+      "eclate": [
+        0.55,
+        0.0,
+        -0.28
+      ]
+    },
+    {
+      "id": "levre_droit",
+      "nom": "Lèvre d’entrée d’air droite",
+      "groupe": "reacteur_droit",
+      "parent": null,
+      "position": [
+        0.513,
+        1.097,
+        0.13
+      ],
+      "forme": {
+        "type": "tore",
+        "rayon": 0.125,
+        "epaisseur": 0.014,
+        "axe": "z"
+      },
+      "couleur": "vert",
+      "fonction": "Le bord arrondi de l’entrée d’air.",
+      "proprietes": [],
+      "mots": [
+        "levre droite",
+        "entree d air droite"
+      ],
+      "eclate": [
+        0.55,
+        0.0,
+        0.18
+      ]
+    },
+    {
+      "id": "anneau_droit",
+      "nom": "Anneau lumineux droit",
+      "groupe": "reacteur_droit",
+      "parent": null,
+      "position": [
+        0.513,
+        1.097,
+        0.136
+      ],
+      "forme": {
+        "type": "tore",
+        "rayon": 0.06,
+        "epaisseur": 0.009,
+        "axe": "z"
+      },
+      "couleur": "cyan",
+      "fonction": "Le cercle de lumière bleue visible au cœur du réacteur, sur l’image.",
+      "proprietes": [],
+      "mots": [
+        "anneau lumineux droit",
+        "anneau droit"
+      ],
+      "eclate": [
+        0.55,
+        0.0,
+        0.32
+      ]
+    },
+    {
+      "id": "soufflante_droit",
+      "nom": "Soufflante droite",
+      "groupe": "reacteur_droit",
+      "parent": null,
+      "position": [
+        0.513,
+        1.097,
+        0.105
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.23,
+        "h": 0.022,
+        "p": 0.012
+      },
+      "couleur": "cyan",
+      "fonction": "La pièce qui tourne dans le réacteur et aspire l’air. Elle n’est pas dessinée sur l’image : elle est supposée, pour montrer un mouvement.",
+      "proprietes": [],
+      "mots": [
+        "soufflante droite",
+        "helice droite"
+      ],
+      "articulation": {
+        "axe": "z",
+        "min": -360.0,
+        "max": 360.0,
+        "repos": 0.0,
+        "animation": {
+          "amplitude": 360.0,
+          "periode": 2.5,
+          "phase": 0.0,
+          "continu": true
+        }
+      },
+      "eclate": [
+        0.55,
+        0.0,
+        0.46
+      ]
+    },
+    {
+      "id": "moyeu_droit",
+      "nom": "Moyeu lumineux droit",
+      "groupe": "reacteur_droit",
+      "parent": null,
+      "position": [
+        0.513,
+        1.097,
+        0.14
+      ],
+      "forme": {
+        "type": "sphere",
+        "rayon": 0.024
+      },
+      "couleur": "ambre",
+      "fonction": "Le point de lumière au centre du réacteur.",
+      "proprietes": [],
+      "mots": [
+        "moyeu droit",
+        "coeur du reacteur droit"
+      ],
+      "eclate": [
+        0.55,
+        0.0,
+        0.6
+      ]
+    },
+    {
+      "id": "perche_droit",
+      "nom": "Perche droite",
+      "groupe": "reacteur_droit",
+      "parent": null,
+      "position": [
+        0.753,
+        1.092,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.006,
+        "rayon_haut": 0.032,
+        "hauteur": 0.21,
+        "axe": "x"
+      },
+      "couleur": "ambre",
+      "fonction": "La longue pointe qui prolonge le réacteur vers l’extérieur.",
+      "proprietes": [],
+      "mots": [
+        "perche droite",
+        "pointe droite"
+      ],
+      "eclate": [
+        0.85,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "pylone_droit",
+      "nom": "Pylône droit",
+      "groupe": "reacteur_droit",
+      "parent": null,
+      "position": [
+        0.315,
+        1.097,
+        0.0
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.14,
+        "h": 0.07,
+        "p": 0.1
+      },
+      "couleur": "vert",
+      "fonction": "Le bras horizontal qui relie le réacteur au fuselage.",
+      "proprietes": [],
+      "mots": [
+        "pylone droit",
+        "bras droit"
+      ],
+      "eclate": [
+        0.28,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "hauban_droit",
+      "nom": "Hauban droit",
+      "groupe": "reacteur_droit",
+      "parent": null,
+      "position": [
+        0.345,
+        1.3,
+        0.0
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.045,
+        "h": 0.29,
+        "p": 0.05
+      },
+      "couleur": "vert",
+      "fonction": "La barre inclinée qui retient le réacteur par le haut.",
+      "proprietes": [],
+      "mots": [
+        "hauban droit",
+        "jambe de force droite"
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        36.0
+      ],
+      "eclate": [
+        0.3,
+        0.22,
+        0.0
+      ]
+    },
+    {
+      "id": "nacelle_gauche",
+      "nom": "Nacelle du réacteur gauche",
+      "groupe": "reacteur_gauche",
+      "parent": null,
+      "position": [
+        -0.513,
+        1.097,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.135,
+        "rayon_haut": 0.135,
+        "hauteur": 0.26,
+        "axe": "z"
+      },
+      "couleur": "violet",
+      "fonction": "Le carénage rond du réacteur latéral. Sur l’image, son entrée d’air fait face à l’œil.",
+      "proprietes": [],
+      "mots": [
+        "nacelle gauche",
+        "nacelle du reacteur gauche"
+      ],
+      "eclate": [
+        -0.55,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "tuyere_gauche",
+      "nom": "Tuyère du réacteur gauche",
+      "groupe": "reacteur_gauche",
+      "parent": null,
+      "position": [
+        -0.513,
+        1.097,
+        -0.2
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.07,
+        "rayon_haut": 0.135,
+        "hauteur": 0.14,
+        "axe": "z"
+      },
+      "couleur": "violet",
+      "fonction": "L’arrière du réacteur, par où sortent ses gaz. Il n’est pas visible sur l’image : il est supposé.",
+      "proprietes": [],
+      "mots": [
+        "tuyere gauche",
+        "tuyere du reacteur gauche"
+      ],
+      "eclate": [
+        -0.55,
+        0.0,
+        -0.28
+      ]
+    },
+    {
+      "id": "levre_gauche",
+      "nom": "Lèvre d’entrée d’air gauche",
+      "groupe": "reacteur_gauche",
+      "parent": null,
+      "position": [
+        -0.513,
+        1.097,
+        0.13
+      ],
+      "forme": {
+        "type": "tore",
+        "rayon": 0.125,
+        "epaisseur": 0.014,
+        "axe": "z"
+      },
+      "couleur": "vert",
+      "fonction": "Le bord arrondi de l’entrée d’air.",
+      "proprietes": [],
+      "mots": [
+        "levre gauche",
+        "entree d air gauche"
+      ],
+      "eclate": [
+        -0.55,
+        0.0,
+        0.18
+      ]
+    },
+    {
+      "id": "anneau_gauche",
+      "nom": "Anneau lumineux gauche",
+      "groupe": "reacteur_gauche",
+      "parent": null,
+      "position": [
+        -0.513,
+        1.097,
+        0.136
+      ],
+      "forme": {
+        "type": "tore",
+        "rayon": 0.06,
+        "epaisseur": 0.009,
+        "axe": "z"
+      },
+      "couleur": "cyan",
+      "fonction": "Le cercle de lumière bleue visible au cœur du réacteur, sur l’image.",
+      "proprietes": [],
+      "mots": [
+        "anneau lumineux gauche",
+        "anneau gauche"
+      ],
+      "eclate": [
+        -0.55,
+        0.0,
+        0.32
+      ]
+    },
+    {
+      "id": "soufflante_gauche",
+      "nom": "Soufflante gauche",
+      "groupe": "reacteur_gauche",
+      "parent": null,
+      "position": [
+        -0.513,
+        1.097,
+        0.105
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.23,
+        "h": 0.022,
+        "p": 0.012
+      },
+      "couleur": "cyan",
+      "fonction": "La pièce qui tourne dans le réacteur et aspire l’air. Elle n’est pas dessinée sur l’image : elle est supposée, pour montrer un mouvement.",
+      "proprietes": [],
+      "mots": [
+        "soufflante gauche",
+        "helice gauche"
+      ],
+      "articulation": {
+        "axe": "z",
+        "min": -360.0,
+        "max": 360.0,
+        "repos": 0.0,
+        "animation": {
+          "amplitude": 360.0,
+          "periode": 2.5,
+          "phase": 0.25,
+          "continu": true
+        }
+      },
+      "eclate": [
+        -0.55,
+        0.0,
+        0.46
+      ]
+    },
+    {
+      "id": "moyeu_gauche",
+      "nom": "Moyeu lumineux gauche",
+      "groupe": "reacteur_gauche",
+      "parent": null,
+      "position": [
+        -0.513,
+        1.097,
+        0.14
+      ],
+      "forme": {
+        "type": "sphere",
+        "rayon": 0.024
+      },
+      "couleur": "ambre",
+      "fonction": "Le point de lumière au centre du réacteur.",
+      "proprietes": [],
+      "mots": [
+        "moyeu gauche",
+        "coeur du reacteur gauche"
+      ],
+      "eclate": [
+        -0.55,
+        0.0,
+        0.6
+      ]
+    },
+    {
+      "id": "perche_gauche",
+      "nom": "Perche gauche",
+      "groupe": "reacteur_gauche",
+      "parent": null,
+      "position": [
+        -0.753,
+        1.092,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.032,
+        "rayon_haut": 0.006,
+        "hauteur": 0.21,
+        "axe": "x"
+      },
+      "couleur": "ambre",
+      "fonction": "La longue pointe qui prolonge le réacteur vers l’extérieur.",
+      "proprietes": [],
+      "mots": [
+        "perche gauche",
+        "pointe gauche"
+      ],
+      "eclate": [
+        -0.85,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "pylone_gauche",
+      "nom": "Pylône gauche",
+      "groupe": "reacteur_gauche",
+      "parent": null,
+      "position": [
+        -0.315,
+        1.097,
+        0.0
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.14,
+        "h": 0.07,
+        "p": 0.1
+      },
+      "couleur": "vert",
+      "fonction": "Le bras horizontal qui relie le réacteur au fuselage.",
+      "proprietes": [],
+      "mots": [
+        "pylone gauche",
+        "bras gauche"
+      ],
+      "eclate": [
+        -0.28,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "id": "hauban_gauche",
+      "nom": "Hauban gauche",
+      "groupe": "reacteur_gauche",
+      "parent": null,
+      "position": [
+        -0.345,
+        1.3,
+        0.0
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.045,
+        "h": 0.29,
+        "p": 0.05
+      },
+      "couleur": "vert",
+      "fonction": "La barre inclinée qui retient le réacteur par le haut.",
+      "proprietes": [],
+      "mots": [
+        "hauban gauche",
+        "jambe de force gauche"
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -36.0
+      ],
+      "eclate": [
+        -0.3,
+        0.22,
+        0.0
+      ]
+    },
+    {
+      "id": "aile_droite",
+      "nom": "Aile droite",
+      "groupe": "ailes",
+      "parent": null,
+      "position": [
+        0.217,
+        0.809,
+        -0.02
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.2,
+        "h": 0.62,
+        "p": 0.03,
+        "decalage": [
+          0.0,
+          -0.31,
+          0.0
+        ]
+      },
+      "couleur": "ambre",
+      "fonction": "Une grande aile en flèche. Dans cette maquette, elle pivote à son emplanture pour changer sa flèche : le nom X-SWING le suggère, mais ce mouvement est une supposition.",
+      "proprietes": [],
+      "mots": [
+        "aile droite"
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        46.4
+      ],
+      "articulation": {
+        "axe": "z",
+        "min": -14.0,
+        "max": 14.0,
+        "repos": 0.0,
+        "animation": {
+          "amplitude": 12.0,
+          "periode": 6.0,
+          "phase": 0.0
+        }
+      },
+      "eclate": [
+        0.4,
+        -0.25,
+        0.0
+      ]
+    },
+    {
+      "id": "pivot_aile_droite",
+      "nom": "Pivot de l’aile droite",
+      "groupe": "ailes",
+      "parent": null,
+      "position": [
+        0.217,
+        0.809,
+        0.03
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.05,
+        "rayon_haut": 0.05,
+        "hauteur": 0.07,
+        "axe": "z"
+      },
+      "couleur": "vert",
+      "fonction": "L’axe autour duquel l’aile pivote.",
+      "proprietes": [],
+      "mots": [
+        "pivot droit",
+        "pivot de l aile droite"
+      ],
+      "eclate": [
+        0.22,
+        -0.08,
+        0.3
+      ]
+    },
+    {
+      "id": "derive_droite",
+      "nom": "Dérive droite",
+      "groupe": "ailes",
+      "parent": null,
+      "position": [
+        0.12,
+        0.6,
+        -0.07
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.07,
+        "h": 0.34,
+        "p": 0.025,
+        "decalage": [
+          0.0,
+          -0.17,
+          0.0
+        ]
+      },
+      "couleur": "ambre",
+      "fonction": "Une petite surface en flèche, près de la tuyère, qui stabilise l’appareil.",
+      "proprietes": [],
+      "mots": [
+        "derive droite",
+        "aileron droit"
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        27.0
+      ],
+      "eclate": [
+        0.32,
+        -0.55,
+        -0.18
+      ]
+    },
+    {
+      "id": "aile_gauche",
+      "nom": "Aile gauche",
+      "groupe": "ailes",
+      "parent": null,
+      "position": [
+        -0.217,
+        0.809,
+        -0.02
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.2,
+        "h": 0.62,
+        "p": 0.03,
+        "decalage": [
+          0.0,
+          -0.31,
+          0.0
+        ]
+      },
+      "couleur": "ambre",
+      "fonction": "Une grande aile en flèche. Dans cette maquette, elle pivote à son emplanture pour changer sa flèche : le nom X-SWING le suggère, mais ce mouvement est une supposition.",
+      "proprietes": [],
+      "mots": [
+        "aile gauche"
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -46.4
+      ],
+      "articulation": {
+        "axe": "z",
+        "min": -14.0,
+        "max": 14.0,
+        "repos": 0.0,
+        "animation": {
+          "amplitude": 12.0,
+          "periode": 6.0,
+          "phase": 0.5
+        }
+      },
+      "eclate": [
+        -0.4,
+        -0.25,
+        0.0
+      ]
+    },
+    {
+      "id": "pivot_aile_gauche",
+      "nom": "Pivot de l’aile gauche",
+      "groupe": "ailes",
+      "parent": null,
+      "position": [
+        -0.217,
+        0.809,
+        0.03
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.05,
+        "rayon_haut": 0.05,
+        "hauteur": 0.07,
+        "axe": "z"
+      },
+      "couleur": "vert",
+      "fonction": "L’axe autour duquel l’aile pivote.",
+      "proprietes": [],
+      "mots": [
+        "pivot gauche",
+        "pivot de l aile gauche"
+      ],
+      "eclate": [
+        -0.22,
+        -0.08,
+        0.3
+      ]
+    },
+    {
+      "id": "derive_gauche",
+      "nom": "Dérive gauche",
+      "groupe": "ailes",
+      "parent": null,
+      "position": [
+        -0.12,
+        0.6,
+        -0.07
+      ],
+      "forme": {
+        "type": "boite",
+        "l": 0.07,
+        "h": 0.34,
+        "p": 0.025,
+        "decalage": [
+          0.0,
+          -0.17,
+          0.0
+        ]
+      },
+      "couleur": "ambre",
+      "fonction": "Une petite surface en flèche, près de la tuyère, qui stabilise l’appareil.",
+      "proprietes": [],
+      "mots": [
+        "derive gauche",
+        "aileron gauche"
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        -27.0
+      ],
+      "eclate": [
+        -0.32,
+        -0.55,
+        -0.18
+      ]
+    },
+    {
+      "id": "bloc_moteur",
+      "nom": "Bloc moteur",
+      "groupe": "moteur_principal",
+      "parent": null,
+      "position": [
+        0.0,
+        0.54,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.115,
+        "rayon_haut": 0.115,
+        "hauteur": 0.08,
+        "axe": "y"
+      },
+      "couleur": "violet",
+      "fonction": "Le moteur principal, autour du cône de queue.",
+      "proprietes": [],
+      "mots": [
+        "bloc moteur",
+        "moteur principal"
+      ],
+      "eclate": [
+        0.0,
+        -0.5,
+        0.0
+      ]
+    },
+    {
+      "id": "tuyere_principale",
+      "nom": "Tuyère principale",
+      "groupe": "moteur_principal",
+      "parent": null,
+      "position": [
+        0.0,
+        0.4,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.18,
+        "rayon_haut": 0.1,
+        "hauteur": 0.2,
+        "axe": "y"
+      },
+      "couleur": "violet",
+      "fonction": "La grande tuyère en cloche. Les gaz y sortent et poussent l’appareil.",
+      "proprietes": [],
+      "mots": [
+        "tuyere principale",
+        "cloche"
+      ],
+      "eclate": [
+        0.0,
+        -0.64,
+        0.0
+      ]
+    },
+    {
+      "id": "anneau_sortie",
+      "nom": "Anneau de sortie",
+      "groupe": "moteur_principal",
+      "parent": null,
+      "position": [
+        0.0,
+        0.3,
+        0.0
+      ],
+      "forme": {
+        "type": "tore",
+        "rayon": 0.18,
+        "epaisseur": 0.012,
+        "axe": "y"
+      },
+      "couleur": "cyan",
+      "fonction": "Le bord lumineux de la tuyère, sur l’image.",
+      "proprietes": [],
+      "mots": [
+        "anneau de sortie",
+        "bord de la tuyere"
+      ],
+      "eclate": [
+        0.0,
+        -0.76,
+        0.0
+      ]
+    },
+    {
+      "id": "jet_plasma",
+      "nom": "Jet de plasma",
+      "groupe": "moteur_principal",
+      "parent": null,
+      "position": [
+        0.0,
+        0.15,
+        0.0
+      ],
+      "forme": {
+        "type": "cylindre",
+        "rayon": 0.02,
+        "rayon_haut": 0.15,
+        "hauteur": 0.28,
+        "axe": "y"
+      },
+      "couleur": "cyan",
+      "fonction": "Le jet bleu qui sort de la tuyère, représenté par un cône. Ce n’est pas une pièce de l’appareil.",
+      "proprietes": [],
+      "mots": [
+        "jet de plasma",
+        "jet",
+        "flamme"
+      ],
+      "eclate": [
+        0.0,
+        -0.9,
+        0.0
+      ]
+    }
+  ]
+}

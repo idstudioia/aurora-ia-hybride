@@ -1,0 +1,148 @@
+/* Intended use: the replay's design system. Console ground and ink, the four client
+   hues and the one failure hue, figure and label type, spacing, and motion. main.ts
+   reads the drawing values from here, so canvas and SVG stay in step. */
+
+/* ----------------------------------------
+   Color
+   ---------------------------------------- */
+:root {
+  color-scheme: dark;
+
+  --ground: #0a0e13;
+  --ground-panel: #10161e;
+  --ground-inset: #070a0e;
+  --rule: #1d2732;
+  --rule-strong: #2b3846;
+
+  --ink: #dde5ed;
+  --ink-muted: #8a99a8;
+  --ink-faint: #56636f;
+  --ink-halo: rgba(10, 14, 19, 0.92);
+
+  --ribbon: #7f93a8;
+  --node: #c9d4de;
+  --capacity: #5e6d7c;
+  --pile: #3a4756;
+
+  --client-web: #56b4e9;
+  --client-mobile: #e69f00;
+  --client-partner: #cc79a7;
+  --client-batch: #2fbf8f;
+
+  --failure: #ff5c6c;
+  --focus: #f4f7fa;
+}
+
+/* ----------------------------------------
+   Type
+   ---------------------------------------- */
+:root {
+  --font-label: "IBM Plex Sans Condensed", "Arial Narrow", sans-serif;
+  --font-figure: "IBM Plex Mono", ui-monospace, monospace;
+
+  --type-clock: clamp(30px, 5vw, 46px);
+  --type-stat: clamp(15px, 1.6vw, 19px);
+  --type-callout: 15px;
+  --type-label: 12px;
+  --type-micro: 11px;
+  --tracking-caps: 0.08em;
+  --weight-label: 500;
+  --weight-title: 600;
+  --leading-body: 1.45;
+  --leading-figure: 1;
+}
+
+/* ----------------------------------------
+   Space and shape
+   ---------------------------------------- */
+:root {
+  --gutter: 16px;
+  --gap-stat: 22px;
+  --gap-inline: 8px;
+  --gap-tight: 4px;
+  --gap-hair: 2px;
+  --gap-key: 6px;
+  --gap-unit: 0.3em;
+  --pad-panel: 12px;
+  --pad-chip-y: 6px;
+  --pad-chip-x: 10px;
+  --pad-section: 16px;
+  --target: 44px;
+  --legend-target: 32px;
+  --radius-chip: 3px;
+  --radius-panel: 4px;
+  --rule-width: 1px;
+  --focus-width: 2px;
+  --focus-offset: 2px;
+  --icon-size: 18px;
+  --icon-stroke: 1.75;
+  --swatch-size: 10px;
+  --halo-width: 4px;
+  --mix-bar-height: 4px;
+  --timeline-hours-row: 14px;
+  --marker-row: 14px;
+  --marker-row-labeled: 52px;
+  --marker-label-height: 18px;
+  --spark-height: 30px;
+  --rail-width: 300px;
+  --sheet-height: 78dvh;
+  --radius-sheet: 12px;
+  --mix-name: 7ch;
+  --mix-share: 4ch;
+  --key-term: 11ch;
+  --ledger-width: 760px;
+  --ledger-cell-pad: 6px;
+  --ledger-scroll-height: 60dvh;
+  --marker-size: 8px;
+  --playhead-width: 3px;
+  --key-glyph-width: 28px;
+  --key-glyph-height: 12px;
+  --switch-width: 30px;
+  --switch-height: 18px;
+  --switch-knob: 14px;
+  --waterfall-label: 15ch;
+  --waterfall-value: 7ch;
+  --waterfall-bar: 6px;
+  --callout-width: 260px;
+  --ticker-height: 96px;
+  --ticker-height-wide: 76px;
+  --pad-ticker: 8px var(--pad-panel);
+  --rule-accent: 3px;
+  --shadow-float: 0 10px 30px var(--ground-inset);
+  --inspector-width: 240px;
+}
+
+/* ----------------------------------------
+   Marks (read by main.ts for SVG and canvas)
+   ---------------------------------------- */
+:root {
+  --dot-radius: 1.7;
+  --dot-alpha: 0.92;
+  --dot-dim-alpha: 0.1;
+  --dot-follow-alpha: 0.35;
+  --chip-dim-alpha: 0.45;
+  --ribbon-alpha: 0.2;
+  --ribbon-alpha-focus: 0.4;
+  --ribbon-alpha-dim: 0.05;
+  --retry-alpha: 0.42;
+  --pile-alpha: 0.35;
+  --spark-volume-alpha: 0.28;
+  --spark-error-alpha: 0.85;
+  --capacity-dash: 2 3;
+  --reference-dash: 3 3;
+  --ring-width: 1.5;
+}
+
+/* ----------------------------------------
+   Motion
+   ---------------------------------------- */
+:root {
+  --dur-feedback: 140ms;
+  --dur-sheet: 240ms;
+  --press-scale: 0.94;
+  --dur-callout: 0.34;
+  --dur-scrub: 0.45;
+  --ease-feedback: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-callout: power3.out;
+  --ease-scrub: power2.inOut;
+}

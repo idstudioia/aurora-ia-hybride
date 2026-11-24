@@ -1,0 +1,25 @@
+blue-marble-2048.jpg — NASA Visible Earth, « Blue Marble: Land Surface, Shallow Water, and Shaded Topography »
+https://visibleearth.nasa.gov/images/57752
+Image NASA, domaine public (NASA Earth Observatory). Téléchargée le 04/10/2026.
+Sert seulement à savoir où sont les terres pour placer les points du globe holographique.
+
+Globe agrandi (04/10/2026) — données en direct, seulement si l'utilisateur les active :
+- Image du jour : NASA GIBS, couche VIIRS_SNPP_CorrectedReflectance_TrueColor (satellite Suomi NPP).
+  « We acknowledge the use of imagery provided by services from NASA's Global Imagery Browse Services
+  (GIBS), part of NASA's Earth Science Data and Information System (ESDIS). » Données NASA libres.
+- Avions : adsb.lol (https://adsb.lol, licence ODbL : citer la source ; usage commercial permis).
+  Secours : OpenSky Network (https://opensky-network.org) — gratuit pour un usage NON commercial ;
+  une version vendue demande leur accord pour ce secours.
+- Satellites : orbites publiées par CelesTrak (https://celestrak.org) ; positions calculées avec
+  satellite.js (licence MIT).
+- Météo : open-meteo.com (CC BY 4.0).
+- Modèles 3D (dossier modeles/) : faits par ID Studio IA avec Meshy le 04/10/2026, allégés par
+  scripts/alleger-modele-globe.py. Vérifier les conditions de Meshy pour une version vendue.
+- Météo du monde (vent, pluie, température, humidité) : open-meteo.com (CC BY 4.0), grille de 10°.
+- Qualité de l'air : « Generated using Copernicus Atmosphere Monitoring Service information 2026 »
+  (CAMS), via l'API qualité de l'air d'open-meteo.
+- Catastrophes : USGS (séismes), NOAA PTWC/NTWC (bulletins tsunami), GDACS — ONU / Commission
+  européenne (volcans, cyclones), NWS (alertes tornade, États-Unis seulement).
+- Carte routière : villes.json (7 342 villes) et routes.bin (grands axes) tirés de Natural Earth
+  1:10m, domaine public, par scripts/preparer-carte-routiere.mjs. Aucune donnée Michelin ni Guide
+  du Routard (marques et données protégées). Pas les rues : il faudrait OpenStreetMap.

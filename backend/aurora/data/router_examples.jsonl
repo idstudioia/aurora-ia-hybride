@@ -1,0 +1,421 @@
+{"text": "Combien de mémoire vive me reste-t-il ?", "intent": "system.status"}
+{"text": "Donne-moi l'utilisation actuelle du processeur", "intent": "system.status"}
+{"text": "Le CPU est à combien en ce moment ?", "intent": "system.status"}
+{"text": "Montre l'occupation du disque C", "intent": "system.status"}
+{"text": "Il me reste combien d'espace sur le SSD ?", "intent": "system.status"}
+{"text": "Quel est le niveau de la batterie ?", "intent": "system.status"}
+{"text": "Mesure la charge de mon ordinateur", "intent": "system.status"}
+{"text": "Ma carte graphique est utilisée à combien ?", "intent": "system.status"}
+{"text": "Quel débit internet j'ai actuellement", "intent": "system.status"}
+{"text": "état des ressources du pc", "intent": "system.status"}
+{"text": "la ram est pleine ?", "intent": "system.status"}
+{"text": "combien de giga libres sur mon disque dur", "intent": "system.status"}
+{"text": "température du processeur", "intent": "system.status"}
+{"text": "affiche les chiffres du système", "intent": "system.status"}
+{"text": "utilisation mémoire et processeur maintenant", "intent": "system.status"}
+{"text": "Quelles applications utilisent le plus de mémoire ?", "intent": "system.processes"}
+{"text": "Liste les processus actifs", "intent": "system.processes"}
+{"text": "Qu'est-ce qui bouffe tout mon processeur ?", "intent": "system.processes"}
+{"text": "Montre-moi les logiciels qui tournent en arrière-plan", "intent": "system.processes"}
+{"text": "Top des programmes gourmands en RAM", "intent": "system.processes"}
+{"text": "Quel programme prend autant de CPU ?", "intent": "system.processes"}
+{"text": "affiche les processus en cours", "intent": "system.processes"}
+{"text": "qui consomme ma batterie", "intent": "system.processes"}
+{"text": "les applis les plus gourmandes", "intent": "system.processes"}
+{"text": "donne la liste des programmes ouverts", "intent": "system.processes"}
+{"text": "quels logiciels sont lancés en ce moment", "intent": "system.processes"}
+{"text": "classement des processus par mémoire", "intent": "system.processes"}
+{"text": "qu est ce qui utilise le plus de ressources", "intent": "system.processes"}
+{"text": "Mon ordinateur rame depuis ce matin", "intent": "system.diagnose"}
+{"text": "Pourquoi Windows met autant de temps à démarrer ?", "intent": "system.diagnose"}
+{"text": "Fais un diagnostic complet de la machine", "intent": "system.diagnose"}
+{"text": "Mon portable chauffe beaucoup, qu'est-ce qui se passe ?", "intent": "system.diagnose"}
+{"text": "Analyse les performances de mon PC", "intent": "system.diagnose"}
+{"text": "Le pc freeze toutes les cinq minutes", "intent": "system.diagnose"}
+{"text": "Trouve la cause de la lenteur", "intent": "system.diagnose"}
+{"text": "Comment accélérer mon ordinateur ?", "intent": "system.diagnose"}
+{"text": "Il y a un problème avec ma machine", "intent": "system.diagnose"}
+{"text": "pourquoi ca lag autant", "intent": "system.diagnose"}
+{"text": "mon ordi devient super lent quand je joue", "intent": "system.diagnose"}
+{"text": "optimise les performances de windows", "intent": "system.diagnose"}
+{"text": "vérifie si mon pc va bien", "intent": "system.diagnose"}
+{"text": "le ventilateur fait un bruit d'enfer pourquoi", "intent": "system.diagnose"}
+{"text": "ma connexion internet est lente aujourd'hui", "intent": "system.diagnose"}
+{"text": "Ferme Spotify", "intent": "system.kill_process"}
+{"text": "Arrête le processus Discord", "intent": "system.kill_process"}
+{"text": "Tue l'application Steam", "intent": "system.kill_process"}
+{"text": "Quitte Firefox s'il te plaît", "intent": "system.kill_process"}
+{"text": "Force la fermeture de Teams", "intent": "system.kill_process"}
+{"text": "Termine le programme Zoom", "intent": "system.kill_process"}
+{"text": "Peux-tu fermer Word ?", "intent": "system.kill_process"}
+{"text": "kill le processus 4521", "intent": "system.kill_process"}
+{"text": "arrete obs", "intent": "system.kill_process"}
+{"text": "ferme le jeu minecraft", "intent": "system.kill_process"}
+{"text": "Excel ne répond plus, ferme-le", "intent": "system.kill_process"}
+{"text": "coupe vlc", "intent": "system.kill_process"}
+{"text": "stoppe l'application whatsapp", "intent": "system.kill_process"}
+{"text": "Tu te rappelles ce que je t'ai dit sur mes vacances ?", "intent": "memory.search"}
+{"text": "Qu'est-ce que tu sais sur mon travail ?", "intent": "memory.search"}
+{"text": "Rappelle-moi le nom de mon fichier de thèse", "intent": "memory.search"}
+{"text": "Retrouve mes notes sur la photosynthèse", "intent": "memory.search"}
+{"text": "Cherche dans ta mémoire mes préférences musicales", "intent": "memory.search"}
+{"text": "On avait parlé d'un livre la semaine dernière, lequel ?", "intent": "memory.search"}
+{"text": "Ressors nos idées pour le site web", "intent": "memory.search"}
+{"text": "Qu'est-ce qu'on avait décidé pour la réunion ?", "intent": "memory.search"}
+{"text": "Où en est notre projet de robot ?", "intent": "memory.search"}
+{"text": "reprenons la discussion d'hier", "intent": "memory.search"}
+{"text": "tu te souviens de mon chien", "intent": "memory.search"}
+{"text": "mes souvenirs sur le voyage au Japon", "intent": "memory.search"}
+{"text": "qu'est-ce que je t'ai raconté sur ma sœur", "intent": "memory.search"}
+{"text": "affiche ce que tu as retenu sur moi", "intent": "memory.search"}
+{"text": "Retiens que mon train part à 8 h", "intent": "memory.save"}
+{"text": "Souviens-toi que j'aime le café sans sucre", "intent": "memory.save"}
+{"text": "Note que la réunion est déplacée à jeudi", "intent": "memory.save"}
+{"text": "Mémorise mon numéro de casier : 42", "intent": "memory.save"}
+{"text": "N'oublie pas que Paul est allergique aux noix", "intent": "memory.save"}
+{"text": "Garde en mémoire que le mot de passe wifi est sur le frigo", "intent": "memory.save"}
+{"text": "Enregistre dans ta mémoire que je travaille de nuit", "intent": "memory.save"}
+{"text": "Ajoute à ta mémoire que mon projet s'appelle Orion", "intent": "memory.save"}
+{"text": "retiens bien que je déteste les notifications", "intent": "memory.save"}
+{"text": "note bien que le client préfère les mails", "intent": "memory.save"}
+{"text": "je veux que tu retiennes ma taille de chaussure", "intent": "memory.save"}
+{"text": "rappelle-toi que ma fille s'appelle Lina", "intent": "memory.save"}
+{"text": "souviens toi que je suis végétarien", "intent": "memory.save"}
+{"text": "Cherche sur internet le prix moyen d'une voiture électrique", "intent": "web.search"}
+{"text": "Trouve des articles sur la fusion nucléaire", "intent": "web.search"}
+{"text": "Que dit Wikipédia sur Marie Curie ?", "intent": "web.search"}
+{"text": "Fais une recherche sur les trous noirs supermassifs", "intent": "web.search"}
+{"text": "Recherche des informations sur l'exoplanète TRAPPIST-1", "intent": "web.search"}
+{"text": "Renseigne-toi sur le télescope James Webb", "intent": "web.search"}
+{"text": "Google les horaires du musée du Louvre", "intent": "web.search"}
+{"text": "Les nouvelles avancées en médecine régénérative", "intent": "web.search"}
+{"text": "Cherche des sources fiables sur le réchauffement climatique", "intent": "web.search"}
+{"text": "trouve-moi des infos sur la mission Artemis", "intent": "web.search"}
+{"text": "recherche sur le web comment fonctionne un réacteur", "intent": "web.search"}
+{"text": "les dernières études sur le sommeil", "intent": "web.search"}
+{"text": "cherche la biographie de Nikola Tesla", "intent": "web.search"}
+{"text": "lance une recherche sur les volcans d'Islande", "intent": "web.search"}
+{"text": "Quelles sont les actualités du jour ?", "intent": "news.latest"}
+{"text": "Donne-moi les dernières nouvelles scientifiques", "intent": "news.latest"}
+{"text": "Les infos tech de ce matin", "intent": "news.latest"}
+{"text": "Quoi de neuf du côté de l'espace ?", "intent": "news.latest"}
+{"text": "Montre les gros titres", "intent": "news.latest"}
+{"text": "Résume l'actualité spatiale", "intent": "news.latest"}
+{"text": "Les actus sur l'intelligence artificielle", "intent": "news.latest"}
+{"text": "qu'est-ce qui se passe dans le monde aujourd'hui", "intent": "news.latest"}
+{"text": "les nouvelles de la science cette semaine", "intent": "news.latest"}
+{"text": "flux RSS astronomie", "intent": "news.latest"}
+{"text": "derniers titres de l'actualité", "intent": "news.latest"}
+{"text": "quoi de neuf en technologie", "intent": "news.latest"}
+{"text": "l'actualité santé du moment", "intent": "news.latest"}
+{"text": "Quelle est la météo à Bordeaux ?", "intent": "weather.current"}
+{"text": "Va-t-il pleuvoir demain à Lille ?", "intent": "weather.current"}
+{"text": "Il fait chaud à Marseille ?", "intent": "weather.current"}
+{"text": "Température extérieure à Alger", "intent": "weather.current"}
+{"text": "Est-ce que je dois prendre un parapluie ?", "intent": "weather.current"}
+{"text": "Prévisions météo pour Nantes", "intent": "weather.current"}
+{"text": "Il fait combien dehors ?", "intent": "weather.current"}
+{"text": "Quel temps il fait à Oran aujourd'hui", "intent": "weather.current"}
+{"text": "météo de la semaine", "intent": "weather.current"}
+{"text": "il neige à Grenoble ?", "intent": "weather.current"}
+{"text": "y a du vent à Brest", "intent": "weather.current"}
+{"text": "la météo stp", "intent": "weather.current"}
+{"text": "fait il beau à Nice", "intent": "weather.current"}
+{"text": "quel temps à Tunis", "intent": "weather.current"}
+{"text": "Y a-t-il eu un tremblement de terre récemment ?", "intent": "quakes.recent"}
+{"text": "Derniers séismes dans le monde", "intent": "quakes.recent"}
+{"text": "Montre l'activité sismique de la semaine", "intent": "quakes.recent"}
+{"text": "Un séisme a-t-il frappé le Japon aujourd'hui ?", "intent": "quakes.recent"}
+{"text": "Liste des secousses sismiques récentes", "intent": "quakes.recent"}
+{"text": "Les tremblements de terre de magnitude 5 ou plus", "intent": "quakes.recent"}
+{"text": "séismes en Algérie ces derniers jours", "intent": "quakes.recent"}
+{"text": "y a t il eu des secousses en Turquie", "intent": "quakes.recent"}
+{"text": "carte des séismes", "intent": "quakes.recent"}
+{"text": "données USGS des séismes", "intent": "quakes.recent"}
+{"text": "le dernier gros tremblement de terre", "intent": "quakes.recent"}
+{"text": "activité sismique en Italie", "intent": "quakes.recent"}
+{"text": "seismes recents", "intent": "quakes.recent"}
+{"text": "Calcule 345 + 789", "intent": "calc.evaluate"}
+{"text": "Combien fait 12 fois 8 ?", "intent": "calc.evaluate"}
+{"text": "Combien font 1024 divisé par 16", "intent": "calc.evaluate"}
+{"text": "Quel est le carré de 15 ?", "intent": "calc.evaluate"}
+{"text": "Racine de 81", "intent": "calc.evaluate"}
+{"text": "7 puissance 3", "intent": "calc.evaluate"}
+{"text": "Combien font 20 % de 150 ?", "intent": "calc.evaluate"}
+{"text": "125 - 48", "intent": "calc.evaluate"}
+{"text": "3,14 × 2", "intent": "calc.evaluate"}
+{"text": "combien fait cent moins trente", "intent": "calc.evaluate"}
+{"text": "calcule (12 + 8) * 3", "intent": "calc.evaluate"}
+{"text": "9 au cube", "intent": "calc.evaluate"}
+{"text": "combien ça fait 45 x 12", "intent": "calc.evaluate"}
+{"text": "2 plus 2", "intent": "calc.evaluate"}
+{"text": "Convertis 10 kilomètres en miles", "intent": "calc.convert"}
+{"text": "Combien de livres dans 5 kg ?", "intent": "calc.convert"}
+{"text": "25 degrés Celsius en Fahrenheit", "intent": "calc.convert"}
+{"text": "Combien de litres font 3 gallons ?", "intent": "calc.convert"}
+{"text": "Convertir 500 Mo en Go", "intent": "calc.convert"}
+{"text": "100 km/h en mph", "intent": "calc.convert"}
+{"text": "Combien de centimètres dans 12 pouces ?", "intent": "calc.convert"}
+{"text": "Conversion de 2 heures en minutes", "intent": "calc.convert"}
+{"text": "6 pieds en mètres", "intent": "calc.convert"}
+{"text": "combien de grammes font 3 onces", "intent": "calc.convert"}
+{"text": "convertis 70 fahrenheit en celsius", "intent": "calc.convert"}
+{"text": "1 To c'est combien de Go", "intent": "calc.convert"}
+{"text": "combien de mètres dans un mile", "intent": "calc.convert"}
+{"text": "Il est quelle heure ?", "intent": "time.now"}
+{"text": "Donne-moi l'heure", "intent": "time.now"}
+{"text": "Quel jour sommes-nous ?", "intent": "time.now"}
+{"text": "Quelle est la date d'aujourd'hui ?", "intent": "time.now"}
+{"text": "On est le combien aujourd'hui ?", "intent": "time.now"}
+{"text": "Quelle heure est-il à Tokyo ?", "intent": "time.now"}
+{"text": "tu as l'heure", "intent": "time.now"}
+{"text": "c'est quel jour aujourd'hui", "intent": "time.now"}
+{"text": "quelle heure il est", "intent": "time.now"}
+{"text": "la date du jour", "intent": "time.now"}
+{"text": "nous sommes quel jour de la semaine", "intent": "time.now"}
+{"text": "dis-moi l'heure exacte", "intent": "time.now"}
+{"text": "heure actuelle", "intent": "time.now"}
+{"text": "Simule l'orbite d'un satellite à 500 km", "intent": "sim.orbit"}
+{"text": "Calcule la période orbitale de l'ISS", "intent": "sim.orbit"}
+{"text": "Montre la trajectoire d'une sonde vers la Lune", "intent": "sim.orbit"}
+{"text": "Simulation d'une orbite géostationnaire", "intent": "sim.orbit"}
+{"text": "Quelle est la vitesse orbitale à 800 km d'altitude ?", "intent": "sim.orbit"}
+{"text": "Mets un satellite en orbite autour de Mars", "intent": "sim.orbit"}
+{"text": "simule une orbite basse terrestre", "intent": "sim.orbit"}
+{"text": "trajectoire de la station spatiale", "intent": "sim.orbit"}
+{"text": "modélise l'orbite elliptique d'un satellite", "intent": "sim.orbit"}
+{"text": "simulation orbitale autour de Jupiter", "intent": "sim.orbit"}
+{"text": "orbite polaire à 700 km", "intent": "sim.orbit"}
+{"text": "trace l'orbite d'une capsule autour de la Terre", "intent": "sim.orbit"}
+{"text": "simuler un satellite autour de la lune", "intent": "sim.orbit"}
+{"text": "Où se trouve Jupiter en ce moment ?", "intent": "sim.solar_system"}
+{"text": "Affiche le système solaire", "intent": "sim.solar_system"}
+{"text": "Position des planètes aujourd'hui", "intent": "sim.solar_system"}
+{"text": "Montre-moi les planètes le 1er janvier 2030", "intent": "sim.solar_system"}
+{"text": "Où est Vénus ce soir ?", "intent": "sim.solar_system"}
+{"text": "Visualise l'alignement des planètes", "intent": "sim.solar_system"}
+{"text": "Éphémérides de Saturne", "intent": "sim.solar_system"}
+{"text": "configuration du système solaire en 2040", "intent": "sim.solar_system"}
+{"text": "dessine le système solaire", "intent": "sim.solar_system"}
+{"text": "positions planétaires actuelles", "intent": "sim.solar_system"}
+{"text": "où sont les planètes", "intent": "sim.solar_system"}
+{"text": "voir Mars et la Terre sur leur orbite autour du soleil", "intent": "sim.solar_system"}
+{"text": "montre les planètes", "intent": "sim.solar_system"}
+{"text": "Liste les gros fichiers de mon bureau", "intent": "files.scan"}
+{"text": "Qu'est-ce qui prend de la place sur mon disque ?", "intent": "files.scan"}
+{"text": "Montre les vieux documents que je n'ai pas ouverts", "intent": "files.scan"}
+{"text": "Scanne mes téléchargements", "intent": "files.scan"}
+{"text": "Y a-t-il des doublons dans mes photos ?", "intent": "files.scan"}
+{"text": "Quels fichiers volumineux dans Documents ?", "intent": "files.scan"}
+{"text": "Examine le dossier Images", "intent": "files.scan"}
+{"text": "combien de fichiers dans mes téléchargements", "intent": "files.scan"}
+{"text": "liste les fichiers de plus de 1 Go", "intent": "files.scan"}
+{"text": "quels fichiers pourrais-je supprimer", "intent": "files.scan"}
+{"text": "inspecte le contenu de mon bureau", "intent": "files.scan"}
+{"text": "repère les fichiers inutiles sans rien supprimer", "intent": "files.scan"}
+{"text": "fichiers anciens dans le dossier documents", "intent": "files.scan"}
+{"text": "Nettoie mon dossier Téléchargements", "intent": "files.cleanup"}
+{"text": "Efface les fichiers temporaires", "intent": "files.cleanup"}
+{"text": "Fais le ménage sur mon bureau", "intent": "files.cleanup"}
+{"text": "Vide les vieux fichiers du dossier Documents", "intent": "files.cleanup"}
+{"text": "Libère de l'espace disque", "intent": "files.cleanup"}
+{"text": "Débarrasse-moi des doublons", "intent": "files.cleanup"}
+{"text": "Mets en quarantaine les fichiers de plus d'un an", "intent": "files.cleanup"}
+{"text": "supprime les vieux téléchargements", "intent": "files.cleanup"}
+{"text": "fais du tri dans mes fichiers", "intent": "files.cleanup"}
+{"text": "nettoyage du disque", "intent": "files.cleanup"}
+{"text": "efface les fichiers inutiles du pc", "intent": "files.cleanup"}
+{"text": "jette les vieilles vidéos", "intent": "files.cleanup"}
+{"text": "élimine les fichiers en double", "intent": "files.cleanup"}
+{"text": "Résume ce texte", "intent": "doc.analyze"}
+{"text": "Explique-moi ce code", "intent": "doc.analyze"}
+{"text": "Que dit ce rapport ?", "intent": "doc.analyze"}
+{"text": "Fais une synthèse du document ci-joint", "intent": "doc.analyze"}
+{"text": "Corrige les fautes de cette lettre", "intent": "doc.analyze"}
+{"text": "Analyse ce contrat et repère les risques", "intent": "doc.analyze"}
+{"text": "Lis ce PDF et donne-moi les points clés", "intent": "doc.analyze"}
+{"text": "Traduis ce paragraphe en anglais", "intent": "doc.analyze"}
+{"text": "voici un log, dis-moi ce qui ne va pas", "intent": "doc.analyze"}
+{"text": "explique ce message d'erreur", "intent": "doc.analyze"}
+{"text": "relis mon CV", "intent": "doc.analyze"}
+{"text": "décortique cet article scientifique", "intent": "doc.analyze"}
+{"text": "comment corriger cette exception python", "intent": "doc.analyze"}
+{"text": "commente ce script", "intent": "doc.analyze"}
+{"text": "Planifie ma semaine de révisions", "intent": "task.plan"}
+{"text": "Prépare un plan pour lancer mon site web", "intent": "task.plan"}
+{"text": "Aide-moi à organiser mon déménagement", "intent": "task.plan"}
+{"text": "Fais-moi une liste de tâches pour la conférence", "intent": "task.plan"}
+{"text": "Établis un planning pour mon mémoire", "intent": "task.plan"}
+{"text": "Décompose ce projet en étapes", "intent": "task.plan"}
+{"text": "Quelles sont les étapes pour créer une startup ?", "intent": "task.plan"}
+{"text": "Organise ma journée de demain", "intent": "task.plan"}
+{"text": "crée une checklist pour le voyage", "intent": "task.plan"}
+{"text": "propose une feuille de route pour apprendre python", "intent": "task.plan"}
+{"text": "prépare un emploi du temps pour le mois", "intent": "task.plan"}
+{"text": "priorise mes tâches de la semaine", "intent": "task.plan"}
+{"text": "organise mes notes de cours", "intent": "task.plan"}
+{"text": "Ouvre la page des paramètres", "intent": "ui.navigate"}
+{"text": "Va sur l'accueil", "intent": "ui.navigate"}
+{"text": "Affiche le graphe de mémoire", "intent": "ui.navigate"}
+{"text": "Montre-moi la carte du monde", "intent": "ui.navigate"}
+{"text": "Passe à l'onglet simulations", "intent": "ui.navigate"}
+{"text": "Ouvre l'historique des tâches", "intent": "ui.navigate"}
+{"text": "Retourne au tableau de bord", "intent": "ui.navigate"}
+{"text": "va dans les réglages", "intent": "ui.navigate"}
+{"text": "affiche la page ordinateur", "intent": "ui.navigate"}
+{"text": "ouvre le chat", "intent": "ui.navigate"}
+{"text": "montre le globe", "intent": "ui.navigate"}
+{"text": "page recherche", "intent": "ui.navigate"}
+{"text": "bascule sur la vue mémoire", "intent": "ui.navigate"}
+{"text": "ouvre les simulations", "intent": "ui.navigate"}
+{"text": "Tu as accès à internet ?", "intent": "meta.capabilities"}
+{"text": "Qu'est-ce que tu peux faire ?", "intent": "meta.capabilities"}
+{"text": "Quelles sont tes fonctionnalités ?", "intent": "meta.capabilities"}
+{"text": "Es-tu connectée ?", "intent": "meta.capabilities"}
+{"text": "Quel modèle utilises-tu ?", "intent": "meta.capabilities"}
+{"text": "Est-ce que Claude est configuré ?", "intent": "meta.capabilities"}
+{"text": "Tu fonctionnes hors ligne ?", "intent": "meta.capabilities"}
+{"text": "qui es-tu", "intent": "chat.general"}
+{"text": "tu sais faire quoi", "intent": "meta.capabilities"}
+{"text": "quelles sont tes limites", "intent": "meta.capabilities"}
+{"text": "est ce que ollama marche", "intent": "meta.capabilities"}
+{"text": "dans quel mode es-tu", "intent": "meta.capabilities"}
+{"text": "présente-toi", "intent": "chat.general"}
+{"text": "peux tu aller sur internet", "intent": "meta.capabilities"}
+{"text": "Bonjour Aurora", "intent": "chat.general"}
+{"text": "Raconte-moi une blague", "intent": "chat.general"}
+{"text": "Écris un poème sur l'automne", "intent": "chat.general"}
+{"text": "Qu'est-ce que la relativité restreinte ?", "intent": "chat.general"}
+{"text": "Explique-moi le principe de la photosynthèse", "intent": "chat.general"}
+{"text": "Que penses-tu de la musique classique ?", "intent": "chat.general"}
+{"text": "Merci beaucoup !", "intent": "chat.general"}
+{"text": "Comment ça va ?", "intent": "chat.general"}
+{"text": "Donne-moi des idées de cadeau pour ma mère", "intent": "chat.general"}
+{"text": "Pourquoi le ciel est bleu ?", "intent": "chat.general"}
+{"text": "c'est quoi un trou noir", "intent": "chat.general"}
+{"text": "j'ai vu un super film hier", "intent": "chat.general"}
+{"text": "je me souviens de mes vacances en Bretagne", "intent": "chat.general"}
+{"text": "aide-moi à écrire un mail de remerciement", "intent": "chat.general"}
+{"text": "quelle est la capitale de l'Australie", "intent": "chat.general"}
+{"text": "combien de temps faut-il pour cuire un œuf", "intent": "chat.general"}
+{"text": "Remets les fichiers de la quarantaine à leur place", "intent": "files.restore"}
+{"text": "Restaure ma quarantaine", "intent": "files.restore"}
+{"text": "Annule le dernier nettoyage", "intent": "files.restore"}
+{"text": "Récupère les fichiers que tu as mis en quarantaine", "intent": "files.restore"}
+{"text": "Ramène mes fichiers mis de côté par le nettoyage", "intent": "files.restore"}
+{"text": "Sors mes fichiers de la quarantaine", "intent": "files.restore"}
+{"text": "Remets mes fichiers où ils étaient", "intent": "files.restore"}
+{"text": "Je veux récupérer les fichiers nettoyés", "intent": "files.restore"}
+{"text": "Restaure les fichiers que tu as déplacés", "intent": "files.restore"}
+{"text": "Annule le ménage que tu as fait", "intent": "files.restore"}
+{"text": "Tu peux remettre les fichiers déplacés en quarantaine ?", "intent": "files.restore"}
+{"text": "Rends-moi mes fichiers mis en quarantaine", "intent": "files.restore"}
+{"text": "Restaurer les fichiers du dernier nettoyage", "intent": "files.restore"}
+{"text": "Remets en place les fichiers mis de côté", "intent": "files.restore"}
+{"text": "Lance ma routine du matin", "intent": "routine.run"}
+{"text": "Démarre la routine du soir", "intent": "routine.run"}
+{"text": "Exécute la routine bureau", "intent": "routine.run"}
+{"text": "Lance la routine travail", "intent": "routine.run"}
+{"text": "Routine du matin", "intent": "routine.run"}
+{"text": "Joue ma routine week-end", "intent": "routine.run"}
+{"text": "Démarre ma routine de rangement", "intent": "routine.run"}
+{"text": "Lance la routine révision", "intent": "routine.run"}
+{"text": "Exécute ma routine habituelle", "intent": "routine.run"}
+{"text": "Routine sport", "intent": "routine.run"}
+{"text": "Lance notre routine du lundi", "intent": "routine.run"}
+{"text": "Démarre la routine point du jour", "intent": "routine.run"}
+{"text": "Rappelle-moi à 18 h d'appeler Paul", "intent": "reminder.set"}
+{"text": "Rappelle-moi dans 20 minutes de sortir le plat du four", "intent": "reminder.set"}
+{"text": "Rappelle-moi demain à 9 h mon rendez-vous chez le dentiste", "intent": "reminder.set"}
+{"text": "Fais-moi penser à acheter du pain à 17 h", "intent": "reminder.set"}
+{"text": "Préviens-moi dans un quart d'heure", "intent": "reminder.set"}
+{"text": "Mets un minuteur de 10 minutes", "intent": "reminder.set"}
+{"text": "Minuteur de 3 minutes pour les œufs", "intent": "reminder.set"}
+{"text": "Lance un compte à rebours de 45 secondes", "intent": "reminder.set"}
+{"text": "Réveille-moi à 7 h demain matin", "intent": "reminder.set"}
+{"text": "Mets une alarme à 6 h 30", "intent": "reminder.set"}
+{"text": "Programme un rappel pour lundi à 8 h : payer le loyer", "intent": "reminder.set"}
+{"text": "Quels sont mes rappels ?", "intent": "reminder.set"}
+{"text": "Combien de temps reste-t-il au minuteur ?", "intent": "reminder.set"}
+{"text": "Annule le minuteur", "intent": "reminder.set"}
+{"text": "Supprime tous mes rappels", "intent": "reminder.set"}
+{"text": "En mode agent : regarde ma RAM puis cherche pourquoi elle est haute", "intent": "agent.run"}
+{"text": "Mode agent, compare la météo de Lyon et de Paris", "intent": "agent.run"}
+{"text": "Agent : fais le point sur mon PC et propose-moi quoi faire", "intent": "agent.run"}
+{"text": "Lance l'agent pour vérifier mon disque et trouver les gros fichiers", "intent": "agent.run"}
+{"text": "Utilise l'agent pour chercher les dernières missions vers Mars", "intent": "agent.run"}
+{"text": "Confie à l'agent la recherche des séismes de la semaine", "intent": "agent.run"}
+{"text": "Passe par l'agent pour calculer et convertir ces valeurs", "intent": "agent.run"}
+{"text": "En mode agent, trouve pourquoi mon ordinateur rame", "intent": "agent.run"}
+{"text": "Active le mode agent et regarde les processus qui consomment", "intent": "agent.run"}
+{"text": "Demande à l'agent de résumer les actualités scientifiques du jour", "intent": "agent.run"}
+{"text": "Agent, quelle heure est-il à Tokyo et quel temps y fait-il ?", "intent": "agent.run"}
+{"text": "En mode agent : analyse mes téléchargements puis dis-moi quoi nettoyer", "intent": "agent.run"}
+{"text": "Utilise ton agent pour préparer un point complet sur l'état du PC", "intent": "agent.run"}
+{"text": "Mode agent : cherche sur le web comment accélérer Windows", "intent": "agent.run"}
+{"text": "Analyse le fichier comptes.csv", "intent": "data.analyze"}
+{"text": "Fais-moi les statistiques de mon fichier ventes.csv", "intent": "data.analyze"}
+{"text": "Quelle est la tendance des dépenses dans budget.csv ?", "intent": "data.analyze"}
+{"text": "Calcule le total par catégorie dans releve.csv", "intent": "data.analyze"}
+{"text": "Trouve les valeurs anormales de mon tableau csv", "intent": "data.analyze"}
+{"text": "Compare août et septembre dans mon fichier de dépenses csv", "intent": "data.analyze"}
+{"text": "Étudie les chiffres de mon tableur", "intent": "data.analyze"}
+{"text": "Donne la moyenne de la colonne montant dans achats.csv", "intent": "data.analyze"}
+{"text": "Analyse les données de mon fichier Excel", "intent": "data.analyze"}
+{"text": "Regroupe les lignes de factures.csv par client", "intent": "data.analyze"}
+{"text": "Résume les données de la feuille de calcul", "intent": "data.analyze"}
+{"text": "Montre l'évolution mois par mois de mesures.tsv", "intent": "data.analyze"}
+{"text": "Qu'est-ce qui sort de l'ordinaire dans stock.csv ?", "intent": "data.analyze"}
+{"text": "Fais le point sur mon relevé bancaire en csv", "intent": "data.analyze"}
+{"text": "Exécute la commande git add .", "intent": "shell.run"}
+{"text": "Lance la commande npm start", "intent": "shell.run"}
+{"text": "Exécute la commande pip install requests", "intent": "shell.run"}
+{"text": "Terminal : git commit -m sauvegarde", "intent": "shell.run"}
+{"text": "Shell : python app.py", "intent": "shell.run"}
+{"text": "Exécute la commande ls", "intent": "shell.run"}
+{"text": "Lance la commande make", "intent": "shell.run"}
+{"text": "Dans le terminal lance la commande yarn build", "intent": "shell.run"}
+{"text": "Exécute la commande git push", "intent": "shell.run"}
+{"text": "cmd : ipconfig", "intent": "shell.run"}
+{"text": "Exécute la commande npx vite build", "intent": "shell.run"}
+{"text": "Lance la commande go run main.go", "intent": "shell.run"}
+{"text": "aurora exécute la commande git fetch", "intent": "shell.run"}
+{"text": "Clique en 500, 300", "intent": "pc.control"}
+{"text": "Double-clique en 120, 340", "intent": "pc.control"}
+{"text": "Fais un clic droit en 800, 600", "intent": "pc.control"}
+{"text": "Tape dans Bloc-notes : bonjour à tous", "intent": "pc.control"}
+{"text": "Écris dans Word : Madame, Monsieur,", "intent": "pc.control"}
+{"text": "Appuie sur Échap dans Chrome", "intent": "pc.control"}
+{"text": "Fais Ctrl+Z dans Bloc-notes", "intent": "pc.control"}
+{"text": "Fais défiler vers le haut dans Chrome", "intent": "pc.control"}
+{"text": "Déplace la souris en 200, 150", "intent": "pc.control"}
+{"text": "Où se trouve le curseur ?", "intent": "pc.control"}
+{"text": "Clique sur le bouton Annuler", "intent": "pc.control"}
+{"text": "Appuie sur la touche Tab dans Bloc-notes", "intent": "pc.control"}
+{"text": "aurora clique en 1000, 500", "intent": "pc.control"}
+{"text": "Ouvre l’application Spotify", "intent": "app.launch"}
+{"text": "Lance le logiciel Audacity", "intent": "app.launch"}
+{"text": "Démarre l’appli OBS Studio", "intent": "app.launch"}
+{"text": "Peux-tu ouvrir l’application Blender ?", "intent": "app.launch"}
+{"text": "Lance-moi le programme Photoshop", "intent": "app.launch"}
+{"text": "Ouvre l’app Discord", "intent": "app.launch"}
+{"text": "Tu peux lancer l’application Steam ?", "intent": "app.launch"}
+{"text": "Démarre le logiciel de montage", "intent": "app.launch"}
+{"text": "Ouvre une application", "intent": "app.launch"}
+{"text": "Lance Spotify", "intent": "app.launch"}
+{"text": "Ouvre Excel", "intent": "app.launch"}
+{"text": "Démarre VLC", "intent": "app.launch"}
+{"text": "aurora ouvre l’application YouTube Manager", "intent": "app.launch"}
+{"text": "Mets un commentaire sous ma dernière vidéo", "intent": "youtube.comment"}
+{"text": "Poste un commentaire sur ma nouvelle vidéo YouTube", "intent": "youtube.comment"}
+{"text": "Publie un commentaire sous ma vidéo la plus récente", "intent": "youtube.comment"}
+{"text": "Laisse un petit commentaire sous ma dernière vidéo", "intent": "youtube.comment"}
+{"text": "Ajoute un commentaire sur ma dernière vidéo : merci à tous !", "intent": "youtube.comment"}
+{"text": "Commente ma dernière vidéo", "intent": "youtube.comment"}
+{"text": "Peux-tu commenter ma nouvelle vidéo ?", "intent": "youtube.comment"}
+{"text": "Écris un commentaire sous ma dernière vidéo YouTube", "intent": "youtube.comment"}
+{"text": "Envoie un commentaire sous ma vidéo YouTube", "intent": "youtube.comment"}
+{"text": "Mets-moi un commentaire gentil sous ma dernière vidéo", "intent": "youtube.comment"}
+{"text": "Publie sur ma chaîne un commentaire sous la dernière vidéo", "intent": "youtube.comment"}
+{"text": "Retire le commentaire que tu as publié sous ma vidéo", "intent": "youtube.comment"}
+{"text": "Supprime le dernier commentaire que tu as posté sur YouTube", "intent": "youtube.comment"}

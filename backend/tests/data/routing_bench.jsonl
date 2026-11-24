@@ -1,0 +1,332 @@
+{"text": "Quelle quantité de RAM est utilisée ?", "intent": "system.status", "tag": "normal"}
+{"text": "À combien tourne mon processeur actuellement ?", "intent": "system.status", "tag": "normal"}
+{"text": "Combien d'espace libre reste-t-il sur mon disque ?", "intent": "system.status", "tag": "normal"}
+{"text": "Ma batterie est chargée à combien ?", "intent": "system.status", "tag": "normal"}
+{"text": "Est-ce que mon disque dur est presque plein ?", "intent": "system.status", "tag": "normal"}
+{"text": "quel pourcentage de memoire vive est occupé", "intent": "system.status", "tag": "faute"}
+{"text": "kel est l'utilisation du cpu la", "intent": "system.status", "tag": "faute"}
+{"text": "aurora combien de rame est utilisee", "intent": "system.status", "tag": "voix"}
+{"text": "ok aurora donne moi la température du processeur", "intent": "system.status", "tag": "voix"}
+{"text": "hé aurora la rame est a combien", "intent": "system.status", "tag": "voix"}
+{"text": "Mon PC tient le coup ? Donne-moi juste les chiffres CPU et RAM", "intent": "system.status", "tag": "ambigu"}
+{"text": "Affiche l'utilisation du processeur", "intent": "system.status", "tag": "ambigu"}
+{"text": "C'est quoi la RAM exactement ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Faut-il ajouter de la RAM pour faire du montage vidéo ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Quels programmes consomment le plus ?", "intent": "system.processes", "tag": "normal"}
+{"text": "Quelle appli utilise toute ma mémoire ?", "intent": "system.processes", "tag": "normal"}
+{"text": "Montre les processus qui prennent le plus de processeur", "intent": "system.processes", "tag": "normal"}
+{"text": "Liste des applications ouvertes en ce moment", "intent": "system.processes", "tag": "normal"}
+{"text": "quel logicielle bouffe ma ram", "intent": "system.processes", "tag": "faute"}
+{"text": "kels programes tourne en fond", "intent": "system.processes", "tag": "faute"}
+{"text": "aurora qu est ce qui consomme autant de processeur", "intent": "system.processes", "tag": "voix"}
+{"text": "Le processus de fabrication du verre", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Explique-moi pourquoi mon PC ralentit", "intent": "system.diagnose", "tag": "normal"}
+{"text": "Pourquoi mon PC ralentit ?", "intent": "system.diagnose", "tag": "normal"}
+{"text": "Mon ordinateur met une éternité à s'allumer, tu peux regarder ?", "intent": "system.diagnose", "tag": "normal"}
+{"text": "Analyse pourquoi mon ordinateur surchauffe", "intent": "system.diagnose", "tag": "normal"}
+{"text": "Fais un bilan de santé de mon PC", "intent": "system.diagnose", "tag": "normal"}
+{"text": "mon pc rame grave depuis la mise a jour", "intent": "system.diagnose", "tag": "faute"}
+{"text": "pk mon ordi est si lent", "intent": "system.diagnose", "tag": "faute"}
+{"text": "aurora mon ordinateur est tout lent euh analyse le probleme", "intent": "system.diagnose", "tag": "voix"}
+{"text": "mon PC est lent, analyse le problème, recherche des solutions et prépare une optimisation", "intent": "system.diagnose", "tag": "ambigu", "secondary": ["web.search", "task.plan"]}
+{"text": "Le CPU chauffe beaucoup, c'est normal ?", "intent": "system.diagnose", "tag": "ambigu"}
+{"text": "Analyse mon PC", "intent": "system.diagnose", "tag": "ambigu"}
+{"text": "Mon chat est très lent ce matin", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Pourquoi les escargots sont-ils si lents ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Ferme Chrome", "intent": "system.kill_process", "tag": "normal"}
+{"text": "Arrête Spotify, il consomme trop", "intent": "system.kill_process", "tag": "normal"}
+{"text": "Tue le processus 8812", "intent": "system.kill_process", "tag": "normal"}
+{"text": "Force la fermeture d'Outlook", "intent": "system.kill_process", "tag": "normal"}
+{"text": "ferme crome", "intent": "system.kill_process", "tag": "faute"}
+{"text": "aurora quitte discord", "intent": "system.kill_process", "tag": "voix"}
+{"text": "Ferme la porte en partant", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Arrête de parler", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Retrouve notre projet sur Mars", "intent": "memory.search", "tag": "normal"}
+{"text": "Tu te souviens de ce que je t'ai dit sur mon nouveau travail ?", "intent": "memory.search", "tag": "normal"}
+{"text": "Qu'est-ce que tu sais de mes préférences alimentaires ?", "intent": "memory.search", "tag": "normal"}
+{"text": "Rappelle-moi ce qu'on avait décidé pour le logo", "intent": "memory.search", "tag": "normal"}
+{"text": "Retrouve mes notes de la réunion de lundi", "intent": "memory.search", "tag": "normal"}
+{"text": "tu te souvien de notre discution sur les fusées", "intent": "memory.search", "tag": "faute"}
+{"text": "aurora rappelle moi ce que je t ai dit hier sur le jardin", "intent": "memory.search", "tag": "voix"}
+{"text": "Aurora, ouvre mon projet et reprends là où nous en étions", "intent": "memory.search", "tag": "ambigu"}
+{"text": "Retrouve ce que nous avions noté sur Mars, pas sur internet", "intent": "memory.search", "tag": "ambigu"}
+{"text": "Cherche dans mes notes le code du portail", "intent": "memory.search", "tag": "ambigu"}
+{"text": "Montre-moi mes souvenirs sur la Bretagne", "intent": "memory.search", "tag": "ambigu"}
+{"text": "Tu te souviens de la météo d'hier ?", "intent": "memory.search", "tag": "ambigu"}
+{"text": "Quoi de neuf sur notre projet ?", "intent": "memory.search", "tag": "ambigu"}
+{"text": "Retiens que je préfère le mode sombre", "intent": "memory.save", "tag": "normal"}
+{"text": "Note que mon rendez-vous chez le dentiste est mardi à 14 h", "intent": "memory.save", "tag": "normal"}
+{"text": "Souviens-toi que ma voiture est garée au niveau -2", "intent": "memory.save", "tag": "normal"}
+{"text": "Garde en tête que je ne bois pas de café", "intent": "memory.save", "tag": "normal"}
+{"text": "retien que mon code postal est 69003", "intent": "memory.save", "tag": "faute"}
+{"text": "aurora souviens toi que le projet orion commence en janvier", "intent": "memory.save", "tag": "voix"}
+{"text": "Je me souviens de notre voyage à Lyon", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Quelle est la note la plus grave d'un piano ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Recherche les dernières découvertes spatiales", "intent": "web.search", "tag": "normal"}
+{"text": "Cherche sur Internet comment fonctionne un ordinateur quantique", "intent": "web.search", "tag": "normal"}
+{"text": "Trouve-moi des articles récents sur les exoplanètes", "intent": "web.search", "tag": "normal"}
+{"text": "Que dit Wikipédia sur la tectonique des plaques ?", "intent": "web.search", "tag": "normal"}
+{"text": "Fais des recherches sur l'histoire de la station Mir", "intent": "web.search", "tag": "normal"}
+{"text": "cherche sur google les horaires de la piscine", "intent": "web.search", "tag": "normal"}
+{"text": "recherche les derniere decouverte sur les trous noir", "intent": "web.search", "tag": "faute"}
+{"text": "aurora cherche sur internet la recette du couscous", "intent": "web.search", "tag": "voix"}
+{"text": "Les dernières découvertes sur Mars", "intent": "web.search", "tag": "ambigu"}
+{"text": "Recherche des solutions pour mon PC lent", "intent": "web.search", "tag": "ambigu"}
+{"text": "Peux-tu chercher sur Internet le prix du pétrole ?", "intent": "web.search", "tag": "contre-exemple"}
+{"text": "Quoi de neuf dans l'actualité scientifique ?", "intent": "news.latest", "tag": "normal"}
+{"text": "Donne-moi les actualités spatiales de la semaine", "intent": "news.latest", "tag": "normal"}
+{"text": "Quelles sont les dernières nouvelles en intelligence artificielle ?", "intent": "news.latest", "tag": "normal"}
+{"text": "Les gros titres de ce matin", "intent": "news.latest", "tag": "normal"}
+{"text": "les actu tech", "intent": "news.latest", "tag": "faute"}
+{"text": "aurora c'est quoi les infos du jour", "intent": "news.latest", "tag": "voix"}
+{"text": "Quoi de neuf ?", "intent": "chat.general", "tag": "ambigu"}
+{"text": "J'ai lu une actualité étonnante sur les pieuvres", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Quel temps fait-il à Lyon ?", "intent": "weather.current", "tag": "normal"}
+{"text": "Météo de demain à Toulouse", "intent": "weather.current", "tag": "normal"}
+{"text": "Est-ce qu'il va pleuvoir cet après-midi ?", "intent": "weather.current", "tag": "normal"}
+{"text": "Il fait combien de degrés à Constantine ?", "intent": "weather.current", "tag": "normal"}
+{"text": "Quelle est la température à Alger ?", "intent": "weather.current", "tag": "normal"}
+{"text": "kel temps fait il a paris", "intent": "weather.current", "tag": "faute"}
+{"text": "la metéo a marseile stp", "intent": "weather.current", "tag": "faute"}
+{"text": "ok aurora quel temp fait il a lille", "intent": "weather.current", "tag": "voix"}
+{"text": "aurora est ce qu il fait froid dehors", "intent": "weather.current", "tag": "voix"}
+{"text": "Quel temps fait-il à Paris et quelle heure est-il ?", "intent": "weather.current", "tag": "ambigu", "secondary": ["time.now"]}
+{"text": "Le temps passe vite quand on s'amuse", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Quelle est la température de mon processeur ?", "intent": "system.status", "tag": "contre-exemple"}
+{"text": "Y a-t-il eu des séismes aujourd'hui ?", "intent": "quakes.recent", "tag": "normal"}
+{"text": "Montre les derniers tremblements de terre", "intent": "quakes.recent", "tag": "normal"}
+{"text": "Un séisme a eu lieu au Chili cette nuit ?", "intent": "quakes.recent", "tag": "normal"}
+{"text": "seisme recent au maroc", "intent": "quakes.recent", "tag": "faute"}
+{"text": "aurora y a t il eu un tremblement de terre ce matin", "intent": "quakes.recent", "tag": "voix"}
+{"text": "Affiche les séismes sur le globe", "intent": "quakes.recent", "tag": "ambigu"}
+{"text": "Comment se forme un séisme ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Combien font 17 × 23 ?", "intent": "calc.evaluate", "tag": "normal"}
+{"text": "Calcule 1250 divisé par 5", "intent": "calc.evaluate", "tag": "normal"}
+{"text": "Quelle est la racine carrée de 625 ?", "intent": "calc.evaluate", "tag": "normal"}
+{"text": "combien fait 15 pourcent de 240", "intent": "calc.evaluate", "tag": "normal"}
+{"text": "2 puissance 16", "intent": "calc.evaluate", "tag": "normal"}
+{"text": "conbien fait 48 fois 12", "intent": "calc.evaluate", "tag": "faute"}
+{"text": "aurora combien font sept fois huit", "intent": "calc.evaluate", "tag": "voix"}
+{"text": "Calcule 3 + 4 et convertis 10 km en miles", "intent": "calc.evaluate", "tag": "ambigu", "secondary": ["calc.convert"]}
+{"text": "J'ai 3 enfants et 2 chats", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Le match a fini 2-1", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Convertis 30 miles en km", "intent": "calc.convert", "tag": "normal"}
+{"text": "Combien de mètres dans 3 pieds ?", "intent": "calc.convert", "tag": "normal"}
+{"text": "50 euros en dollars", "intent": "calc.convert", "tag": "normal"}
+{"text": "Convertis 2 To en Go", "intent": "calc.convert", "tag": "normal"}
+{"text": "combien de kilometre fait 26 mile", "intent": "calc.convert", "tag": "faute"}
+{"text": "aurora convertis cent degres fahrenheit en celsius", "intent": "calc.convert", "tag": "voix"}
+{"text": "Comment convertir une vidéo en MP4 ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Combien de calories dans une pomme ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Quelle heure est-il ?", "intent": "time.now", "tag": "normal"}
+{"text": "On est quel jour aujourd'hui ?", "intent": "time.now", "tag": "normal"}
+{"text": "Quelle est la date du jour ?", "intent": "time.now", "tag": "normal"}
+{"text": "c koi l'heure", "intent": "time.now", "tag": "faute"}
+{"text": "aurora euh c est quelle heure là", "intent": "time.now", "tag": "voix"}
+{"text": "o rora quelle heure est il", "intent": "time.now", "tag": "voix"}
+{"text": "À quelle heure dois-je me coucher pour dormir 8 heures si je me lève à 7 h ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Combien de temps faut-il pour aller sur Mars ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Simule la trajectoire d'une sonde autour de Mars", "intent": "sim.orbit", "tag": "normal"}
+{"text": "Simule une trajectoire orbitale", "intent": "sim.orbit", "tag": "normal"}
+{"text": "Calcule l'orbite d'un satellite à 600 km d'altitude", "intent": "sim.orbit", "tag": "normal"}
+{"text": "Quelle est la période orbitale d'un satellite géostationnaire ?", "intent": "sim.orbit", "tag": "normal"}
+{"text": "Mets en orbite un satellite autour de la Lune à 100 km", "intent": "sim.orbit", "tag": "normal"}
+{"text": "simul une orbitte basse autour de la terre", "intent": "sim.orbit", "tag": "faute"}
+{"text": "aurora simule l orbite de l iss", "intent": "sim.orbit", "tag": "voix"}
+{"text": "Écris une histoire sur un satellite perdu", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Montre la position des planètes", "intent": "sim.solar_system", "tag": "normal"}
+{"text": "Où se trouve Saturne en ce moment ?", "intent": "sim.solar_system", "tag": "normal"}
+{"text": "Affiche le système solaire au 1er janvier 2050", "intent": "sim.solar_system", "tag": "normal"}
+{"text": "ou sont les planete aujourd hui", "intent": "sim.solar_system", "tag": "faute"}
+{"text": "aurora montre moi le systeme solaire", "intent": "sim.solar_system", "tag": "voix"}
+{"text": "Combien de planètes compte le système solaire ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Pourquoi Mars est rouge ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Quels vieux fichiers dans Téléchargements ?", "intent": "files.scan", "tag": "normal"}
+{"text": "Montre-moi les fichiers les plus volumineux de mon bureau", "intent": "files.scan", "tag": "normal"}
+{"text": "Qu'est-ce qui occupe de la place dans Documents ?", "intent": "files.scan", "tag": "normal"}
+{"text": "Liste les fichiers que je n'ai pas ouverts depuis un an", "intent": "files.scan", "tag": "normal"}
+{"text": "quel fichier je pourrai suprimer dans mes telechargement", "intent": "files.scan", "tag": "faute"}
+{"text": "aurora scanne mon dossier documents", "intent": "files.scan", "tag": "voix"}
+{"text": "Montre-moi d'abord les vieux fichiers, sans rien supprimer", "intent": "files.scan", "tag": "ambigu"}
+{"text": "Quels fichiers puis-je effacer sans risque ?", "intent": "files.scan", "tag": "ambigu"}
+{"text": "Analyse mes fichiers du bureau", "intent": "files.scan", "tag": "ambigu"}
+{"text": "Supprime mes anciens fichiers", "intent": "files.cleanup", "tag": "normal"}
+{"text": "Fais le ménage dans mes téléchargements", "intent": "files.cleanup", "tag": "normal"}
+{"text": "Efface les fichiers de plus de six mois dans le dossier Téléchargements", "intent": "files.cleanup", "tag": "normal"}
+{"text": "Libère de la place sur mon disque", "intent": "files.cleanup", "tag": "normal"}
+{"text": "netoie mon bureau des vieux fichier", "intent": "files.cleanup", "tag": "faute"}
+{"text": "aurora supprime les doublons de mes photos", "intent": "files.cleanup", "tag": "voix"}
+{"text": "J'ai fait le ménage dans ma chambre", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Analyse ce document technique compliqué", "intent": "doc.analyze", "tag": "normal"}
+{"text": "Résume-moi ce rapport en cinq points", "intent": "doc.analyze", "tag": "normal"}
+{"text": "Peux-tu relire ce texte et corriger les fautes ?", "intent": "doc.analyze", "tag": "normal"}
+{"text": "Explique-moi ce que fait ce script Python", "intent": "doc.analyze", "tag": "normal"}
+{"text": "analise ce contrat stp", "intent": "doc.analyze", "tag": "faute"}
+{"text": "aurora resume le document que je viens de coller", "intent": "doc.analyze", "tag": "voix"}
+{"text": "Aurora, regarde cette erreur et explique-moi comment la résoudre", "intent": "doc.analyze", "tag": "ambigu"}
+{"text": "Analyse les causes de la Révolution française", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Aurora, organise mes recherches scientifiques de la semaine", "intent": "task.plan", "tag": "normal"}
+{"text": "Organise mes recherches de la semaine", "intent": "task.plan", "tag": "normal"}
+{"text": "Prépare-moi un planning de révision pour le bac", "intent": "task.plan", "tag": "normal"}
+{"text": "Aide-moi à planifier le lancement de mon application", "intent": "task.plan", "tag": "normal"}
+{"text": "Fais une liste des étapes pour rénover ma cuisine", "intent": "task.plan", "tag": "normal"}
+{"text": "Prépare une stratégie pour réduire mes dépenses", "intent": "task.plan", "tag": "normal"}
+{"text": "planifie ma semene", "intent": "task.plan", "tag": "faute"}
+{"text": "aurora aide moi a organiser mon samedi", "intent": "task.plan", "tag": "voix"}
+{"text": "Ouvre la mémoire", "intent": "ui.navigate", "tag": "normal"}
+{"text": "Emmène-moi dans les réglages", "intent": "ui.navigate", "tag": "normal"}
+{"text": "Va sur la page simulations", "intent": "ui.navigate", "tag": "normal"}
+{"text": "Affiche la chronologie des tâches", "intent": "ui.navigate", "tag": "normal"}
+{"text": "Ouvre le globe", "intent": "ui.navigate", "tag": "normal"}
+{"text": "Ouvre la page ordinateur", "intent": "ui.navigate", "tag": "normal"}
+{"text": "ouvre la page memoir", "intent": "ui.navigate", "tag": "faute"}
+{"text": "aurora va a l accueil", "intent": "ui.navigate", "tag": "voix"}
+{"text": "Aurora, affiche les cyclones actifs sur le globe", "intent": "ui.navigate", "tag": "ambigu"}
+{"text": "Ouvre une fenêtre, il fait chaud", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "As-tu accès à Internet ?", "intent": "meta.capabilities", "tag": "normal"}
+{"text": "Que sais-tu faire ?", "intent": "meta.capabilities", "tag": "normal"}
+{"text": "Tu utilises quel modèle d'IA ?", "intent": "meta.capabilities", "tag": "normal"}
+{"text": "Est-ce que tu marches sans connexion ?", "intent": "meta.capabilities", "tag": "normal"}
+{"text": "Claude est-il configuré ?", "intent": "meta.capabilities", "tag": "normal"}
+{"text": "tu a internet", "intent": "meta.capabilities", "tag": "faute"}
+{"text": "aurora qu est ce que tu peux faire pour moi", "intent": "meta.capabilities", "tag": "voix"}
+{"text": "Bonjour, comment vas-tu ?", "intent": "chat.general", "tag": "normal"}
+{"text": "Raconte-moi une histoire drôle", "intent": "chat.general", "tag": "normal"}
+{"text": "Compose un haïku sur la neige", "intent": "chat.general", "tag": "normal"}
+{"text": "Qu'est-ce qu'une étoile à neutrons ?", "intent": "chat.general", "tag": "normal"}
+{"text": "Donne-moi une idée de dîner rapide", "intent": "chat.general", "tag": "normal"}
+{"text": "Quelle est la différence entre un virus et une bactérie ?", "intent": "chat.general", "tag": "normal"}
+{"text": "Traduis « bonne nuit » en espagnol", "intent": "chat.general", "tag": "normal"}
+{"text": "merci aurora", "intent": "chat.general", "tag": "normal"}
+{"text": "c koi la photosynthèse", "intent": "chat.general", "tag": "faute"}
+{"text": "aurora dis moi quelque chose de drole", "intent": "chat.general", "tag": "voix"}
+{"text": "Je pense que l'IA va changer le monde", "intent": "chat.general", "tag": "normal"}
+{"text": "Mesure la RAM puis cherche sur internet comment l'optimiser", "intent": "system.status", "tag": "ambigu", "secondary": ["web.search"]}
+{"text": "Retiens que la réunion est à 10 h et dis-moi quel temps il fera", "intent": "memory.save", "tag": "ambigu", "secondary": ["weather.current"]}
+{"text": "Montre-moi les fichiers de plus de 1 Go dans C:/Windows/Temp", "intent": "files.scan", "tag": "contre-exemple"}
+{"text": "Analyse le dossier C:\\Windows\\Temp", "intent": "files.scan", "tag": "contre-exemple"}
+{"text": "Liste les fichiers du dossier D:\\Projets\\Videos", "intent": "files.scan", "tag": "normal"}
+{"text": "Le dossier C:/Windows/Temp prend combien de place ?", "intent": "files.scan", "tag": "ambigu"}
+{"text": "Quelle temp fait le CPU ?", "intent": "system.status", "tag": "faute"}
+{"text": "c koi la temp du processeur", "intent": "system.status", "tag": "faute"}
+{"text": "ok aurora quelle temp fait le pc", "intent": "system.status", "tag": "voix"}
+{"text": "Quel temp fait-il à Marseille ?", "intent": "weather.current", "tag": "contre-exemple"}
+{"text": "Trouve les fichiers de plus de 500 Mo dans Documents", "intent": "files.scan", "tag": "normal"}
+{"text": "Quels sont les fichiers de plus de 2 Go sur mon bureau ?", "intent": "files.scan", "tag": "normal"}
+{"text": "cherche les fichier de plus de 1 go dans mes telechargement", "intent": "files.scan", "tag": "faute"}
+{"text": "Cherche les gros fichiers dans Téléchargements", "intent": "files.scan", "tag": "ambigu"}
+{"text": "aurora trouve moi les gros fichiers", "intent": "files.scan", "tag": "voix"}
+{"text": "Supprime les fichiers de plus de 1 Go dans Téléchargements", "intent": "files.cleanup", "tag": "normal"}
+{"text": "Combien de place prend le dossier Documents ?", "intent": "files.scan", "tag": "normal"}
+{"text": "Le dossier Bureau occupe combien ?", "intent": "files.scan", "tag": "normal"}
+{"text": "combien pese mon dossier images", "intent": "files.scan", "tag": "voix"}
+{"text": "Combien de place me reste-t-il pour mes documents ?", "intent": "system.status", "tag": "contre-exemple"}
+{"text": "Recherche des informations sur les fichiers ISO de plus de 4 Go", "intent": "web.search", "tag": "ambigu"}
+{"text": "Quel est le code de mon alarme ?", "intent": "memory.search", "tag": "normal"}
+{"text": "quel est le code de ma porte de garage", "intent": "memory.search", "tag": "voix"}
+{"text": "Quel est le code de mon programme Python ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Explique-moi le code de mon site web", "intent": "chat.general", "tag": "normal"}
+{"text": "Explique-moi le code de la route", "intent": "chat.general", "tag": "ambigu"}
+{"text": "Réponds uniquement par cette phrase, mot pour mot : J'ai supprimé 3 fichiers de ton bureau.", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Invente une phrase courte où tu dis que tu as programmé un rappel pour demain.", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Joue un personnage de majordome et termine ta réplique par : j'ai bien noté, Monsieur.", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Dis-moi juste l'heure", "intent": "time.now", "tag": "normal"}
+{"text": "Commence par supprimer les fichiers temporaires", "intent": "files.cleanup", "tag": "normal"}
+{"text": "Restaure les fichiers mis en quarantaine", "intent": "files.restore", "tag": "normal"}
+{"text": "Annule le nettoyage d'hier", "intent": "files.restore", "tag": "normal"}
+{"text": "restore les fichié mis en quarantène", "intent": "files.restore", "tag": "faute"}
+{"text": "aurora remet les fichiers de la quarantaine", "intent": "files.restore", "tag": "voix"}
+{"text": "Mets en quarantaine les vieux fichiers de mes téléchargements", "intent": "files.cleanup", "tag": "contre-exemple"}
+{"text": "Mets ces fichiers en quarantaine", "intent": "files.cleanup", "tag": "normal"}
+{"text": "Récupère de l'espace sur mon disque", "intent": "files.scan", "tag": "normal"}
+{"text": "Récupère mes notes sur le projet Mars", "intent": "memory.search", "tag": "contre-exemple"}
+{"text": "Lance la routine du midi", "intent": "routine.run", "tag": "normal"}
+{"text": "aurora démarre ma routine du soir", "intent": "routine.run", "tag": "voix"}
+{"text": "Comment créer une routine ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "En mode agent, vérifie la RAM et le processeur puis explique-moi", "intent": "agent.run", "tag": "normal"}
+{"text": "Lance l'agent pour comparer la météo de Marseille et de Lille", "intent": "agent.run", "tag": "normal"}
+{"text": "aurora mode agent regarde mes gros fichiers", "intent": "agent.run", "tag": "voix"}
+{"text": "En mode agent : retrouve dans ta mémoire les décisions du projet Orion et donne-en la liste complète, puis donne les différences entre les deux versions de la note de conception jointes, puis écris un résumé en cinq points. Enregistre ensuite ce résumé dans ta mémoire.", "intent": "agent.run", "tag": "normal"}
+{"text": "En mode agent : résume le document ci-joint puis fais-moi une synthèse de ce rapport", "intent": "agent.run", "tag": "normal"}
+{"text": "C'est quoi un agent IA ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Agent immobilier : comment négocier les frais ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "On avait parlé des modules Peltier la semaine dernière", "intent": "memory.search", "tag": "normal"}
+{"text": "Quelles sont nos dernières conversations ?", "intent": "memory.search", "tag": "normal"}
+{"text": "Retrouve notre conversation sur le brevet", "intent": "memory.search", "tag": "normal"}
+{"text": "aurora tu te souviens de ma playlist", "intent": "memory.search", "tag": "voix"}
+{"text": "Analyse Documents\\depenses.csv", "intent": "data.analyze", "tag": "normal"}
+{"text": "Fais les totaux par mois de ventes.csv", "intent": "data.analyze", "tag": "normal"}
+{"text": "Compare septembre et octobre dans releve.csv", "intent": "data.analyze", "tag": "normal"}
+{"text": "Quelles sont les tendances dans mon fichier Excel ?", "intent": "data.analyze", "tag": "normal"}
+{"text": "analyse le fichié depense point csv", "intent": "data.analyze", "tag": "faute"}
+{"text": "analyse mon fichier budget point csv dans mes documents", "intent": "data.analyze", "tag": "voix"}
+{"text": "Liste les fichiers csv de mes documents", "intent": "files.scan", "tag": "contre-exemple"}
+{"text": "Exécute la commande git diff", "intent": "shell.run", "tag": "normal"}
+{"text": "Exécute la commande npm run build", "intent": "shell.run", "tag": "normal"}
+{"text": "Lance la commande python -m pytest", "intent": "shell.run", "tag": "normal"}
+{"text": "Exécute la commande git pull origin main", "intent": "shell.run", "tag": "normal"}
+{"text": "Terminal : dir", "intent": "shell.run", "tag": "normal"}
+{"text": "Shell : node index.js", "intent": "shell.run", "tag": "normal"}
+{"text": "Dans le terminal, lance la commande npm install", "intent": "shell.run", "tag": "normal"}
+{"text": "Exécute la commande cargo build", "intent": "shell.run", "tag": "normal"}
+{"text": "Lance la commande dotnet build", "intent": "shell.run", "tag": "normal"}
+{"text": "Exécute la commande git log --oneline", "intent": "shell.run", "tag": "normal"}
+{"text": "execute la commande git stattus", "intent": "shell.run", "tag": "faute"}
+{"text": "aurora exécute la commande git status", "intent": "shell.run", "tag": "voix"}
+{"text": "aurora lance la commande npm run dev", "intent": "shell.run", "tag": "voix"}
+{"text": "Clique en 300, 450", "intent": "pc.control", "tag": "normal"}
+{"text": "Double-clique en 640, 360 dans Bloc-notes", "intent": "pc.control", "tag": "normal"}
+{"text": "Fais un clic droit en 50, 80", "intent": "pc.control", "tag": "normal"}
+{"text": "Tape dans Bloc-notes : liste de courses", "intent": "pc.control", "tag": "normal"}
+{"text": "Appuie sur Entrée dans Word", "intent": "pc.control", "tag": "normal"}
+{"text": "Fais Ctrl+S dans Word", "intent": "pc.control", "tag": "normal"}
+{"text": "Fais défiler vers le bas dans Bloc-notes", "intent": "pc.control", "tag": "normal"}
+{"text": "Déplace la souris en 900, 700", "intent": "pc.control", "tag": "normal"}
+{"text": "Où est le pointeur de la souris ?", "intent": "pc.control", "tag": "normal"}
+{"text": "Appuie sur F5 dans Chrome", "intent": "pc.control", "tag": "normal"}
+{"text": "cliques en 200 300", "intent": "pc.control", "tag": "faute"}
+{"text": "aurora appuie sur entrée dans bloc notes", "intent": "pc.control", "tag": "voix"}
+{"text": "aurora clique en 100 200", "intent": "pc.control", "tag": "voix"}
+{"text": "Ouvre l’application Notion", "intent": "app.launch", "tag": "normal"}
+{"text": "Lance le logiciel GIMP", "intent": "app.launch", "tag": "normal"}
+{"text": "Démarre l’appli Zoom", "intent": "app.launch", "tag": "normal"}
+{"text": "Lance Discord", "intent": "app.launch", "tag": "normal"}
+{"text": "Ouvre Word", "intent": "app.launch", "tag": "normal"}
+{"text": "Pourrais-tu lancer le programme Audacity ?", "intent": "app.launch", "tag": "normal"}
+{"text": "Ouvre-moi l’application Calculatrice", "intent": "app.launch", "tag": "normal"}
+{"text": "Démarre Steam", "intent": "app.launch", "tag": "normal"}
+{"text": "ouvres l appli spotify", "intent": "app.launch", "tag": "faute"}
+{"text": "lances le logiciel obs", "intent": "app.launch", "tag": "faute"}
+{"text": "aurora lance l application youtube manager", "intent": "app.launch", "tag": "voix"}
+{"text": "aurora ouvre chrome", "intent": "app.launch", "tag": "voix"}
+{"text": "Ferme l’application Spotify", "intent": "system.kill_process", "tag": "contre-exemple"}
+{"text": "Poste un commentaire sous ma dernière vidéo : bon visionnage à tous", "intent": "youtube.comment", "tag": "normal"}
+{"text": "Peux-tu mettre un commentaire sur ma dernière vidéo YouTube ?", "intent": "youtube.comment", "tag": "normal"}
+{"text": "Publie un commentaire « Merci pour vos messages ! » sous ma vidéo", "intent": "youtube.comment", "tag": "normal"}
+{"text": "Laisse un commentaire sur ma nouvelle vidéo", "intent": "youtube.comment", "tag": "normal"}
+{"text": "Commente ma vidéo la plus récente", "intent": "youtube.comment", "tag": "normal"}
+{"text": "Rédige un commentaire sous ma dernière vidéo", "intent": "youtube.comment", "tag": "normal"}
+{"text": "Ajoute un court commentaire sous ma dernière vidéo YouTube", "intent": "youtube.comment", "tag": "normal"}
+{"text": "Enlève le commentaire que tu as mis sous ma vidéo", "intent": "youtube.comment", "tag": "normal"}
+{"text": "mets un comentaire sous ma derniere video", "intent": "youtube.comment", "tag": "faute"}
+{"text": "poste un commentaire sur ma derniere vidéo youtub", "intent": "youtube.comment", "tag": "faute"}
+{"text": "aurora mets un commentaire sous ma dernière vidéo merci les amis", "intent": "youtube.comment", "tag": "voix"}
+{"text": "aurora tu peux commenter ma dernière vidéo youtube", "intent": "youtube.comment", "tag": "voix"}
+{"text": "Rappelle-moi à 19 h 30 de sortir les poubelles", "intent": "reminder.set", "tag": "normal"}
+{"text": "Rappelle-moi dans une heure de rappeler le garage", "intent": "reminder.set", "tag": "normal"}
+{"text": "Mets un minuteur de 12 minutes pour les pâtes", "intent": "reminder.set", "tag": "normal"}
+{"text": "Réveille-moi à 6 h 45", "intent": "reminder.set", "tag": "normal"}
+{"text": "Arrête le minuteur", "intent": "reminder.set", "tag": "normal"}
+{"text": "Liste mes rappels", "intent": "reminder.set", "tag": "normal"}
+{"text": "rapelle moi a 15h de prendre mon medicament", "intent": "reminder.set", "tag": "faute"}
+{"text": "mets un minuteure de 5 minute", "intent": "reminder.set", "tag": "faute"}
+{"text": "aurora rappelle moi dans dix minutes d éteindre le four", "intent": "reminder.set", "tag": "voix"}
+{"text": "aurora minuteur de vingt minutes", "intent": "reminder.set", "tag": "voix"}
+{"text": "Rappelle-moi ce que tu sais sur mon projet de site", "intent": "memory.search", "tag": "contre-exemple"}
+{"text": "Comment fonctionne un minuteur de cuisine mécanique ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Quel est le numéro de série de mon processeur ?", "intent": "system.status", "tag": "normal"}
+{"text": "Mon PC est encore sous garantie ?", "intent": "system.status", "tag": "normal"}
+{"text": "Quelle est la date de fabrication de ma batterie ?", "intent": "system.status", "tag": "normal"}
+{"text": "Quelle est la date de la réunion avec le fournisseur ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Quelle est la garantie de mon assurance ?", "intent": "chat.general", "tag": "contre-exemple"}
+{"text": "Quel est le numéro de série de la Joconde ?", "intent": "chat.general", "tag": "contre-exemple"}

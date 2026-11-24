@@ -1,0 +1,42 @@
+Installation d'AURORA
+  projet  : C:\AURORA
+  données : C:\Users\Camille\.aurora
+  mode vérification : rien ne sera changé
+
+== 1. Ce que ce PC a déjà
+  [à prendre] Python 3.11.7 (17 Mo, nuget.org) : aucun Python de 3.11 à 3.14 en 64 bits sur ce PC (trouvé : aucun)
+  [à prendre] Node.js 22.23.3 (30 Mo, nodejs.org) : il faut Node.js 20 ou plus récent (trouvé : aucun)
+  [à prendre] Ollama 0.35.0 (1,5 Go, github.com/ollama) : le moteur des modèles locaux n'est pas sur ce PC
+  [ok]     Carte graphique : AMD Radeon RX 6750 XT, 12 Go
+  Mémoire vive : 31.9 Go
+  [ok]     Place libre sur C: : 210.5 Go
+
+== 2. L'environnement Python (C:\Users\Camille\.aurora\venv)
+  [manque] à créer dans C:\Users\Camille\.aurora\venv
+
+== 3. Les bibliothèques Python (backend\requirements.txt)
+  9 bibliothèques : fastapi, uvicorn, psutil, httpx, anthropic, numpy, scipy, pypdf, sgp4
+  [manque] non installées
+
+== 4. L'interface (frontend)
+  [manque] non préparée
+
+== 5. Les modèles locaux (Ollama)
+  [manque] qwen3.5:9b non téléchargé (6.6 Go)
+  [manque] bge-m3 non téléchargé (1.2 Go)
+  [manque] qwen3.5:4b non téléchargé (3.4 Go)
+
+== 6. L'icône du Bureau
+  [manque] à poser : C:\Users\Camille\Desktop\AURORA.lnk
+
+== 7. Essai du service (port 8799, données temporaires)
+  passé (mode vérification)
+
+== Bilan
+  Il reste à faire :
+  - Bibliothèques Python : "C:\Users\Camille\.aurora\venv\Scripts\python.exe" -m pip install -r "C:\AURORA\backend\requirements.txt"
+  - Interface : dans "C:\AURORA\frontend", lancer « npm ci ».
+  - Modèle : ollama pull qwen3.5:9b
+  - Modèle : ollama pull bge-m3
+  - Modèle : ollama pull qwen3.5:4b
+  Facultatif, dans AURORA : la clé Claude (Paramètres), et la voix française Piper (README, « Crédits »).

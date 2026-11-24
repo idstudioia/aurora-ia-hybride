@@ -1,0 +1,93 @@
+/* Carte des outils (page Tâches, 11/11/2026) : la scène du canvas, la légende des états, la liste par grande famille
+   et la fiche d'un outil. Chargé par les composants eux-mêmes (comme TaskTimeline). Classes préfixées toolmap-.
+   La fiche reprend les classes .flow-trace-* de la fiche d'une requête (pages/tasks.css) : même panneau, même allure. */
+
+.toolmap-root { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+
+/* ---------- scène ---------- */
+.toolmap-stage {
+  position: relative; height: calc(var(--flow-figure-h, 440px) + 120px); min-height: 400px; border-radius: 12px; overflow: hidden;
+  border: 1px solid var(--border-soft);
+  background: radial-gradient(900px 600px at 50% 45%, rgba(18, 60, 140, .32), transparent 70%), rgba(3, 10, 24, .78);
+}
+.toolmap-center {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  padding: 24px; text-align: center; color: var(--muted); font-size: 13px;
+}
+.toolmap-center .unavailable { max-width: 460px; text-align: left; }
+.toolmap-center--soft { pointer-events: none; justify-content: flex-end; padding-bottom: 28px; }
+
+/* Légende : le signe, le mot et le nombre. Le mot est toujours là : l'état ne se lit jamais par la couleur seule. */
+.toolmap-legend {
+  position: absolute; left: 12px; top: 12px; z-index: 3; list-style: none; margin: 0; padding: 8px 10px; display: flex; flex-direction: column; gap: 5px;
+  border-radius: 10px; background: rgba(4, 14, 32, .78); border: 1px solid var(--border-soft); font-size: 12px; color: var(--text); pointer-events: none;
+}
+.toolmap-legend li { display: flex; align-items: center; gap: 7px; }
+.toolmap-legend strong { margin-left: auto; padding-left: 12px; font-variant-numeric: tabular-nums; color: var(--text-strong); font-weight: 600; }
+
+/* Le même hexagone que sur le canvas (brain/render.ts) : plein et point clair, ou pointillés avec une barre ou une croix. */
+.toolmap-glyph { flex: none; overflow: visible; }
+.toolmap-glyph polygon { fill: rgba(77, 141, 255, .28); stroke: #4d8dff; stroke-width: 1.5; stroke-linejoin: round; }
+.toolmap-glyph circle { fill: rgba(255, 255, 255, .85); }
+.toolmap-glyph path { fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; }
+.toolmap-glyph[data-state="disabled"] polygon { fill: rgba(255, 181, 71, .08); stroke: #ffb547; stroke-dasharray: 2.6 2; }
+.toolmap-glyph[data-state="absent"] polygon { fill: rgba(143, 163, 189, .08); stroke: #8fa3bd; stroke-dasharray: 2.6 2; }
+.toolmap-glyph[data-state="unknown"] polygon { fill: transparent; stroke: var(--muted-2); stroke-dasharray: 1.4 2; }
+
+/* ---------- ce que la carte dit en clair ---------- */
+.toolmap-alert {
+  display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; border-radius: 10px; border: 1px solid rgba(255, 181, 71, .5);
+  background: rgba(90, 60, 10, .28); font-size: 12.5px; color: #ffe2b0;
+}
+.toolmap-alert ul { margin: 2px 0 0; padding-left: 18px; color: var(--text); }
+.toolmap-stale { margin: 0; padding: 8px 12px; border-radius: 10px; font-size: 12.5px; color: #ffd6da; background: rgba(80, 18, 32, .5); border: 1px solid rgba(255, 107, 122, .5); }
+.toolmap-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.toolmap-status { margin: 0; font-size: 12px; color: var(--muted); }
+.toolmap-status strong { color: var(--text); font-weight: 500; }
+.toolmap-note { margin: 0; font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+
+/* ---------- liste par grande famille (panneau de droite) ---------- */
+.toolmap-list { display: flex; flex-direction: column; gap: 14px; }
+.toolmap-group h4 { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin: 0; font-size: 13px; font-weight: 600; color: var(--text-strong); }
+.toolmap-group h4 span { font-size: 11px; font-weight: 500; color: var(--muted); white-space: nowrap; }
+.toolmap-group-desc { margin: 2px 0 6px; font-size: 11.5px; color: var(--muted); line-height: 1.45; }
+.toolmap-group ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+.toolmap-item, .toolmap-builtin {
+  display: grid; grid-template-columns: 18px minmax(0, 1fr) auto; align-items: center; gap: 9px; width: 100%; padding: 6px 8px;
+  border-radius: 9px; border: 1px solid transparent; background: transparent; color: var(--text); text-align: left;
+}
+.toolmap-item:hover { background: rgba(20, 60, 120, .28); }
+.toolmap-item:focus-visible { border-color: var(--border-glow); background: rgba(18, 60, 120, .45); }
+/* Une capacité intégrée : ni hexagone, ni état, pas un bouton. Son texte s'aligne sur celui des outils. */
+.toolmap-builtin { grid-template-columns: minmax(0, 1fr) auto; align-items: start; padding-left: 35px; }
+.toolmap-item-copy { display: flex; flex-direction: column; min-width: 0; }
+.toolmap-item-copy strong { font-size: 13px; font-weight: 500; color: var(--text-strong); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.toolmap-item-copy small { font-size: 11px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.toolmap-builtin .toolmap-item-copy strong { color: var(--text); }
+.toolmap-builtin .toolmap-item-copy small { white-space: normal; line-height: 1.4; overflow-wrap: anywhere; }
+.toolmap-item-state { font-size: 11px; color: var(--muted); white-space: nowrap; }
+.toolmap-item[data-state="available"] .toolmap-item-state { color: #b9d2ff; }
+.toolmap-item[data-state="disabled"] .toolmap-item-state { color: #ffe2b0; }
+.toolmap-item[data-state="absent"] .toolmap-item-state { color: #c3d0e2; }
+.toolmap-builtin .toolmap-item-state { font-style: italic; }
+
+/* ---------- fiche d'un outil ---------- */
+.toolmap-card { --trace-color: #4d8dff; }
+.toolmap-card[data-state="disabled"] { --trace-color: #ffb547; }
+.toolmap-card[data-state="absent"] { --trace-color: #8fa3bd; }
+.toolmap-id { margin: 0; font-size: 11.5px; color: var(--muted); overflow-wrap: anywhere; }
+.toolmap-id code { font-family: var(--font-mono); color: var(--text); }
+.toolmap-text { margin: 0; font-size: 12.5px; line-height: 1.55; color: var(--text); overflow-wrap: anywhere; }
+.toolmap-muted { color: var(--muted); }
+.toolmap-state { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 13px; color: var(--text-strong); }
+.toolmap-needs { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 6px 12px; margin: 0; font-size: 12.5px; }
+.toolmap-needs > div { display: contents; }
+.toolmap-needs dt { color: var(--muted); }
+.toolmap-needs dd { margin: 0; color: var(--text); overflow-wrap: anywhere; }
+.toolmap-needs dd small { display: block; margin-top: 2px; font-size: 11.5px; color: var(--muted); line-height: 1.45; }
+.toolmap-example {
+  margin: 0; padding: 9px 11px; border-radius: 9px; border: 1px solid var(--border-soft); background: rgba(2, 8, 20, .5);
+  font-size: 13px; line-height: 1.5; color: var(--text-strong); user-select: text; overflow-wrap: anywhere;
+}
+.toolmap-example-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.toolmap-copy-note { font-size: 11.5px; color: var(--muted); }

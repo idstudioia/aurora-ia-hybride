@@ -1,0 +1,5 @@
+# Voix neuronale locale, FACULTATIVE (licence GPL-3.0) : sans elle, AURORA parle avec les voix du navigateur.
+# Mise à part le 23/11/2026 : sur un PC dont le Python n'a pas de version d'onnxruntime (Python 3.15 ce jour-là),
+# cette ligne arrêtait toute l'installation. L'installateur l'installe après le reste, et continue si elle échoue.
+# La voix française elle-même se télécharge à part (README, « Crédits »).
+piper-tts>=1.8,<2
