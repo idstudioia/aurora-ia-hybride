@@ -557,31 +557,35 @@ class ImageTests(unittest.TestCase):
             if not state['up']:
                 return httpx.Response(503)
             params = request.url.params
-            self.assertEqual((params['LAYERS'], params['WIDTH'], params['HEIGHT'], params['BBOX']),
-                             ('VIIRS_SNPP_CorrectedReflectance_TrueColor', '2048', '1024', '-90,-180,90,180'))
-            if params['TIME'] == '2026-11-07':   # status 200, a JPEG, but no data that day
+            self.assertEqual((params['WIDTH'], params['HEIGHT'], params['BBOX']), ('2048', '1024', '-90,-180,90,180'))
+            # 7/11: no satellite has data (status 200, a JPEG, but black); 6/11: Suomi NPP has none, NOAA-20 has its image
+            if params['TIME'] == '2026-11-07' or params['LAYERS'] == sky.DAILY_LAYER:
                 return httpx.Response(200, content=EMPTY_JPEG, headers={'content-type': 'image/jpeg'})
             return httpx.Response(200, content=JPEG, headers={'content-type': 'image/jpeg'})
 
+        snpp, noaa20, noaa21 = (layer for layer, _ in sky.DAILY_LAYERS)
         now = datetime(2026, 11, 8, 3, 0, tzinfo=timezone.utc)
         with MockHttp(handler) as http, mock.patch.object(sky, '_utcnow', return_value=now):
-            self.assertEqual(run(sky.daily_image()), (JPEG, '2026-11-06'))
-            self.assertEqual([c.url.params['TIME'] for c in http.calls], ['2026-11-07', '2026-11-06'])
+            self.assertEqual(run(sky.daily_image()), (JPEG, '2026-11-06', 'NOAA-20'))
+            self.assertEqual([(c.url.params['TIME'], c.url.params['LAYERS']) for c in http.calls],
+                             [('2026-11-07', snpp), ('2026-11-07', noaa20), ('2026-11-07', noaa21),
+                              ('2026-11-06', snpp), ('2026-11-06', noaa20)])
             run(sky.daily_image())
-            self.assertEqual(len(http.calls), 2)                 # cache 6 h
+            self.assertEqual(len(http.calls), 5)                 # cache 6 h
             sky._daily_fresh.clear()
             state['up'] = False
-            self.assertEqual(run(sky.daily_image()), (JPEG, '2026-11-06'))   # the last real image, with its date
-        with MockHttp(lambda request: httpx.Response(503)), mock.patch.object(sky, '_utcnow', return_value=now):
+            self.assertEqual(run(sky.daily_image()), (JPEG, '2026-11-06', 'NOAA-20'))   # the last real image, its date
+        with MockHttp(lambda request: httpx.Response(503)) as http, mock.patch.object(sky, '_utcnow', return_value=now):
             with self.assertRaises(base.ToolError) as caught:
                 run(sky.daily_image())
+            self.assertEqual(len(http.calls), 2)   # GIBS fails: one try per day, not one per satellite
         self.assertIn('Image NASA du jour indisponible', caught.exception.message_fr)
         self.assertIn('2026-11-06 : NASA GIBS a répondu par une erreur HTTP 503', caught.exception.message_fr)
         with MockHttp(lambda request: httpx.Response(200, content=EMPTY_JPEG, headers={'content-type': 'image/jpeg'})), \
                 mock.patch.object(sky, '_utcnow', return_value=now):
             with self.assertRaises(base.ToolError) as caught:
                 run(sky.daily_image())   # never a black image passed off as the Earth
-        self.assertIn('2026-11-07 : image vide, Suomi NPP sans donnée', caught.exception.message_fr)
+        self.assertIn('2026-11-07 : image vide, Suomi NPP, NOAA-20, NOAA-21 sans donnée', caught.exception.message_fr)
         self.assertIn('2026-11-06 : image vide', caught.exception.message_fr)
 
 
@@ -659,7 +663,8 @@ class GlobeSkyRouteTests(ApiTestCase):
                 self.assertIn('Région invalide', res.json()['detail'])
             nasa = self.client.get('/api/globe/nasa')
             self.assertEqual(nasa.status_code, 200)
-            self.assertEqual((nasa.headers['x-date-image'], nasa.headers['cache-control']), ('2026-11-07', 'no-store'))
+            self.assertEqual((nasa.headers['x-date-image'], nasa.headers['x-satellite-image'], nasa.headers['cache-control']),
+                             ('2026-11-07', 'Suomi NPP', 'no-store'))
             self.assertEqual(nasa.content, JPEG)
         with mock.patch.dict(os.environ, {'AURORA_OFFLINE': '0'}), MockHttp(lambda request: httpx.Response(503)):
             res = self.client.get('/api/globe/detail', params={'bbox': '10,10,12,12'})

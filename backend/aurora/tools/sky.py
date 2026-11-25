@@ -66,6 +66,15 @@ DETAIL_MAX_REGIONS = 60
 DETAIL_MAX_LAT_SPAN = 40
 DETAIL_LAYER = 'BlueMarble_NextGeneration'
 DAILY_LAYER = 'VIIRS_SNPP_CorrectedReflectance_TrueColor'
+# 25/11/2026, ID Studio IA : « on voit pas les nuages comme le modèle d'Athéna ». Suomi NPP n'a toujours aucune image
+# sur GIBS (476 octets en 256 × 128 les 23 et 24/11, une image noire), alors que NOAA-20 et NOAA-21 en ont (11 607 et
+# 11 722 octets le 24/11). Même caméra VIIRS, même image en couleurs vraies avec ses nuages : ils prennent le relais,
+# dans cet ordre, et le globe dit quel satellite a pris l'image.
+DAILY_LAYERS: tuple[tuple[str, str], ...] = (
+    (DAILY_LAYER, 'Suomi NPP'),
+    ('VIIRS_NOAA20_CorrectedReflectance_TrueColor', 'NOAA-20'),
+    ('VIIRS_NOAA21_CorrectedReflectance_TrueColor', 'NOAA-21'),
+)
 DAILY_CACHE_S = 6 * 3600
 DAILY_KEEP_S = 7 * 86400
 DAILY_SIZE = (2048, 1024)
@@ -84,8 +93,8 @@ SATELLITES: tuple[tuple[int, str], ...] = (
     (25544, 'Station spatiale internationale'),
     (48274, 'Station spatiale chinoise Tiangong'),
     (20580, 'Télescope spatial Hubble'),
-    (37849, "Suomi NPP — l'image NASA du globe"),
-    (43013, 'NOAA-20 — météo'),
+    (37849, 'Suomi NPP — caméra VIIRS (image du globe)'),
+    (43013, 'NOAA-20 — caméra VIIRS (image du globe)'),
     (25994, 'Terra — observation de la Terre'),
     (27424, 'Aqua — cycle de l’eau'),
     (49260, 'Landsat 9 — images de la Terre'),
@@ -751,10 +760,11 @@ async def detail_image(bbox: tuple[float, float, float, float]) -> tuple[bytes, 
     return image, served
 
 
-async def daily_image() -> tuple[bytes, str]:
-    """(JPEG 2048×1024, day AAAA-MM-JJ) of VIIRS (Suomi NPP) for the whole world: yesterday in UTC, else the day
-    before; a day without data (black image) counts as missing. Kept 6 h; if GIBS fails, the last image (7 days at
-    most) with its own date. No other satellite in its place: the globe says « Suomi NPP » under the image."""
+async def daily_image() -> tuple[bytes, str, str]:
+    """(JPEG 2048×1024, day AAAA-MM-JJ, satellite) of VIIRS for the whole world: yesterday in UTC, else the day
+    before; each day, Suomi NPP first, then NOAA-20, then NOAA-21 (DAILY_LAYERS). A black image (no data) counts as
+    missing; an error of GIBS skips to the next day. Kept 6 h; if GIBS fails, the last image (7 days at most) with its
+    own date and satellite, which the globe says under the image."""
     hit = _daily_fresh.get('jour')
     if hit is not None:
         return hit
@@ -765,19 +775,22 @@ async def daily_image() -> tuple[bytes, str]:
         today, reasons = _utcnow(), []
         width, height = DAILY_SIZE
         for back in (1, 2):
-            day = (today - timedelta(days=back)).date().isoformat()
-            try:
-                image = await _gibs(DAILY_LAYER, '-90,-180,90,180', width, height, day)
-            except ToolError as exc:
-                reasons.append(f"{day} : {exc.message_fr.rstrip('.')}")
-                continue
-            if len(image) < width * height * DAILY_EMPTY_BYTES_PER_PIXEL:
-                reasons.append(f'{day} : image vide, Suomi NPP sans donnée ce jour-là sur NASA GIBS')
-                continue
-            value = (image, day)
-            _daily_fresh.set('jour', value)
-            _daily_last.set('jour', value)
-            return value
+            day, empty = (today - timedelta(days=back)).date().isoformat(), []
+            for layer, satellite in DAILY_LAYERS:
+                try:
+                    image = await _gibs(layer, '-90,-180,90,180', width, height, day)
+                except ToolError as exc:   # GIBS itself fails: the other satellites of that day would too
+                    reasons.append(f"{day} : {exc.message_fr.rstrip('.')}")
+                    break
+                if len(image) < width * height * DAILY_EMPTY_BYTES_PER_PIXEL:
+                    empty.append(satellite)
+                    continue
+                value = (image, day, satellite)
+                _daily_fresh.set('jour', value)
+                _daily_last.set('jour', value)
+                return value
+            if empty:
+                reasons.append(f"{day} : image vide, {', '.join(empty)} sans donnée ce jour-là sur NASA GIBS")
         last = _daily_last.get('jour')
         if last is not None:
             return last

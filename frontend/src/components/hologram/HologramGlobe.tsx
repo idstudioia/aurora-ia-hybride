@@ -89,6 +89,7 @@ export default function HologramGlobe({ commande = null, recherche = false, dire
   const [siteChoisi, setSiteChoisi] = useState<number | null>(null);
   const [satDemande, setSatDemande] = useState<number | null>(null);
   const [nasaDate, setNasaDate] = useState<string | null>(null);
+  const [nasaSatellite, setNasaSatellite] = useState<string | null>(null);   // 25/11/2026 : celui qui a pris l'image du jour
   const [avions, setAvions] = useState<Etat<GlobeAircraftData> | null>(null);
   const [meteo, setMeteo] = useState<Etat<GlobeWeatherData> | null>(null);
   const [capitales, setCapitales] = useState<Capitale[]>([]);
@@ -243,16 +244,19 @@ export default function HologramGlobe({ commande = null, recherche = false, dire
   useEffect(() => {
     if (!pret) return;
     if (!enLigne) { setNasaDate(null); setChoix(null); setZone(null); pilote.current?.texture(IMAGE_LOCALE); return; }
+    // 25/11/2026, ID Studio IA : « désactive comme avant les nuages si la météo est désactivée ». L'image du jour (et
+    // ses nuages) ne se pose qu'avec la couche météo ; sinon, la Blue Marble du PC, sans nuages.
+    if (!meteoOn) { setNasaDate(null); pilote.current?.texture(IMAGE_LOCALE); return; }
     const ctrl = new AbortController();
     api.globeImage('nasa', undefined, ctrl.signal).then(rep => {
       if (ctrl.signal.aborted) return;
       if (!rep.ok) { if (rep.private_mode) setPriveVu(true); return; } // le panneau dit « Blue Marble (sur ce PC) »
       const p = pilote.current;
       if (!p) return;
-      p.texture(URL.createObjectURL(rep.blob), true); setNasaDate(rep.date);
+      p.texture(URL.createObjectURL(rep.blob), true); setNasaDate(rep.date); setNasaSatellite(rep.satellite ?? null);
     }).catch(() => { /* reste sur l'image du PC, et le panneau le dit */ });
     return () => ctrl.abort();
-  }, [pret, enLigne]);
+  }, [pret, enLigne, meteoOn]);
 
   // ── La zone cliquée (ou le lieu demandé) : son trafic détaillé, relu toutes les 30 s, et sa météo.
   useEffect(() => {
@@ -529,7 +533,7 @@ export default function HologramGlobe({ commande = null, recherche = false, dire
       <Panneau
         panneauRef={panneauRef}
         d={donnees}
-        etat={{ prive, direct, photos: photosPermises, nasaDate, message }}
+        etat={{ prive, direct, photos: photosPermises, nasaDate, nasaSatellite, message }}
         couches={{ meteo: meteoOn, volants: volantsOn, routes: routesOn, guide: guideOn, actu: actuOn }}
         choix={choix}
         capitales={capitales}

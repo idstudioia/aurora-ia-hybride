@@ -89,7 +89,7 @@ export const T = {
   satellites: 'Satellites',
   calcule: "position calculée par le service depuis l'orbite publiée (CelesTrak)",
   secoursTle: 'secours : TLE API',
-  nasa: (d: string) => `Image NASA du ${d} (VIIRS, Suomi NPP) ; zones non survolées : Blue Marble`,
+  nasa: (d: string, satellite?: string | null) => `Image NASA du ${d} (VIIRS, ${satellite || 'Suomi NPP'}) ; zones non survolées : Blue Marble`,
   imageLocale: 'Image NASA Blue Marble (sur ce PC)',
   mesureA: (h: string) => `mesuré à ${h}`,
   altitude: 'altitude',
@@ -111,7 +111,7 @@ export const T = {
   /** Les attributions (client/public/terre/SOURCE.txt d'Athéna, reviews/globe-contrat.md règle 6). */
   attributions: [
     ['Terre', 'NASA Visible Earth, Blue Marble (domaine public), sur ce PC.'],
-    ['Image du jour et carte détaillée', "NASA GIBS : VIIRS (Suomi NPP) et Blue Marble NG, imagerie NASA, domaine public. « We acknowledge the use of imagery provided by services from NASA's Global Imagery Browse Services (GIBS), part of NASA's ESDIS. »"],
+    ['Image du jour et carte détaillée', "NASA GIBS : VIIRS (Suomi NPP, NOAA-20 ou NOAA-21) et Blue Marble NG, imagerie NASA, domaine public. « We acknowledge the use of imagery provided by services from NASA's Global Imagery Browse Services (GIBS), part of NASA's ESDIS. »"],
     ['Avions', 'adsb.lol (licence ODbL). Trafic mondial et secours : OpenSky Network (recherche et enseignement sans but lucratif), seulement si vous l’avez allumé dans Paramètres.'],
     ['Satellites', 'orbites publiées par CelesTrak ; positions calculées par le service local (sgp4).'],
     ['Météo, vent, pluie, chaleur, humidité', 'Open-Meteo (CC BY 4.0).'],

@@ -53,7 +53,7 @@ interface Props {
   panneauRef: Ref<HTMLElement>;
   d: DonneesPanneau;
   /** prive : Mode Privé ; photos : images externes permises (mode connu et pas Privé). */
-  etat: { prive: boolean; direct: boolean; photos: boolean; nasaDate: string | null; message: string | null };
+  etat: { prive: boolean; direct: boolean; photos: boolean; nasaDate: string | null; nasaSatellite?: string | null; message: string | null };
   couches: { meteo: boolean; volants: boolean; routes: boolean; guide: boolean; actu: boolean };
   choix: Choix | null;
   capitales: Capitale[];
@@ -462,7 +462,7 @@ export default function Panneau(p: Props) {
               <p className="holo-source">{T.calcule}{d.sats?.ok && d.sats.data.liste.some(x => x.source && x.source !== 'CelesTrak') ? ` · ${T.secoursTle}` : ''}</p>
             </section>
           )}
-          <p className="holo-source">{etat.nasaDate ? T.nasa(etat.nasaDate) : T.imageLocale}</p>
+          <p className="holo-source">{etat.nasaDate ? T.nasa(etat.nasaDate, etat.nasaSatellite) : T.imageLocale}</p>
           <p className="holo-source">{T.detail}</p>
           <button type="button" onClick={() => actions.basculerDirect(false)} className="holo-bouton holo-bouton-discret">{T.desactiver}</button>
         </>

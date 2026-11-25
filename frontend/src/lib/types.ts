@@ -842,5 +842,5 @@ export interface GlobeArticleText {
 export interface GlobeGuideData { titre: string; texte: string; lien: string; image?: string }
 /** GET /api/globe/detail et /api/globe/nasa : une image JPEG, lue avec le jeton (une balise <img> ne peut pas l'envoyer). */
 export type GlobeImage =
-  | { ok: true; blob: Blob; bbox: number[] | null; date: string | null }
+  | { ok: true; blob: Blob; bbox: number[] | null; date: string | null; satellite?: string | null }   // 25/11/2026 : Suomi NPP, NOAA-20 ou NOAA-21
   | { ok: false; status: number; error: string; private_mode: boolean };

@@ -347,6 +347,7 @@ export const api = {
     const parts = response.headers.get('X-Bbox')?.split(',').map(Number) ?? null;
     let blob: Blob;
     try { blob = await response.blob(); } catch { return { ok: false, status: 0, error: 'Image incomplète', private_mode: false }; }
-    return { ok: true, blob, bbox: parts && parts.length === 4 && parts.every(Number.isFinite) ? parts : null, date: response.headers.get('X-Date-Image') };
+    return { ok: true, blob, bbox: parts && parts.length === 4 && parts.every(Number.isFinite) ? parts : null, date: response.headers.get('X-Date-Image'),
+      satellite: response.headers.get('X-Satellite-Image') };
   },
 };

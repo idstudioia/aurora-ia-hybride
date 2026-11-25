@@ -4,6 +4,7 @@
 Il mesure avant de répondre, garde vos données chez vous, et n'agit qu'après votre accord.</p>
 
 <p align="center">
+<img alt="Version alpha" src="https://img.shields.io/badge/version-alpha-E8833A">
 <img alt="Windows 11" src="https://img.shields.io/badge/Windows-11-0078D4?logo=windows">
 <a href="LICENSE"><img alt="Licence AGPL 3.0" src="https://img.shields.io/badge/licence-AGPL--3.0-0b7a69"></a>
 <img alt="1 309 essais réussis" src="https://img.shields.io/badge/essais-1%20309%20r%C3%A9ussis-0b7a69">
@@ -20,8 +21,9 @@ Il mesure avant de répondre, garde vos données chez vous, et n'agit qu'après 
 
 ![L'accueil d'AURORA : un modèle 3D en hologramme, le noyau de l'assistant et le menu](docs/images/accueil.jpg)
 
-> **Projet jeune.** AURORA fonctionne, mais elle n'est installée que sur deux PC de son auteur. Ses limites
-> sont écrites plus bas, sans rien cacher.
+> **Version alpha.** AURORA fonctionne, mais elle est encore jeune : elle n'a été installée que sur deux PC de
+> son auteur, et des choses vont changer. Ses limites sont écrites plus bas, sans rien cacher.
+> **Votre avis aide à l'améliorer** : [donner votre avis](#donner-votre-avis).
 
 ## Sommaire
 
@@ -32,6 +34,7 @@ Il mesure avant de répondre, garde vos données chez vous, et n'agit qu'après 
 - [Installer](#installer)
 - [Ce qui va sur Internet](#ce-qui-va-sur-internet)
 - [Limites connues](#limites-connues)
+- [Donner votre avis](#donner-votre-avis)
 - [Qui l'a faite](#qui-la-faite)
 - [Crédits et licences](#crédits-et-licences)
 
@@ -133,6 +136,18 @@ le coffre de Windows.
 - Trois tours sur quatorze du banc de conversation échouent encore, quel que soit le modèle.
 - Pas d'application de bureau : AURORA s'ouvre dans une fenêtre du navigateur (Edge ou Chrome).
 
+## Donner votre avis
+
+AURORA est en version alpha : chaque retour aide à l'améliorer. Après l'avoir essayée, dites ce qui marche, ce qui
+coince et ce qui vous manque :
+
+- **un problème ou une idée** : ouvrez une [« issue » sur GitHub](https://github.com/idstudioia/aurora-ia-hybride/issues/new).
+  Pour un problème, dites ce que vous avez fait, ce que vous attendiez et ce qui s'est passé, avec votre PC
+  (version de Windows, carte graphique, mémoire vive) ;
+- **une question, ou simplement en parler** : sur le [Discord d'ID Studio IA](https://discord.gg/NquWmqwH6c).
+
+Les issues sont publiques : n'y mettez jamais de clé, de mot de passe ni de donnée personnelle.
+
 ## Qui l'a faite
 
 | Qui | Rôle |
@@ -173,7 +188,11 @@ local model on your graphics card, and every answer shows where it comes from.
   each file's hash, and nothing is downloaded before you click "INSTALLER".
 - **Tried with** Windows 11 and graphics cards of 8 GB (GTX 1080) and 12 GB (RX 6750 XT).
 - **Local first**: Claude (cloud) is an optional fallback, after a preview of the exact text and your consent.
+- **Alpha version**: it works, but it is young and things will change.
 - **Limits**: Windows only, French interface only, installed on two PCs of its author so far.
+- **Feedback welcome**: open an [issue](https://github.com/idstudioia/aurora-ia-hybride/issues/new) for a bug or an
+  idea (what you did, what you expected, what happened, and your PC), or come and talk on the
+  [Discord](https://discord.gg/NquWmqwH6c). Issues are public: never put a key, a password or personal data in them.
 - **Made by** ID Studio IA, with [Claude Code](https://claude.com/claude-code) (Anthropic) as programming
   assistant.
 - **Licence**: free software, GNU AGPL version 3 ([`LICENSE`](LICENSE)).

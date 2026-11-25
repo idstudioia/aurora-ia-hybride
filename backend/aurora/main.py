@@ -320,7 +320,7 @@ app.add_middleware(CORSMiddleware, allow_origins=_cors_origins(), allow_credenti
                    allow_methods=['GET', 'POST', 'PATCH', 'DELETE', 'PUT'],
                    allow_headers=['Content-Type', 'X-Aurora-Token', 'Last-Event-ID'],
                    # Globe Monde 3D : the region and the day of a NASA image, read by the interface (reviews/globe-contrat.md).
-                   expose_headers=['X-Bbox', 'X-Date-Image'])
+                   expose_headers=['X-Bbox', 'X-Date-Image', 'X-Satellite-Image'])
 app.add_middleware(SecurityHeaders)   # outermost: also on the 403 of LocalHostOnly and on CORS answers
 
 
@@ -602,15 +602,17 @@ async def globe_detail(bbox: str = Query('', max_length=200)):
 
 @app.get('/api/globe/nasa', dependencies=LOCKED)
 async def globe_nasa():
-    """Image NASA GIBS (VIIRS, Suomi NPP) du monde, la veille en temps universel ; sa date est dans X-Date-Image."""
+    """Image NASA GIBS (VIIRS : Suomi NPP, NOAA-20 ou NOAA-21) du monde, la veille en temps universel ; sa date est
+    dans X-Date-Image, le satellite qui l'a prise dans X-Satellite-Image."""
     if config.load_settings()['mode'] == 'prive':
         return _globe_image_error(403, _GLOBE_IMAGE_PRIVATE, private_mode=True)
     sky = _module('tools.sky')
     try:
-        image, day = await sky.daily_image()
+        image, day, satellite = await sky.daily_image()
     except sky.ToolError as exc:
         return _globe_image_error(503, exc.message_fr)
-    return Response(image, media_type='image/jpeg', headers={'X-Date-Image': day, 'Cache-Control': 'no-store'})
+    return Response(image, media_type='image/jpeg',
+                    headers={'X-Date-Image': day, 'X-Satellite-Image': satellite, 'Cache-Control': 'no-store'})
 
 
 
