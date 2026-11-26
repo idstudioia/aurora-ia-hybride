@@ -98,8 +98,8 @@ sans réglage. Au-dessus, elle prend `qwen3.5:9b` (6,6 Go).
 
 ## Installer
 
-1. Sur cette page : bouton vert **Code**, puis **Download ZIP**
-   ([lien direct](../../archive/refs/heads/main.zip)).
+1. Ouvrez la [dernière version](../../releases/latest) et téléchargez son fichier **AURORA-….zip**
+   (ou, sur cette page : bouton vert **Code**, puis **Download ZIP**).
 2. Décompressez-le dans un dossier au nom court, par exemple `C:\AURORA`.
 3. Double-cliquez sur **INSTALLER.bat**. Une fenêtre vérifie le PC sans rien changer, puis montre ce qui sera
    téléchargé. Rien n'est téléchargé avant le clic sur « INSTALLER ». Elle prend alors :
@@ -183,7 +183,7 @@ donner le code de sa version sous la même licence. Elle est fournie sans aucune
 time, a calculation, the weather) comes from a tool, never from the language model; the rest is written by a
 local model on your graphics card, and every answer shows where it comes from.
 
-- **Install**: download the ZIP from this page, unzip it into a short path such as `C:\AURORA`, and run
+- **Install**: download the ZIP of the [latest release](../../releases/latest), unzip it into a short path such as `C:\AURORA`, and run
   `INSTALLER.bat`. It fetches Python 3.11.7, Node.js 22.23.3 and Ollama 0.35.0 if they are missing, checks
   each file's hash, and nothing is downloaded before you click "INSTALLER".
 - **Tried with** Windows 11 and graphics cards of 8 GB (GTX 1080) and 12 GB (RX 6750 XT).

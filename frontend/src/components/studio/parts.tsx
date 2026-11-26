@@ -372,6 +372,21 @@ export function DownloadsBody({ src, history, compact = false }: { src: StudioDa
       {src.state !== 'ok' && <SourceNote src={src} />}
       {unread.length > 0 && <p className="studio-muted">Non relevé : {unread.join(' ')}</p>}
       <Stats items={[{ label: 'Téléchargements', value: whole(d.total), hint: 'toutes versions' }, { label: 'Versions', value: whole(releases.length) }]} />
+      {/* 26/11/2026, ID Studio IA : « ajoute dans Aurora les téléchargements fait pour sa version de GitHub ». With
+          several repositories, each one's own total; one without a release says why it counts nothing. */}
+      {several && (
+        <>
+          <h4 className="studio-h4">Par dépôt</h4>
+          <div className="studio-bars">
+            {d.repos.map(r => (
+              <Bar key={r.full_name} label={repoName(r.full_name)} value={r.total} max={Math.max(1, d.total)}
+                text={r.releases.length ? whole(r.total) : 'aucune version'}
+                title={r.releases.length ? `${r.full_name} — ${count(r.releases.length, 'version', 'versions')}`
+                  : `${r.full_name} — aucune version publiée : GitHub ne compte que les fichiers joints à une version, pas le ZIP du bouton « Code ».`} />
+            ))}
+          </div>
+        </>
+      )}
       <h4 className="studio-h4">Par version</h4>
       {shown.length === 0 ? <p className="studio-muted">Aucune version publiée.</p> : (
         <div className="studio-bars">
